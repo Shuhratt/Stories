@@ -1,0 +1,108 @@
+.quest {
+
+  &-list{
+
+    &__ico{
+      @extend %flex;
+      align-items: center;
+      padding-right: 15px;
+
+      .ico{
+        filter: drop-shadow(0 0 14px #FF9900);
+        transition: transform .25s ease-in-out, filter .25s ease-in-out;
+        transform-origin: center center;
+      }
+    }
+
+    &__head{
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 30px 0;
+      user-select: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      border-bottom: 1px solid #494C54;
+
+      &--open{
+
+        .quest-list__info{
+          height: 100%;
+          opacity: 1;
+          padding: 30px 0;
+        }
+
+        .ico{
+          transform: rotate(180deg);
+          filter: drop-shadow(0px 0px 14px rgba(0, 217, 231, 0.5));
+        }
+      }
+    }
+
+
+
+    &__text{
+      @extend %flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 26px;
+      line-height: 38px;
+      color: $white;
+      letter-spacing: 0.03em;
+      transition: color .15s ease-in;
+
+      @include mq('large-small', 'max') {
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+
+    &__info{
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 26px;
+      color: #ACAEB3;
+      position: relative;
+      overflow: hidden;
+      height: 0;
+      padding: 0;
+      max-height: 9999px;
+      opacity: 0;
+      transition: max-height .1s ease-out, opacity .1s ease-in, height .1s ease-in-out,  padding .15s ease-in,;
+      border-bottom: 1px solid #494C54;
+
+      @include mq('large-small', 'max') {
+        font-size: 16px;
+        line-height: 26px;
+      }
+    }
+
+  }
+}
+
+.faq{
+  max-width: 1330px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  @include mq('large-small', 'max') {
+
+  }
+
+  &__title{
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 78px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-align: center;
+    margin: 0 0 36px;
+
+    @include mq('large-small', 'max') {
+      font-size: 35px;
+      line-height: 43px;
+      text-align: center;
+    }
+  }
+}

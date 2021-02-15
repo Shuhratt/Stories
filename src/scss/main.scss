@@ -1,0 +1,33 @@
+@import "../../node_modules/normalize.css/normalize";
+
+@import '../../node_modules/swiper/swiper';
+@import '../../node_modules/jquery-modal/jquery.modal';
+@import '../../node_modules/select2/dist/css/select2';
+
+@import 'core/_mixins';
+@import 'core/_fonts';
+@import 'core/_reset';
+@import 'core/_core';
+@import 'core/_icons';
+//@import 'core/_slick';
+@import 'core/_btn';
+//@import 'core/_bread';
+//@import 'core/_pagination';
+@import 'core/_animations';
+@import 'core/_extend';
+//@import 'core/_ion';
+//@import 'core/_msg';
+//@import 'core/_social';
+//@import 'core/_table';
+@import 'core/select2';
+//@import 'core/cart';
+@import 'core/modal';
+
+@import 'layout/_header';
+@import 'layout/_footer';
+@import 'blocks/preview';
+@import 'blocks/slider';
+@import 'blocks/webmasters';
+@import 'blocks/rating';
+@import 'blocks/faq';
+@import 'blocks/form';

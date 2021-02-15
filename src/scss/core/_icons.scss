@@ -1,0 +1,57 @@
+$icons: (
+  reg: (16, 19),
+  sign: (19, 19),
+  footer1: (51, 16),
+  footer2: (47, 16),
+  footer3: (72, 12),
+  inst: (32, 32),
+  mail: (32, 32),
+  tg: (32, 32),
+  inst2: (41, 41),
+  mail2: (41, 41),
+  tg2: (41, 41),
+  game: (35, 23),
+  horse: (26, 34),
+  money: (34, 34),
+  live: (31, 33),
+  card: (39, 29),
+  list: (25, 32),
+  reward: (31, 42),
+  provid: (31, 31),
+  matches: (31, 31),
+  dollar: (44,44),
+  lid: (44, 44),
+  fast: (44, 44),
+  man: (44, 44),
+  support: (44, 44),
+  down: (22,15),
+  down2: (22,15),
+  email: (26,16),
+  star:(22, 22),
+  pencil: (21, 21)
+
+);
+
+%icon {
+  display: inline-block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ico {
+  @extend %icon;
+}
+
+@mixin icon($name, $width, $height) {
+  .ico-#{$name} {
+    min-width: #{$width}px;
+    height: #{$height}px;
+    width: #{$width}px;
+    background-image: url("../img/icons/sprite.svg##{$name}");
+  }
+}
+
+@each $icon, $size in $icons {
+  @include icon($icon, nth($size, 1), nth($size, 2));
+}
