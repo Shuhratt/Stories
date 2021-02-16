@@ -3,10 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-  entry: './src/js/index.js',
+  entry: './src/js/stories.js',
   output: {
-    filename: 'js/main.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: 'stories.js',
+    path: path.resolve(__dirname, 'build'),
   },
   module: {
     rules: [
@@ -22,28 +22,21 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: true,
       filename: 'index.html',
       template: 'src/index.html',
-    }),
-    new HtmlWebpackPlugin({
-      inject: true,
-      filename: 'leaders.html',
-      template: 'src/leaders.html',
-      minify: false,
-      scriptLoading: "blocking"
+      minify: false
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css?[hash]',
-      chunkFilename: '[id].scss',
-    }),
+      filename: 'stories.css'
+    })
   ],
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, 'build'),
     compress: true,
     overlay: true,
     open: true,
-    port: 9000
+    port: 8080
   },
   mode: 'production'
 };
