@@ -1,3 +1,11 @@
 import '../scss/stories.scss'
 
-console.log('1212')
+
+
+const app = document.getElementById('app')
+
+const renderTemplate =  async (alias, data) => {
+
+  // return html со слайдом
+}
+

@@ -1,5 +1,10 @@
-h1{
-  color: green;
-  display: flex;
-  align-items: center;
-}
+@import "core/mixins";
+@import "core/function";
+@import "core/core";
+@import "blocks/slide";
+@import "core/fonts";
+
+
+
+
+

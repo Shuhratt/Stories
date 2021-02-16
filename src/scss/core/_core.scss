@@ -1,3 +1,26 @@
+:root, body.theme_dark {
+  --base-color: #fff;
+  --second-color: #918F8A;
+  --body-bg-color: radial-gradient(70.24% 70.24% at 49.87% 29.76%, rgba(19, 14, 0, 0.9) 0%, #000000 100%);
+  --column-color:  linear-gradient(180deg, rgba(0, 0, 0, 0) -2.22%, rgba(0, 0, 0, 0.8) 100%), radial-gradient(149.08% 95.38% at 38.75% 71.48%, #000000 0%, #231900 0.01%, #4D4D4D 100%);
+  --column-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.2), inset 2px 2px 16px rgba(103, 103, 103, 0.6);
+  --column-color-active: radial-gradient(91.67% 122.17% at 69.17% -11.17%, #FFA300 0%, #2D1C00 100%);
+  --column-shadow-active: inset -1px 1px 1px rgba(255, 255, 255, 0.4), inset 0px 6px 15px rgba(255, 162, 0, 0.4);
+}
+
+body.theme_light {
+  --base-color: #261C00;
+  --second-color: #BFBFBF;
+  --body-bg-color: #FFFFFF;
+  --column-color: linear-gradient(180deg, rgba(244, 244, 244, 0.9) 0.82%, #E9E9E9 100%, rgba(234, 234, 234, 0) 100%);
+  --column-shadow: inset -1px 1px 1px rgba(255, 255, 255, 0.5), inset 0px 0px 20px rgba(207, 207, 207, 0.5);
+  --column-color-active: linear-gradient(180deg, #FFF2D1 0.82%, #FFD66C 100%);
+  --column-shadow-active: inset -1px 1px 1px rgba(255, 255, 255, 0.5), inset 0px 0px 20px rgba(255, 176, 57, 0.8);
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -7,17 +30,13 @@ body {
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
   -webkit-overflow-scrolling: touch;
-  font-size: 16px;
+  font-size: calc(100vh/3);
   overflow-x: hidden;
   width: 100%;
   padding: 0;
   margin: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-a {
-  font-weight: normal;
-  display: block;
+  color: var(--base-color);
+  background: var(--body-bg-color);
+  background-repeat: no-repeat, repeat, repeat;
+  transition: background .15s ease-in-out;
 }

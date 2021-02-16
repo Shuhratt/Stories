@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/js/stories.js',
@@ -29,7 +31,13 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'stories.css'
-    })
+    }),
+    new CleanWebpackPlugin(),
+    new CopyPlugin({
+      patterns: [
+        {from:'src/images',to:'images'}
+      ],
+    }),
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),
