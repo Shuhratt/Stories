@@ -1,7 +1,8 @@
 .slide{
+  min-height: 100vh;
+  padding: 0 8%;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 
   &__title{
     font-weight: bold;
@@ -25,18 +26,56 @@
 
   &__list{
     display: flex;
+    justify-content: center;
+    margin: auto 0 0;
 
     &-item{
       display: flex;
       flex-direction: column;
+      align-self: flex-end;
       text-align: center;
+      width: 100%;
+      max-width: 20%;
+      min-width: 120px;
+      position: relative;
+      z-index: 1;
+
+      &_first{
+        order: 3;
+        z-index: 3;
+        margin: 0 -1rem;
+      }
+
+      &_second{
+        order: 4;
+        z-index: 2;
+        margin-right: -1rem;
+      }
+
+      &_three{
+        order: 2;
+        z-index: 2;
+        margin-left: -1rem;
+      }
+
+      &_four{
+        order: 5;
+      }
+
+      &_last{
+        order: 1;
+      }
+
 
       &-avatar{
         position: relative;
+        margin-bottom: rem(6);
 
         &-img{
           border-radius: 50%;
           overflow: hidden;
+          min-width: 64px;
+          min-height: 64px;
           width: 64/688 * 100vw;
           height: 64/688 * 100vw;
         }
@@ -45,7 +84,7 @@
 
       &-emoji{
         position: absolute;
-        top: 0;
+        top: -22px;
         left: 0;
         right: 0;
         margin: 0 auto;
@@ -58,7 +97,8 @@
         font-weight: 500;
         font-size: rem(16);
         line-height: rem(18);
-        color: var(--base-color)
+        color: var(--base-color);
+        margin-bottom: rem(4);
       }
 
       &-count{
@@ -68,11 +108,36 @@
       }
 
       &-place{
+        box-shadow: var(--column-shadow);
+        background: var(--column-color);
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        margin-top: rem(6);
+        min-height: 68px;
+        height: 68/376 * 100vh;
+        //transition: height .1s linear;
 
-        &-num{
+        &_first {
+          box-shadow: var(--column-shadow-active);
+          background: var(--column-color-active);
+          height: 108/376 * 100vh;
+        }
+
+        &_second,
+        &_three {
+          height: 88/376 * 100vh;
+        }
+        &_four,
+        &_last {
+          height: 68/376 * 100vh;
+        }
+
+        &-num {
           font-weight: bold;
           font-size: rem(30);
           line-height: rem(32);
+          padding-top: rem(18);
+          display: block;
         }
       }
 
