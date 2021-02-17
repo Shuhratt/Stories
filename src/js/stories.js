@@ -2,6 +2,7 @@ import '../scss/stories.scss'
 
 import leadersHtml from "./slide/leadersHtml";
 
+
 const app = document.getElementById('app');
 
 const url = new URL(window.location.href)
@@ -17,7 +18,7 @@ themeValue ? document.body.classList.add(themes[themeValue]) : ''
 
 
 
-const data = async (url, method) => {
+const data = async (url) => {
   let response = await fetch(url);
 
   if (response.ok) {
@@ -31,7 +32,7 @@ const data = async (url, method) => {
 
 const renderTemplate =  async (alias, data) => {
   const res = await data
-  console.log(res)
+
   const html = leadersHtml(res[slideIndex].data)
 
   app.insertAdjacentHTML('afterbegin', html)
