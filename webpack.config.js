@@ -35,7 +35,8 @@ module.exports = {
     new CleanWebpackPlugin(),
     new CopyPlugin({
       patterns: [
-        {from:'src/images',to:'images'}
+        {from:'src/images',to:'images'},
+        {from:'src/data.json',to: path.resolve(__dirname, 'build')}
       ],
     }),
   ],
