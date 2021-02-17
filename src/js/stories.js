@@ -6,7 +6,7 @@ const app = document.getElementById('app');
 
 const url = new URL(window.location.href)
 const slideIndex = parseInt(url.searchParams.get('slide')) || 0
-const themeValue = url.searchParams.get('theme')
+const themeValue = url.searchParams.get('theme') || null
 
 const themes = {
   light: 'theme_light',
