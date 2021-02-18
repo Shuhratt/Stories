@@ -29,19 +29,21 @@ const data = async (url) => {
   }
 }
 
+const template = {
+  leaders: (data, index) => {
+    return leadersHtml(data, index)
+  },
+  vote: () => {},
+  chart: () => {},
+  diagram: () => {},
+  activity: () => {}
+}
+
 
 const renderTemplate =  async (alias, data) => {
   const res = await data
 
-  const template = {
-    leaders: (data, index) => {
-      return leadersHtml(data, index)
-    },
-    vote: () => {},
-    chart: () => {},
-    diagram: () => {},
-    activity: () => {}
-  }
+
   const html = template[alias](res[slideIndex].data, slideIndex)
 
   app.insertAdjacentHTML('afterbegin', html)
