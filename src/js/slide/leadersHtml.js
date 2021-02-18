@@ -4,7 +4,7 @@ const templateLeaders = (user, emoji, like, index) => {
   return `
     <div class="slide__list-item">
       <div class="slide__list-item-avatar">
-        <img class="slide__list-item-avatar-img" src="images/2x/${user.avatar}"  alt="" srcset="images/2x/${user.avatar} 1x,
+        <img class="slide__list-item-avatar-img" src="images/2x/${user.avatar}"  alt="${user.name}" srcset="images/2x/${user.avatar} 1x,
         images/4x/${user.avatar} 2x" />
         <div class="slide__list-item-emoji">${index + 1 === 1 ? emoji : like }</div>
       </div>
