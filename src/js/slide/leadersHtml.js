@@ -1,10 +1,11 @@
 import * as _ from 'lodash';
 
-const templateUser = (user, emoji, like, index) => {
+const templateLeaders = (user, emoji, like, index) => {
   return `
     <div class="slide__list-item">
       <div class="slide__list-item-avatar">
-        <img class="slide__list-item-avatar-img" src="images/${user.avatar}" alt="" />
+        <img class="slide__list-item-avatar-img" src="images/2x/${user.avatar}"  alt="" srcset="images/2x/${user.avatar} 1x,
+        images/4x/${user.avatar} 2x" />
         <div class="slide__list-item-emoji">${index + 1 === 1 ? emoji : like }</div>
       </div>
       <div class="slide__list-item-name">${user.name}</div>
@@ -16,17 +17,17 @@ const templateUser = (user, emoji, like, index) => {
   `
 }
 
-export default (item) => {
+export default (item, slideIndex) => {
 
   const htmlHead = `
-    <h1 class="slide__title">${item.title}</h1>
+    <h1 class="slide__title">${slideIndex} ${item.title}</h1>
     <h2 class="slide__subtitle">${item.subtitle}</h2>
   `
   const slide__list = document.createElement('div')
   slide__list.className = 'slide__list'
 
-  const sorted = _.orderBy(item.users, ['valueText'], ['desc']);
-  const usersHtml = sorted.map((user, index) => templateUser(user, item.emoji, '👍', index))
+  // const sorted = _.orderBy(item.users, ['valueText'], ['desc']);
+  const usersHtml = item.users.map((user, index) => templateLeaders(user, item.emoji, '👍', index))
 
   slide__list.innerHTML = usersHtml.join('')
   return htmlHead + slide__list.outerHTML
