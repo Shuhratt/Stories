@@ -1,6 +1,6 @@
   import '../scss/stories.scss'
 
-  import leadersHtml from "./slide/leadersHtml";
+  import templateLeaders from "./template/templateLeaders";
 
   const app = document.getElementById('app');
 
@@ -16,9 +16,9 @@
   themeValue ? document.body.classList.add(themes[themeValue]) : ''
 
 
-  const template = {
+  const templates = {
     leaders: (data, index) => {
-      return leadersHtml(data, index)
+      return templateLeaders(data, index)
     },
     vote: () => {
       console.error('Шаблона нет')
@@ -35,7 +35,7 @@
   }
 
   const renderTemplate = (alias, data) => {
-    const html = template[alias](data, slideIndex)
+    const html = templates[alias](data, slideIndex)
     app.insertAdjacentHTML('afterbegin', html)
   }
 

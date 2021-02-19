@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 
-const templateLeaders = (user, emoji, like, index) => {
+const templateHtml = (user, emoji, like, index) => {
   return `
     <div class="slide__list-item">
       <div class="slide__list-item-avatar">
@@ -27,7 +27,7 @@ export default (item, slideIndex) => {
   slide__list.className = 'slide__list'
 
   // const sorted = _.orderBy(item.users, ['valueText'], ['desc']);
-  const usersHtml = item.users.map((user, index) => templateLeaders(user, item.emoji, '👍', index))
+  const usersHtml = item.users.map((user, index) => templateHtml(user, item.emoji, '👍', index))
 
   slide__list.innerHTML = usersHtml.join('').trim()
   return htmlHead + slide__list.outerHTML
