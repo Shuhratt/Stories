@@ -4,9 +4,9 @@
 
   const app = document.getElementById('app');
 
-  const url = new URL(window.location.href)
-  const slideIndex = parseInt(url.searchParams.get('slide')) >= 1  ? parseInt(url.searchParams.get('slide')) - 1 : 0
-  const themeValue = url.searchParams.get('theme') || null
+  const Url = new URL(window.location.href)
+  const slideIndex = parseInt(Url.searchParams.get('slide')) >= 1  ? parseInt(Url.searchParams.get('slide')) - 1 : 0
+  const themeValue = Url.searchParams.get('theme') || null
   console.log(slideIndex)
 
   const themes = {
@@ -34,13 +34,13 @@
     }
   }
 
-  const renderTemplate =  async (alias, data) => {
+  const renderTemplate = (alias, data) => {
     const html = template[alias](data, slideIndex)
     app.insertAdjacentHTML('afterbegin', html)
   }
 
-  const data = '/data.json'
-  fetch(data).then(response => response.json())
+  const url = '/data.json'
+  fetch(url).then(response => response.json())
     .then(result => {
       const alias = result[slideIndex].alias
       const data = result[slideIndex].data
