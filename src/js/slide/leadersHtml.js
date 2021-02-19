@@ -12,7 +12,7 @@ const templateLeaders = (user, emoji, like, index) => {
       <div class="slide__list-item-count">${user.valueText}</div>
       <div class="slide__list-item-place">
         <span class="slide__list-item-place-num">${index + 1}</span>
-      </div>
+      </div>npm 
     </div>
   `
 }
