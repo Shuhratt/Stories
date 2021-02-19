@@ -12,7 +12,7 @@ const templateLeaders = (user, emoji, like, index) => {
       <div class="slide__list-item-count">${user.valueText}</div>
       <div class="slide__list-item-place">
         <span class="slide__list-item-place-num">${index + 1}</span>
-      </div>npm 
+      </div>
     </div>
   `
 }
@@ -29,6 +29,6 @@ export default (item, slideIndex) => {
   // const sorted = _.orderBy(item.users, ['valueText'], ['desc']);
   const usersHtml = item.users.map((user, index) => templateLeaders(user, item.emoji, '👍', index))
 
-  slide__list.innerHTML = usersHtml.join('')
+  slide__list.innerHTML = usersHtml.join('').trim()
   return htmlHead + slide__list.outerHTML
 }
