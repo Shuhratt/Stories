@@ -1,6 +1,7 @@
   import '../scss/stories.scss'
 
   import templateLeaders from "./template/templateLeaders";
+  import templateChart from "./template/templateChart";
 
   const app = document.getElementById('app');
 
