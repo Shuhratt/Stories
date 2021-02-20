@@ -1,8 +1,6 @@
   import '../scss/stories.scss'
 
-  import templateLeaders from "./template/templateLeaders";
-  import templateChart from "./template/templateChart";
-
+  import Template from "./classes/Template"
   const app = document.getElementById('app');
 
   const Url = new URL(window.location.href)
@@ -16,27 +14,9 @@
   }
   themeValue ? document.body.classList.add(themes[themeValue]) : ''
 
-
-  const templates = {
-    leaders: (data, index) => {
-      return templateLeaders(data, index)
-    },
-    vote: () => {
-      console.error('Шаблона нет')
-    },
-    chart: () => {
-      console.error('Шаблона нет')
-    },
-    diagram: () => {
-      console.error('Шаблона нет')
-    },
-    activity: () => {
-      console.error('Шаблона нет')
-    }
-  }
-
   const renderTemplate = (alias, data) => {
-    const html = templates[alias](data, slideIndex)
+    const template = new Template(alias, data, slideIndex);
+    const html = template.render()
     app.insertAdjacentHTML('afterbegin', html)
   }
 
@@ -50,7 +30,3 @@
     }).catch(e => {
      console.error("Ошибка: " + e);
     })
-
-
-
-

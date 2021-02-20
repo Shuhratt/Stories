@@ -2,16 +2,16 @@ import * as _ from 'lodash';
 
 const templateHtml = (user, emoji, like, index) => {
   return `
-    <div class="slide__list-item">
-      <div class="slide__list-item-avatar">
-        <img class="slide__list-item-avatar-img" src="images/2x/${user.avatar}"  alt="${user.name}" srcset="images/2x/${user.avatar} 1x,
+    <div class="leaders__list-item">
+      <div class="leaders__list-item-avatar">
+        <img class="leaders__list-item-avatar-img" src="images/2x/${user.avatar}"  alt="${user.name}" srcset="images/2x/${user.avatar} 1x,
         images/4x/${user.avatar} 2x" />
-        <div class="slide__list-item-emoji">${index + 1 === 1 ? emoji : like }</div>
+        <div class="leaders__list-item-emoji">${index + 1 === 1 ? emoji : like }</div>
       </div>
-      <div class="slide__list-item-name">${user.name}</div>
-      <div class="slide__list-item-count">${user.valueText}</div>
-      <div class="slide__list-item-place">
-        <span class="slide__list-item-place-num">${index + 1}</span>
+      <div class="leaders__list-item-name">${user.name}</div>
+      <div class="leaders__list-item-count">${user.valueText}</div>
+      <div class="leaders__list-item-place">
+        <span class="leaders__list-item-place-num">${index + 1}</span>
       </div>
     </div>
   `
@@ -20,11 +20,11 @@ const templateHtml = (user, emoji, like, index) => {
 export default (item, slideIndex) => {
 
   const htmlHead = `
-    <h1 class="slide__title">${slideIndex} ${item.title}</h1>
-    <h2 class="slide__subtitle">${item.subtitle}</h2>
+    <h1 class="app__title">${slideIndex} ${item.title}</h1>
+    <h2 class="app__subtitle">${item.subtitle}</h2>
   `
   const slide__list = document.createElement('div')
-  slide__list.className = 'slide__list'
+  slide__list.className = 'leaders__list'
 
   // const sorted = _.orderBy(item.users, ['valueText'], ['desc']);
   const usersHtml = item.users.map((user, index) => templateHtml(user, item.emoji, '👍', index))
