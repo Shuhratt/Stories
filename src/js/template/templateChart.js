@@ -40,7 +40,9 @@ export default (item) => {
   const chartHtml = item.values.map((col) => templateChartHtml(col))
   chartBox.innerHTML = chartHtml.join('').trim()
 
-  const chartUsersHtml = item.users.map((user) => templateChartUser(user)).slice(0, maxUsers)
+  const chartUsersHtml = item.users
+    .slice(0, maxUsers)
+    .map((user) => templateChartUser(user))
   userList.innerHTML = chartUsersHtml.join('').trim()
 
   return htmlHead + chartBox.outerHTML + userList.outerHTML

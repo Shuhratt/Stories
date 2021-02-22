@@ -26,8 +26,9 @@ export default (item, slideIndex) => {
   const slide__list = document.createElement('div')
   slide__list.className = 'leaders__list'
 
-  // const sorted = _.orderBy(item.users, ['valueText'], ['desc']);
-  const usersHtml = item.users.map((user, index) => templateHtml(user, item.emoji, '👍', index)).slice(0, maxUsers)
+  const usersHtml = item.users
+    .slice(0, maxUsers)
+    .map((user, index) => templateHtml(user, item.emoji, '👍', index))
 
   slide__list.innerHTML = usersHtml.join('').trim()
   return htmlHead + slide__list.outerHTML
