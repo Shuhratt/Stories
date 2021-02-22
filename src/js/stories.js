@@ -14,7 +14,7 @@
   }
   themeValue ? document.body.classList.add(themes[themeValue]) : ''
 
-  const renderTemplate = (alias, data) => {
+  window.renderTemplate = (alias, data) => {
     const template = new Template(alias, data, slideIndex);
     const html = template.render()
     app.insertAdjacentHTML('afterbegin', html)

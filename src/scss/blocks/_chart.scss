@@ -1,3 +1,5 @@
+$marginCol: 12/668 *100vw;
+
 .chart{
 
   &__box{
@@ -9,17 +11,18 @@
   }
 
   &_col{
+    text-align: center;
 
     &:first-child{
-      margin-right: rem(12);
+      margin-right: $marginCol;
     }
 
     &:last-child{
-      margin-left: rem(12);
+      margin-left: $marginCol;
     }
 
     &:not(:last-child):not(:first-child){
-      margin: 0 rem(12);
+      margin: 0 $marginCol;
     }
 
     &-count{
@@ -35,7 +38,8 @@
       box-shadow: var(--column-shadow-active);
       background: var(--column-color-active);
       min-height: rem(8);
-      width: calc(40/688 * 100vw);
+      width: calc(40/668 * 100vw);
+      min-width: 40px;
     }
 
     &-num{
@@ -54,8 +58,26 @@
     padding: 0 calc(97/688 * 100vw);
     margin: rem(24) 0;
 
+    @media all and (orientation: portrait) {
+      flex-direction: column;
+      padding: 0 calc(24/376 * 100vw);
+    }
+
     &-el{
       display: flex;
+
+      &:last-child{
+        border-left: 2px solid rgba(#918F8A, .3);
+        padding-left: rem(16);
+
+        @media all and (orientation: portrait) {
+          border-left: none;
+          border-top: 2px solid rgba(#918F8A, .3);
+          padding-left: 0;
+          padding-top: 1rem;
+          margin-top: 1rem;
+        }
+      }
 
       &-avatar{
         position: relative;
