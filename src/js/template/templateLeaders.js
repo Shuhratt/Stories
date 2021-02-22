@@ -1,15 +1,15 @@
 import * as _ from 'lodash';
 
-const templateHtml = (user, emoji, like, index) => {
+const templateHtml = (data, emoji, like, index) => {
   return `
     <div class="leaders__list-item">
       <div class="leaders__list-item-avatar">
-        <img class="leaders__list-item-avatar-img" src="images/2x/${user.avatar}"  alt="${user.name}" srcset="images/2x/${user.avatar} 1x,
-        images/4x/${user.avatar} 2x" />
+        <img class="leaders__list-item-avatar-img" src="images/2x/${data.avatar}"  alt="${data.name}" srcset="images/2x/${data.avatar} 1x,
+        images/4x/${data.avatar} 2x" />
         <div class="leaders__list-item-emoji">${index + 1 === 1 ? emoji : like }</div>
       </div>
-      <div class="leaders__list-item-name">${user.name}</div>
-      <div class="leaders__list-item-count">${user.valueText}</div>
+      <div class="leaders__list-item-name">${data.name}</div>
+      <div class="leaders__list-item-count">${data.valueText}</div>
       <div class="leaders__list-item-place">
         <span class="leaders__list-item-place-num">${index + 1}</span>
       </div>
