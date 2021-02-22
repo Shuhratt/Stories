@@ -21,12 +21,12 @@
   }
 
   const url = '/data.json'
-  fetch(url).then(response => response.json())
+  fetch(url)
+    .then(response => response.json())
     .then(result => {
       const alias = result[slideIndex].alias
       const data = result[slideIndex].data
       renderTemplate(alias, data)
-
     }).catch(e => {
      console.error("Ошибка: " + e);
     })
