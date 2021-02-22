@@ -37,13 +37,20 @@ export default (item) => {
   const userList = document.createElement('div')
   userList.className = 'chart__users'
 
-  const chartHtml = item.values.map((col) => templateChartHtml(col))
-  chartBox.innerHTML = chartHtml.join('').trim()
+  const chartHtml = item.values
+    .map((col) => templateChartHtml(col))
+    .join('')
+    .trim();
+
+  chartBox.insertAdjacentHTML('afterbegin', chartHtml)
 
   const chartUsersHtml = item.users
     .slice(0, maxUsers)
-    .map((user) => templateChartUser(user));
-  userList.innerHTML = chartUsersHtml.join('').trim()
+    .map((user) => templateChartUser(user))
+    .join('')
+    .trim();
+
+  userList.insertAdjacentHTML('afterbegin', chartUsersHtml)
 
   return htmlHead + chartBox.outerHTML + userList.outerHTML
 
