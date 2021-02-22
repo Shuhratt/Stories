@@ -26,7 +26,7 @@ const templateChartUser = (data) => {
 
 
 export default (item) => {
-
+  const maxUsers = 2;
   const htmlHead = `
     <h1 class="app__title">${item.title}</h1>
     <h2 class="app__subtitle">${item.subtitle}</h2>
@@ -40,7 +40,7 @@ export default (item) => {
   const chartHtml = item.values.map((col) => templateChartHtml(col))
   chartBox.innerHTML = chartHtml.join('').trim()
 
-  const chartUsersHtml = item.users.map((user) => templateChartUser(user))
+  const chartUsersHtml = item.users.map((user) => templateChartUser(user)).slice(0, maxUsers)
   userList.innerHTML = chartUsersHtml.join('').trim()
 
   return htmlHead + chartBox.outerHTML + userList.outerHTML

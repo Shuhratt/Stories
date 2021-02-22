@@ -18,7 +18,7 @@ const templateHtml = (data, emoji, like, index) => {
 }
 
 export default (item, slideIndex) => {
-
+  const maxUsers = 5
   const htmlHead = `
     <h1 class="app__title">${slideIndex} ${item.title}</h1>
     <h2 class="app__subtitle">${item.subtitle}</h2>
@@ -27,7 +27,7 @@ export default (item, slideIndex) => {
   slide__list.className = 'leaders__list'
 
   // const sorted = _.orderBy(item.users, ['valueText'], ['desc']);
-  const usersHtml = item.users.map((user, index) => templateHtml(user, item.emoji, '👍', index))
+  const usersHtml = item.users.map((user, index) => templateHtml(user, item.emoji, '👍', index)).slice(0, maxUsers)
 
   slide__list.innerHTML = usersHtml.join('').trim()
   return htmlHead + slide__list.outerHTML

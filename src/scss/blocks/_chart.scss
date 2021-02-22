@@ -10,11 +10,24 @@
 
   &_col{
 
+    &:first-child{
+      margin-right: rem(12);
+    }
+
+    &:last-child{
+      margin-left: rem(12);
+    }
+
+    &:not(:last-child):not(:first-child){
+      margin: 0 rem(12);
+    }
+
     &-count{
       font-weight: bold;
       font-size: rem(20);
       line-height:rem(22);
-      color: var(--base-color)
+      color: var(--base-color);
+      margin-bottom: rem(8);
     }
 
     &-box{
@@ -22,19 +35,24 @@
       box-shadow: var(--column-shadow-active);
       background: var(--column-color-active);
       min-height: rem(8);
+      width: calc(40/688 * 100vw);
     }
 
     &-num{
       font-weight: 500;
       font-size: rem(16);
       line-height: rem(18);
-      color: var(--second-color)
+      color: var(--second-color);
+      margin-top: rem(12);
     }
 
   }
 
   &__users{
     display: flex;
+    justify-content: space-between;
+    padding: 0 calc(97/688 * 100vw);
+    margin: rem(24) 0;
 
     &-el{
       display: flex;
