@@ -11,6 +11,11 @@
     color: var(--base-color);
     margin: 0;
     padding: rem(20) 0 rem(8);
+
+    @media all and (orientation: portrait) {
+      text-align: left;
+      padding-top: rem(20);
+    }
   }
 
   &__subtitle{
@@ -21,5 +26,10 @@
     margin: 0;
     color: var(--second-color);
     text-align: center;
+
+    @media all and (orientation: portrait) {
+      text-align: left;
+      padding: 0 rem(24);
+    }
   }
 }

@@ -8,10 +8,20 @@ $marginCol: 12/668 *100vw;
     padding: 0 calc(58/668 * 100vw);
     height: 100%;
     margin-top: auto;
+    overflow-x: auto;
   }
 
   &_col{
     text-align: center;
+    align-self: flex-end;
+
+    &:hover{
+
+      .chart_col-box{
+        box-shadow: var(--column-shadow-active);
+        background: var(--column-color-active);
+      }
+    }
 
     &:first-child{
       margin-right: $marginCol;
@@ -35,11 +45,15 @@ $marginCol: 12/668 *100vw;
 
     &-box{
       border-radius: 6px;
-      box-shadow: var(--column-shadow-active);
-      background: var(--column-color-active);
       min-height: rem(8);
       width: calc(40/668 * 100vw);
       min-width: 40px;
+      box-shadow: var(--column-shadow);
+      background: var(--column-color);
+      user-select: none;
+      transition: background .15s ease-in-out, box-shadow .15s ease-in-out;
+
+
     }
 
     &-num{

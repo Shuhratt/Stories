@@ -2,9 +2,9 @@
 const templateChartHtml = (data) => {
   return `
     <div class="chart_col">
-      <div class="chart_col-count">${data.title}</div>
-      <div class="chart_col-box"></div>
-      <div class="chart_col-num">${data.value}</div>
+      <div class="chart_col-count">${data.value}</div>
+      <div class="chart_col-box" style="height: ${data.value}px"></div>
+      <div class="chart_col-num">${data.title}</div>
     </div>
   `
 }
