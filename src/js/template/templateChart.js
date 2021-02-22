@@ -11,15 +11,15 @@ const templateChartHtml = (data) => {
 
 const templateChartUser = (data) => {
   return `
-  <div class="chart__users-el">
-    <div class="chart__users-el-avatar">
-      <img class="chart__users-el-avatar-img" src="images/2x/${data.avatar}"  alt="${data.name}" srcset="images/2x/${data.avatar} 1x, images/4x/${data.avatar} 2x">
+    <div class="chart__users-el">
+      <div class="chart__users-el-avatar">
+        <img class="chart__users-el-avatar-img" src="images/2x/${data.avatar}"  alt="${data.name}" srcset="images/2x/${data.avatar} 1x, images/4x/${data.avatar} 2x">
+      </div>
+      <div class="chart__users-el-info">
+        <div class="chart__users-el-name">${data.name}</div>
+        <div class="chart__users-el-num">${data.valueText}</div>
+      </div>
     </div>
-    <div class="chart__users-el-info">
-      <div class="chart__users-el-name">${data.name}</div>
-      <div class="chart__users-el-num">${data.valueText}</div>
-    </div>
-  </div>
   `
 }
 
@@ -42,7 +42,7 @@ export default (item) => {
 
   const chartUsersHtml = item.users
     .slice(0, maxUsers)
-    .map((user) => templateChartUser(user))
+    .map((user) => templateChartUser(user));
   userList.innerHTML = chartUsersHtml.join('').trim()
 
   return htmlHead + chartBox.outerHTML + userList.outerHTML
