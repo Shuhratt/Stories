@@ -4,6 +4,7 @@ $marginCol: 12/668 *100vw;
 
   &__box{
     display: flex;
+    justify-content: flex-end;
     width: 100%;
     padding: 0 calc(58/668 * 100vw);
     height: 100%;
@@ -20,6 +21,10 @@ $marginCol: 12/668 *100vw;
       .chart_col-box{
         box-shadow: var(--column-shadow-active);
         background: var(--column-color-active);
+      }
+
+      .chart_col-count{
+        color: var(--base-color);
       }
     }
 
@@ -39,8 +44,9 @@ $marginCol: 12/668 *100vw;
       font-weight: bold;
       font-size: rem(20);
       line-height:rem(22);
-      color: var(--base-color);
+      color: var(--second-color);
       margin-bottom: rem(8);
+      transition: color .15s ease-in-out;
     }
 
     &-box{
@@ -52,8 +58,6 @@ $marginCol: 12/668 *100vw;
       background: var(--column-color);
       user-select: none;
       transition: background .15s ease-in-out, box-shadow .15s ease-in-out;
-
-
     }
 
     &-num{
@@ -101,8 +105,8 @@ $marginCol: 12/668 *100vw;
         &-img{
           border-radius: 50%;
           overflow: hidden;
-          min-width: 64px;
-          min-height: 64px;
+          min-width: 40px;
+          min-height: 40px;
           width: 40/688 * 100vw;
           height: 40/688 * 100vw;
           filter: var(--effect-photo);
