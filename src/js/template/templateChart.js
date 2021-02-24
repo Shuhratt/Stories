@@ -1,10 +1,10 @@
-const templateChartHtml = (data, orientation) => {
+const templateChartHtml = (data, orientation, max) => {
 
   const ratio = {
-    'landscape' : 117/182,
-    'portrait' : 270/182
+    'landscape' : 117/max,
+    'portrait' : 270/max
   }
-
+  // console.log(orientation)
   const resultHeightColVertical = Math.floor(data.value * ratio[orientation])
   const adaptiveHeightVertical = resultHeightColVertical / document.documentElement.clientHeight * 100;
 
@@ -41,9 +41,10 @@ export default (item, orientation) => {
   const chartBox = document.createElement('div')
   chartBox.className = 'chart__box'
 
+  const maximum = Math.max.apply(null, item.values.map(item => item.value) )
   const chartHtml = item.values
     .slice(-10, -1)
-    .map((col) => templateChartHtml(col, orientation))
+    .map((col) => templateChartHtml(col, orientation, maximum))
     .join('');
 
   chartBox.insertAdjacentHTML('afterbegin', chartHtml)
