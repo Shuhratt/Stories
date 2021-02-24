@@ -31,7 +31,7 @@ export default class Template {
       case 'chart':
         console.log('chart')
 
-        return templateChart(this.data, 'horizontal');
+        return templateChart(this.data, this.orientation);
       break;
 
       case 'diagram':
