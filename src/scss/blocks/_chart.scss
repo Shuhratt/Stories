@@ -189,6 +189,17 @@ $marginCol: 12/668 *100vw;
         text-align: center;
         margin: 0;
       }
+
+      &-chart{
+
+        circle{
+          fill:none;
+          stroke-width: 10;
+          stroke: #eee;
+          stroke-dasharray: 10;//  C = 2πr
+          //stroke-dashoffset: 10
+        }
+      }
     }
 
     &__info{
