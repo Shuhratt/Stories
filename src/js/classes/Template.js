@@ -4,10 +4,15 @@ import templateChart from "../template/templateChart";
 
 export default class Template {
 
-  constructor(alias, data, index) {
+  constructor(alias, data, index, orientation = 'landscape') {
     this.alias = alias
     this.data = data
     this.index = index
+    this.orientation = orientation
+  }
+
+  reload() {
+    return new Template(this.alias, this.data, this.index, this.orientation).reload()
   }
 
   render() {
@@ -26,7 +31,7 @@ export default class Template {
       case 'chart':
         console.log('chart')
 
-        return templateChart(this.data);
+        return templateChart(this.data, 'horizontal');
       break;
 
       case 'diagram':
