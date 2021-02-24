@@ -3,5 +3,5 @@ export const operations = () => {
 }
 
 export const getOrientDeviceClient = () => {
-  return document.body.clientWidth > document.body.clientHeight ? 'landscape' : 'portrait'
+  return document.documentElement.clientWidth > document.documentElement.clientHeight ? 'landscape' : 'portrait'
 }
