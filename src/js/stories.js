@@ -18,6 +18,7 @@
   window.renderTemplate = (alias, data) => {
     const template = new Template(alias, data, slideIndex);
     const html = template.render()
+    app.innerHTML = ''
     app.insertAdjacentHTML('afterbegin', html)
   }
 
