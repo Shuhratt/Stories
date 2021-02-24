@@ -34,7 +34,7 @@
       const data = result[slideIndex].data
       renderTemplate(alias, data)
 
-      window.addEventListener('resize', () => {
+      window.addEventListener('resize', (e) => {
         window.renderTemplate(alias, data)
       })
 

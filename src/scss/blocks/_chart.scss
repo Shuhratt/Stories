@@ -136,4 +136,108 @@ $marginCol: 12/668 *100vw;
 
     }
   }
+
+  &_diagram{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 58/668 * 100vw;
+    margin: auto 0;
+
+    @media all and (orientation: portrait) {
+      flex-direction: column;
+    }
+
+    &__circle{
+      width: 100%;
+      max-width: 240/688 * 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      &-box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        max-width: 120/668 * 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        //width: 100%;
+        //height: 100%;
+      }
+
+      &-title{
+        font-weight: bold;
+        font-size: rem(20);
+        line-height: rem(22);
+        text-align: center;
+        color: var(--base-color);
+        margin: 0 0 rem(6);
+      }
+
+      &-result{
+        font-weight: 500;
+        font-size: rem(16);
+        line-height: rem(18);
+        color: var(--second-color);
+        text-align: center;
+        margin: 0;
+      }
+    }
+
+    &__info{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 304/688 * 100%;
+    }
+
+    &__row{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 17 / 668 * 100vw;
+
+      &:not(:last-child){
+        border-bottom: 2px solid rgba(#918F8A, .3);
+      }
+
+      &-circle{
+        width: 16 / 688 * 100vw;
+        height: 16 / 688 * 100vw;
+        border-radius: 50%;
+        box-shadow: var(--column-shadow-active);
+        background: var(--column-color-active);
+      }
+
+      &-counts{
+        font-weight: 500;
+        font-size: rem(16);
+        line-height: rem(18);
+        color: var(--base-color);
+      }
+
+      &-progress{
+        font-weight: 500;
+        font-size: rem(16);
+        line-height: rem(18);
+        color: var(--second-color);
+      }
+
+      &-result{
+        font-weight: 500;
+        font-size: rem(16);
+        line-height: rem(18);
+        color: var(--second-color);
+      }
+
+    }
+  }
+
 }

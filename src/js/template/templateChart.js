@@ -1,12 +1,12 @@
-const templateChartHtml = (data, orientation, max) => {
+const templateChartHtml = (data, orientation, max, heightClient = document.documentElement.clientHeight ) => {
 
   const ratio = {
-    'landscape' : 117/max,
-    'portrait' : 270/max
+    landscape : 117/ max,
+    portrait : 270/ max
   }
-  // console.log(orientation)
+
   const resultHeightColVertical = Math.floor(data.value * ratio[orientation])
-  const adaptiveHeightVertical = resultHeightColVertical / document.documentElement.clientHeight * 100;
+  const adaptiveHeightVertical = resultHeightColVertical / heightClient * 100;
 
   return `
     <div class="chart_col">
