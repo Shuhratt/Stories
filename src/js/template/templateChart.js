@@ -2,10 +2,7 @@
 const templateChartHtml = (data) => {
   const ratioHorizontal = 117/182,
         ratioVertical = 182/270;
-
-  console.log('Horizontal:' + window.innerWidth > window.innerHeight)
-  console.log('Vertical:' + window.innerWidth < window.innerHeight)
-
+  console.log(getComputedStyle(document.documentElement).getPropertyValue('--effect-photo'))
   const resultHeightCol = Math.floor(data.value * ratioHorizontal)
   const adaptiveHeightCol = resultHeightCol / 376 * 100
 
