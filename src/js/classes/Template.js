@@ -12,7 +12,7 @@ export default class Template {
   }
 
   reload() {
-    return new Template(this.alias, this.data, this.index, this.orientation).reload()
+    return new Template(this.alias, this.data, this.index, this.orientation)
   }
 
   render() {
