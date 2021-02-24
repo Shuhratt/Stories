@@ -12,6 +12,7 @@
     light: 'theme_light',
     dark: 'theme_dark'
   }
+
   themeValue ? document.body.classList.add(themes[themeValue]) : ''
 
   window.renderTemplate = (alias, data) => {

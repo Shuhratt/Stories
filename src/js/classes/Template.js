@@ -25,6 +25,7 @@ export default class Template {
 
       case 'chart':
         console.log('chart')
+
         return templateChart(this.data);
       break;
 
