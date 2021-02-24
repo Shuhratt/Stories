@@ -1,6 +1,8 @@
   import '../scss/stories.scss'
 
   import Template from "./classes/Template"
+  import {getOrientDeviceClient} from "./functions/functions";
+
   const app = document.getElementById('app');
 
   const Url = new URL(window.location.href)
@@ -16,9 +18,11 @@
   themeValue ? document.body.classList.add(themes[themeValue]) : ''
 
   window.renderTemplate = (alias, data) => {
-    const template = new Template(alias, data, slideIndex);
+    const orient = getOrientDeviceClient()
+    const template = new Template(alias, data, slideIndex, orient);
     const html = template.render()
     app.innerHTML = ''
+
     app.insertAdjacentHTML('afterbegin', html)
   }
 
@@ -29,6 +33,11 @@
       const alias = result[slideIndex].alias
       const data = result[slideIndex].data
       renderTemplate(alias, data)
+
+      window.addEventListener('resize', () => {
+        window.renderTemplate(alias, data)
+      })
+
     }).catch(e => {
      console.error("Ошибка: " + e);
     })

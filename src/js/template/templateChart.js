@@ -1,4 +1,4 @@
-import {isHorizontalClientDevice} from "../functions/functions";
+
 
 const templateChartHtml = (data) => {
 
@@ -31,15 +31,14 @@ const templateChartUser = (data) => {
   `
 }
 
-export default (item, ratio) => {
+export default (item, orientation) => {
+  console.log(orientation)
+
   const maxUsers = 2;
   const htmlHead = `
     <h1 class="app__title">${item.title}</h1>
     <h2 class="app__subtitle">${item.subtitle}</h2>
   `
-
-  let test = getComputedStyle(document.documentElement).getPropertyValue('--ratioChartCol');
-  console.log(test)
 
   const chartBox = document.createElement('div')
   chartBox.className = 'chart__box'
