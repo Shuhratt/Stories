@@ -12,3 +12,9 @@
     }
   }
 }
+
+@mixin resultRoot ($data, $theme: 'dark') {
+  @each $property, $values in $data {
+    --#{$property}: #{map_get($values, $theme)};
+  }
+}

@@ -3,6 +3,7 @@ const templateChartHtml = (data) => {
   const ratioHorizontal = 117/182,
         ratioVertical = 182/270;
   console.log(getComputedStyle(document.documentElement).getPropertyValue('--effect-photo'))
+
   const resultHeightCol = Math.floor(data.value * ratioHorizontal)
   const adaptiveHeightCol = resultHeightCol / 376 * 100
 
@@ -19,7 +20,7 @@ const templateChartUser = (data) => {
   return `
     <div class="chart__users-el">
       <div class="chart__users-el-avatar">
-        <img class="chart__users-el-avatar-img" src="images/1x/${data.avatar}"  alt="${data.name}" srcset="images/1x/${data.avatar} 1x, images/2x/${data.avatar} 2x">
+        <img class="chart__users-el-avatar-img" src="images/2x/${data.avatar}"  alt="${data.name}" srcset="images/2x/${data.avatar} 1x, images/4x/${data.avatar} 2x">
       </div>
       <div class="chart__users-el-info">
         <div class="chart__users-el-name">${data.name}</div>
