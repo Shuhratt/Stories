@@ -1,11 +1,5 @@
 
 const templateDiagramHtml = (data) => {
-  document.addEventListener('DOMContentLoaded', () => {
-
-
-  })
-
-
   return `
     <div class="chart_diagram">
       <div class="chart_diagram__circle">
@@ -24,12 +18,6 @@ const templateDiagramHtml = (data) => {
           <div class="chart_diagram__row-progress">+8</div>
           <div class="chart_diagram__row-result">30</div>
         </div>
-        <div class="chart_diagram__row">
-          <div class="chart_diagram__row-circle"></div>
-          <div class="chart_diagram__row-counts">> 1001 строки</div>
-          <div class="chart_diagram__row-progress">+8</div>
-          <div class="chart_diagram__row-result">30</div>
-        </div>
       </div>
     </div>
   `
@@ -39,7 +27,8 @@ const templateDiagramHtml = (data) => {
 export default (item) => {
   const htmlHead = `
     <h1 class="app__title">${item.title}</h1>
-    <h2 class="app__subtitle">${item.subtitle}</h2>`
+    <h2 class="app__subtitle">${item.subtitle}</h2>
+  `
 
 
   return htmlHead.concat(templateDiagramHtml(item))
