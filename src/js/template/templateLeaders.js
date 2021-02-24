@@ -26,9 +26,10 @@ export default (item, slideIndex) => {
 
   const usersHtml = item.users
     .slice(0, maxUsers)
-    .map((user, index) => templateHtml(user, item.emoji, '👍', index));
+    .map((user, index) => templateHtml(user, item.emoji, '👍', index))
+    .join('');
 
-  slide__list.innerHTML = usersHtml.join('').trim()
+  slide__list.innerHTML = usersHtml
 
   return htmlHead.concat(slide__list.outerHTML)
 }

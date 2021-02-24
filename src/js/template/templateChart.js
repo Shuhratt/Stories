@@ -32,8 +32,6 @@ const templateChartUser = (data) => {
 }
 
 export default (item, orientation) => {
-  console.log(orientation)
-
   const maxUsers = 2;
   const htmlHead = `
     <h1 class="app__title">${item.title}</h1>

@@ -9,7 +9,6 @@ $marginCol: 12/668 *100vw;
     padding: 0 calc(58/668 * 100vw);
     height: 100%;
     margin-top: auto;
-    overflow-x: auto;
   }
 
   &_col{
@@ -58,6 +57,7 @@ $marginCol: 12/668 *100vw;
       background: var(--column-color);
       user-select: none;
       transition: background .15s ease-in-out, box-shadow .15s ease-in-out;
+      max-height: 60vh;
     }
 
     &-num{

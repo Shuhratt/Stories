@@ -19,6 +19,7 @@
 
   window.renderTemplate = (alias, data) => {
     const orientation = getOrientDeviceClient()
+    console.log(orientation)
     const template = new Template(alias, data, slideIndex, orientation);
     const html = template.render()
     app.innerHTML = ''
