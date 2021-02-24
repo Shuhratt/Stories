@@ -1,12 +1,12 @@
+const templateChartHtml = (data, orientation) => {
 
+  const ratio = {
+    'landscape' : 117/182,
+    'portrait' : 270/182
+  }
 
-const templateChartHtml = (data) => {
-
-
-
-  const resultHeightColVertical = Math.floor(data.value * 1)
-  const adaptiveHeightVertical = resultHeightColVertical / document.body.clientHeight * 100;
-
+  const resultHeightColVertical = Math.floor(data.value * ratio[orientation])
+  const adaptiveHeightVertical = resultHeightColVertical / document.documentElement.clientHeight * 100;
 
   return `
     <div class="chart_col">
@@ -45,9 +45,8 @@ export default (item, orientation) => {
 
   const chartHtml = item.values
     .slice(-10, -1)
-    .map((col) => templateChartHtml(col))
-    .join('')
-    .trim();
+    .map((col) => templateChartHtml(col, orientation))
+    .join('');
 
   chartBox.insertAdjacentHTML('afterbegin', chartHtml)
 
@@ -58,11 +57,10 @@ export default (item, orientation) => {
   const chartUsersHtml = item.users
     .slice(0, maxUsers)
     .map((user) => templateChartUser(user))
-    .join('')
-    .trim();
+    .join('');
 
   userList.insertAdjacentHTML('afterbegin', chartUsersHtml)
 
-  return htmlHead + chartBox.outerHTML + userList.outerHTML
+  return htmlHead.concat(chartBox.outerHTML, userList.outerHTML)
 
 }

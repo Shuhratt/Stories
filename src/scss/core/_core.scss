@@ -1,3 +1,4 @@
+
 :root{
   @include resultRoot($root);
 }
@@ -8,6 +9,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--body-bg-color);
 }
 
 body {
@@ -26,7 +28,7 @@ body {
   color: var(--base-color);
   background: var(--body-bg-color);
   background-repeat: no-repeat, repeat, repeat;
-  //transition: background .15s ease-in-out;
+  transition: background .15s ease-in-out;
 
   &.theme{
 

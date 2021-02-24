@@ -18,11 +18,10 @@
   themeValue ? document.body.classList.add(themes[themeValue]) : ''
 
   window.renderTemplate = (alias, data) => {
-    const orient = getOrientDeviceClient()
-    const template = new Template(alias, data, slideIndex, orient);
+    const orientation = getOrientDeviceClient()
+    const template = new Template(alias, data, slideIndex, orientation);
     const html = template.render()
     app.innerHTML = ''
-
     app.insertAdjacentHTML('afterbegin', html)
   }
 

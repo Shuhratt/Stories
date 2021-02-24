@@ -1,5 +1,3 @@
-import * as _ from 'lodash';
-
 const templateHtml = (data, emoji, like, index) => {
   return `
     <div class="leaders__list-item">
@@ -31,5 +29,6 @@ export default (item, slideIndex) => {
     .map((user, index) => templateHtml(user, item.emoji, '👍', index));
 
   slide__list.innerHTML = usersHtml.join('').trim()
-  return htmlHead + slide__list.outerHTML
+
+  return htmlHead.concat(slide__list.outerHTML)
 }
