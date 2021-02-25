@@ -229,7 +229,7 @@ $marginCol: 12/668 *100vw;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 17 / 668 * 100vw 0;
+      padding: 17 / 668 * 100vw;
 
       &:not(:last-child){
         border-bottom: 2px solid rgba(#918F8A, .3);
