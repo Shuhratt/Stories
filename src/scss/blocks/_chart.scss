@@ -162,7 +162,7 @@ $marginCol: 12/668 *100vw;
         justify-content: center;
         flex-direction: column;
         position: absolute;
-        max-width: 120/668 * 100%;
+        max-width: 120/668 * 100vw;
         top: 0;
         left: 0;
         right: 0;
@@ -222,13 +222,14 @@ $marginCol: 12/668 *100vw;
       flex-direction: column;
       width: 100%;
       max-width: 304/688 * 100%;
+      margin-left: 40/668 * 100vw;
     }
 
     &__row{
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 17 / 668 * 100vw;
+      padding: 17 / 668 * 100vw 0;
 
       &:not(:last-child){
         border-bottom: 2px solid rgba(#918F8A, .3);
