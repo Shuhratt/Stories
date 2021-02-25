@@ -1,3 +1,5 @@
+import templateHead from "./templateHead";
+
 const templateCircle = (data) => {
   return `
   <div class="chart_diagram__circle">
@@ -28,10 +30,7 @@ const templateRowCommits = (data) => {
 
 
 export default (item) => {
-  const htmlHead = `
-    <h1 class="app__title">${item.title}</h1>
-    <h2 class="app__subtitle">${item.subtitle}</h2>
-  `
+  const htmlHead = templateHead(item)
   const chart_diagram = document.createElement('div')
   chart_diagram.className = 'chart_diagram';
   chart_diagram.insertAdjacentHTML('afterbegin', templateCircle(item));

@@ -1,3 +1,5 @@
+import templateHead from "./templateHead";
+
 const templateChartHtml = (data, orientation, max, heightClient ) => {
 
   const ratio = {
@@ -33,10 +35,7 @@ const templateChartUser = (data) => {
 
 export default (item, orientation) => {
   const maxUsers = 2;
-  const htmlHead = `
-    <h1 class="app__title">${item.title}</h1>
-    <h2 class="app__subtitle">${item.subtitle}</h2>
-  `
+  const htmlHead = templateHead(item);
   const chartBox = document.createElement('div')
   chartBox.className = 'chart__box'
   const maximum = Math.max.apply(null, item.values.map(item => item.value) )

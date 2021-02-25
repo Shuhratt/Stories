@@ -1,6 +1,7 @@
 import templateLeaders from "../template/templateLeaders";
 import templateChart from "../template/templateChart";
 import templateDiagram from "../template/templateDiagram";
+import templateActivity from "../template/templateActivity";
 
 
 export default class Template {
@@ -37,7 +38,7 @@ export default class Template {
 
       case 'activity':
         console.log('activity')
-        console.error('Шаблона нет')
+        return templateActivity(this.data)
       break;
 
       default:

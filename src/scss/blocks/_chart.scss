@@ -1,5 +1,21 @@
 $marginCol: 12/668 *100vw;
 
+.canvas{
+
+}
+.cube {
+  height: 100px;
+  width: 100px;
+  background: var(--column-color-active);
+  transform-style: preserve-3d;
+  display: inline-block;
+  transform: perspective(900px) rotate3d(180,-45,0,-135deg);
+
+  &:after{
+
+  }
+}
+
 .chart{
 
   &__box{

@@ -1,3 +1,5 @@
+import templateHead from "./templateHead";
+
 const templateHtml = (data, emoji, like, index) => {
   return `
     <div class="leaders__list-item">
@@ -17,10 +19,7 @@ const templateHtml = (data, emoji, like, index) => {
 
 export default (item, slideIndex) => {
   const maxUsers = 5
-  const htmlHead = `
-    <h1 class="app__title">${slideIndex} ${item.title}</h1>
-    <h2 class="app__subtitle">${item.subtitle}</h2>
-  `
+  const htmlHead = templateHead(item)
   const slide__list = document.createElement('div')
   slide__list.className = 'leaders__list'
 
