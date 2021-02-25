@@ -191,13 +191,28 @@ $marginCol: 12/668 *100vw;
       }
 
       &-chart{
+        width: 240/688 * 100vw;
+        height: 240/688 * 100vw;
 
         circle{
           fill:none;
-          stroke-width: 10;
-          stroke: #eee;
-          stroke-dasharray: 10;//  C = 2πr
-          //stroke-dashoffset: 10
+          stroke-width: 42px;
+        }
+
+        &-first{
+          stroke: green;
+        }
+
+        &-second{
+          stroke: red;
+        }
+
+        &-middle{
+          stroke: blue;
+        }
+
+        &-last{
+          stroke: yellow;
         }
       }
     }

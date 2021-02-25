@@ -12,10 +12,6 @@ export default class Template {
     this.orientation = orientation
   }
 
-  reload() {
-
-  }
-
   render() {
 
     switch(this.alias) {
