@@ -1,22 +1,23 @@
 import templateHead from "./templateHead";
 
-const templateHtml = (data) => {
-  return `
-    <div class="canvas">
-       <i class="cube"></i>
-    </div>  
-  `
+const draw = () => {
+  const canvas = document.createElement('canvas');
+  canvas.width = 442;
+  canvas.height = 112;
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  ctx.fillStyle = 'blue';
+  ctx.fillRect(10, 10, 100, 100);
+
+  document.body.appendChild(canvas)
 }
 
-window.addEventListener('window', () => {
-  console.log(document.getElementById('canvas'))
 
-})
 export default (item) => {
   const htmlHead = templateHead(item)
+  draw()
 
-
-  return htmlHead.concat(templateHtml(item))
+  return htmlHead
 }
 
