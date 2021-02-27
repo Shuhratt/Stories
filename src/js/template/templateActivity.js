@@ -13,7 +13,7 @@ const draw = () => {
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  const drawCube = (x, y, wx, wy, h, color) => {
+  const drawCube = (x, y, wx, wy, h = 8, gradient = []) => {
 
 
     //left
