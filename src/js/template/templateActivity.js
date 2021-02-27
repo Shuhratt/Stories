@@ -2,10 +2,10 @@ import templateHead from "./templateHead";
 
 const draw = () => {
   const canvas = document.createElement('canvas');
-  const width = 425/668 * 100;
-  const height = 112/376 * 100
-  canvas.style.width = `${width}vw`;
-  canvas.style.height =`${height}vh`;
+  const widthRatio = 425/668;
+  const heightRatio = 112/376;
+  canvas.width = window.innerWidth * widthRatio;
+  canvas.height = window.innerHeight * heightRatio;
   canvas.style.marginLeft = 'auto'
   canvas.style.marginRight = 'auto'
   canvas.style.display = 'block'
@@ -15,6 +15,7 @@ const draw = () => {
 
   const drawCube = (x, y, wx, wy, h, color) => {
 
+
     //left
     ctx.beginPath();
     ctx.moveTo(x, y);
@@ -22,7 +23,12 @@ const draw = () => {
     ctx.lineTo(x - wx, y + h); // 3
     ctx.lineTo(x, y + wy + h); // 4
     ctx.closePath();
-    ctx.fillStyle = color;
+
+    const gradientLeft = ctx.createLinearGradient(x - wx, y - wy, x - wx, y + h);// 2,3
+    gradientLeft.addColorStop(0, 'rgba(62, 57, 52, 0.7)');
+    gradientLeft.addColorStop(1, 'rgba(34, 31, 28, 0.7)');
+
+    ctx.fillStyle = gradientLeft;
     ctx.stroke();
     ctx.fill();
 
@@ -33,7 +39,12 @@ const draw = () => {
     ctx.lineTo(x + wx, y + h); // 3
     ctx.lineTo(x, y + wy + h); // 4
     ctx.closePath();
-    ctx.fillStyle = color;
+
+    const gradientRight= ctx.createLinearGradient(x + wx, y - wy, x + wx, y + h);// 2,3
+    gradientRight.addColorStop(0, 'rgba(62, 57, 52, 0.7)');
+    gradientRight.addColorStop(1, 'rgba(34, 31, 28, 0.7)');
+
+    ctx.fillStyle = gradientRight;
     ctx.stroke();
     ctx.fill();
 
@@ -41,31 +52,41 @@ const draw = () => {
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(x - wx, y - wy); // 2
-    ctx.lineTo(x, y - wy - h); // 3
+    ctx.lineTo(x, y - wy * 2); // 3
     ctx.lineTo(x + wx, y - wy); // 4
 
+    const gradientTop = ctx.createLinearGradient(x - wx, y - wy, x, y - wy * 2);// 2,3
+    gradientTop.addColorStop(0, 'rgba(62, 57, 52, 0.7)');
+    gradientTop.addColorStop(1, 'rgba(34, 31, 28, 0.7)');
+
     ctx.closePath();
-    ctx.fillStyle = color;
+    ctx.fillStyle = gradientTop;
     ctx.stroke();
     ctx.fill();
 
   }
-  // a = 30.26 / строна ромба
+  // Сторона ромба равна 20.808652046684813
 
   drawCube(
-    30, // loop
-    60, // loop
-    30,
-    30,
-    30,
-    'blue'
+    20, // первая точка
+    25, // первый ряд
+    17,
+    12,
+    8,
   ); // fig 1
   drawCube(
-    90,
-    60,
-    30,
-    30,
-    30,
+    54,// шаг 34
+    25,
+    17,
+    12,
+    8,
+  );// fig 2
+  drawCube(
+    88,
+    25,
+    17,
+    12,
+    20,
     'red'
   );// fig 2
 

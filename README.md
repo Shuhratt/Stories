@@ -3,3 +3,15 @@
 1. Webpack
 2. lodash
 
+#### Размышеления:
+Шаблон leaders:
+
+Шаблон vote:
+
+Шаблон chart:
+
+Шаблон diagram:
+
+Шаблон activity:
+three.js или native(canvas)
+
