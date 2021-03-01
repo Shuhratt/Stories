@@ -21,6 +21,7 @@ module.exports = {
         ],
       },
     ],
+
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -48,5 +49,10 @@ module.exports = {
     open: true,
     port: 8080
   },
-  mode: 'production'
+  mode: 'production',
+  performance: {
+    // hints: false,
+    maxEntrypointSize: 1048576,
+    maxAssetSize: 1048576,
+  },
 };
