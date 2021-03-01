@@ -1,11 +1,35 @@
 import templateHead from "./templateHead";
 
-const draw = () => {
+const stateGradients = {
+  default: {
+    left: ['rgba(0, 0, 0, 0.65)', 'rgba(19, 17, 16, 0.65)', 'rgba(112, 102, 94, 0.2)'],
+    right: ['rgba(58, 53, 48, 0.8)', 'rgba(73, 66, 61, 0.8)', 'rgba(112, 102, 94, 0.2)'],
+    top: ['rgba(34, 31, 28, 0.7)', 'rgba(62, 57, 52, 0.7)', 'rgba(236, 234, 233, 0.15)']
+  },
+  third: {
+    left: ['rgba(35, 22, 0, 0.9)', 'rgba(112, 92, 94, 0.9)', 'rgba(93, 116, 141, 0.6)'],
+    right: ['rgba(35, 22, 0, 0.9)', 'rgba(112, 92, 94, 0.9)', 'rgba(93, 116, 141, 0.6)'],
+    top: ['rgba(35, 22, 0, 0.9)', 'rgba(112, 92, 94, 0.9)', 'rgba(93, 116, 141, 0.6)']
+  },
+  middle: {
+    left: ['rgba(33, 22, 2, 0.9)', 'rgba(172, 113, 9, 0.9)', 'rgba(242, 159, 13, 0.2)'],
+    right: ['rgba(32, 21, 2, 1)', 'rgba(199, 131, 10, 1)', 'rgba(255, 255, 255, 0.2)'],
+    top: ['rgba(33, 22, 2, 0.8)', 'rgba(172, 113, 9, 0.8)', 'rgba(242, 159, 13, 0.2)']
+  },
+  maximum: {
+    left: ['rgba(32, 21, 2, 1)', 'rgba(199, 131, 10, 1)', 'rgba(242, 159, 13, 0.9)'],
+    right: ['rgba(32, 21, 2, 1)', 'rgba(199, 131, 10, 1)', 'rgba(242, 159, 13, 0.9)'],
+    top: ['rgba(32, 21, 2, 0.8)', 'rgba(199, 131, 10, 0.8)', 'rgba(255, 255, 255, 0.2)']
+  }
+
+}
+
+const draw = (scaleX, scaleY) => {
   const canvas = document.createElement('canvas');
   const widthRatio = 425/668;
   const heightRatio = 112/376;
   canvas.width = window.innerWidth * widthRatio;
-  canvas.height = window.innerHeight * heightRatio;
+  canvas.height = window.innerHeight;
   canvas.style.marginLeft = 'auto'
   canvas.style.marginRight = 'auto'
   canvas.style.display = 'block'
@@ -14,9 +38,11 @@ const draw = () => {
 
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.scale(2.5, 2.5); //
 
+  const drawCube = (x, y, wx, wy, h , gradient = {}, key = 'default') => {
+    ctx.lineJoin = "round"
 
-  const drawCube = (x, y, wx, wy, h = 8, gradient = []) => {
 
     //left
     ctx.beginPath();
@@ -24,17 +50,18 @@ const draw = () => {
     ctx.lineTo(x - wx, y - wy); // 2
     ctx.lineTo(x - wx, y - wy - h); // 3
     ctx.lineTo(x, y - h); // 4
-
+    ctx.lineCap = 'round';
     ctx.closePath();
-    const color = '#fff'
-    const gradientLeft = ctx.createLinearGradient(x - wx, y - wy, x - wx, y + h);// 2,3
-    gradientLeft.addColorStop(0, 'rgba(62, 57, 52, 0.7)');
-    gradientLeft.addColorStop(1, 'rgba(34, 31, 28, 0.7)');
 
-    ctx.fillStyle = color;
+    const gradientLeft = ctx.createLinearGradient(x - wx, y - wy, x, y );// 2,3
+    gradientLeft.addColorStop(0, gradient[key].left[0]);
+    gradientLeft.addColorStop(1, gradient[key].left[1]);
+    ctx.strokeStyle = gradientLeft
+    ctx.fillStyle = gradientLeft;
+    // ctx.shadowColor = gradient[key].left[2];
+    // ctx.shadowBlur = 0.1;
     ctx.stroke();
     ctx.fill();
-
 
     //right
     ctx.beginPath();
@@ -44,58 +71,91 @@ const draw = () => {
     ctx.lineTo(x + wx, y - wy); // 4
     ctx.closePath();
 
-    const gradientRight= ctx.createLinearGradient(x + wx, y - wy, x + wx, y + h);// 2,3
-    gradientRight.addColorStop(0, 'rgba(62, 57, 52, 0.7)');
-    gradientRight.addColorStop(1, 'rgba(34, 31, 28, 0.7)');
+    const gradientRight= ctx.createLinearGradient(x, y - h, x + wx, y - h - wy);// 2,3
+    gradientRight.addColorStop(0, gradient[key].right[0]);
+    gradientRight.addColorStop(1, gradient[key].right[1]);
 
-    ctx.fillStyle = color;
+    ctx.strokeStyle = gradientRight
+    ctx.fillStyle = gradientRight;
+    // ctx.shadowColor = gradient[key].right[2];
+    // ctx.shadowBlur = 0.1;
     ctx.stroke();
     ctx.fill();
 
-    // //top
+    //top
     ctx.beginPath();
     ctx.moveTo(x, y - h);
     ctx.lineTo(x - wx, y - wy - h); // 2
     ctx.lineTo(x, y - h - wy * 2); // 3
     ctx.lineTo(x + wx, y - h - wy); // 4
 
-    const gradientTop = ctx.createLinearGradient(x - wx, y - wy, x, y - wy * 2);// 2,3
-    gradientTop.addColorStop(0, 'rgba(62, 57, 52, 0.7)');
-    gradientTop.addColorStop(1, 'rgba(34, 31, 28, 0.7)');
-
     ctx.closePath();
-    ctx.fillStyle = color;
+
+    const gradientTop = ctx.createLinearGradient(x - wx, y - wy - h, x, y - h - wy * 2);// 2,3
+    gradientTop.addColorStop(0, gradient[key].top[0]);
+    gradientTop.addColorStop(1, gradient[key].top[1]);
+
+    ctx.strokeStyle = gradientTop
+    ctx.fillStyle = gradientTop;
+    ctx.shadowColor = gradient[key].top[2];
+    ctx.shadowBlur = 0.1;
+    // ctx.shadowOffsetX = 1;
+    // ctx.shadowOffsetY = 0;
+
     ctx.stroke();
     ctx.fill();
+
 
 
   }
   // Сторона ромба равна 20.808652046684813
 
+  // первый ряд
   drawCube(
-    20, // первая точка
-    50, // первый ряд
-    17,
-    12,
-    20,
-  ); // fig 1
-  drawCube(
-    54,// шаг 34
+    17, // первая точка
     50,
     17,
     12,
-    10,
-  );// fig 2
-  // drawCube(
-  //   88,
-  //   25,
-  //   17,
-  //   12,
-  //   20,
-  //   'red'
-  // );// fig 2
-  //
+    20,
+    stateGradients
+  );
+  drawCube(
+    51,// шаг по x - 34
+    50,
+    17,
+    12,
+    15,
+    stateGradients
+  );
 
+  // второй ряд
+  drawCube(
+    34,// шаг по x - 34
+    62, // Второй ряд, шаг по Y - 12
+    17,
+    12,
+    35,
+    stateGradients,
+    'maximum'
+  );
+  drawCube(
+    68,// шаг по x - 34
+    62, // Второй ряд, шаг по Y - 12
+    17,
+    12,
+    15,
+    stateGradients
+  );
+
+  // третий ряд
+  drawCube(
+    17,// шаг по x - 34
+    74, // Второй ряд, шаг по Y - 12
+    17,
+    12,
+    15,
+    stateGradients
+  );
 
 
 
