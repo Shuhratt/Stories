@@ -19,7 +19,7 @@ const stateGradients = {
   maximum: {
     left: ['rgba(32, 21, 2, 1)', 'rgba(199, 131, 10, 1)', 'rgba(242, 159, 13, 0.9)'],
     right: ['rgba(32, 21, 2, 1)', 'rgba(199, 131, 10, 1)', 'rgba(242, 159, 13, 0.9)'],
-    top: ['rgba(32, 21, 2, 0.8)', 'rgba(199, 131, 10, 0.8)', 'rgba(255, 255, 255, 0.2)']
+    top: ['rgba(32, 21, 2, 0.8)', 'rgba(199, 131, 10, 0.8)', 'rgba(242, 159, 13, 0.9)']
   }
 
 }
@@ -43,14 +43,12 @@ const draw = (scaleX, scaleY) => {
   const drawCube = (x, y, wx, wy, h , gradient = {}, key = 'default') => {
     ctx.lineJoin = "round"
 
-
     //left
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(x - wx, y - wy); // 2
     ctx.lineTo(x - wx, y - wy - h); // 3
     ctx.lineTo(x, y - h); // 4
-    ctx.lineCap = 'round';
     ctx.closePath();
 
     const gradientLeft = ctx.createLinearGradient(x - wx, y - wy, x, y );// 2,3
@@ -88,19 +86,21 @@ const draw = (scaleX, scaleY) => {
     ctx.lineTo(x - wx, y - wy - h); // 2
     ctx.lineTo(x, y - h - wy * 2); // 3
     ctx.lineTo(x + wx, y - h - wy); // 4
-
+    // ctx.shadowInset = true;
+    // ctx.shadowColor = gradient[key].top[2];
+    // ctx.shadowBlur = 0.01;
+    // ctx.shadowOffsetX = -2;
+    // ctx.shadowOffsetY = -2;
     ctx.closePath();
 
     const gradientTop = ctx.createLinearGradient(x - wx, y - wy - h, x, y - h - wy * 2);// 2,3
     gradientTop.addColorStop(0, gradient[key].top[0]);
     gradientTop.addColorStop(1, gradient[key].top[1]);
 
-    ctx.strokeStyle = gradientTop
+
+    ctx.strokeStyle = gradientTop;
     ctx.fillStyle = gradientTop;
-    ctx.shadowColor = gradient[key].top[2];
-    ctx.shadowBlur = 0.1;
-    // ctx.shadowOffsetX = 1;
-    // ctx.shadowOffsetY = 0;
+
 
     ctx.stroke();
     ctx.fill();
