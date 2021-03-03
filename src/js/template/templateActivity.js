@@ -1,5 +1,5 @@
 import templateHead from "./templateHead";
-import _ from "lodash"
+import {formatClock} from "../functions/functions";
 
 const draw = (data, scaleX, scaleY) => {
   const stateGradients = {
@@ -93,7 +93,7 @@ const draw = (data, scaleX, scaleY) => {
     // ctx.shadowOffsetX = -2;
     // ctx.shadowOffsetY = -2;
     ctx.font = "8px serif";
-    ctx.fillText(`x: ${x}, y: ${y}, h: ${h}`, x, y);//debug
+    ctx.fillText(`h: ${h}`, x, y);//debug
     ctx.closePath();
 
     const gradientTop = ctx.createLinearGradient(x - wx, y - wy - h, x, y - h - wy * 2);// 2,3
@@ -110,7 +110,7 @@ const draw = (data, scaleX, scaleY) => {
   const countHours = 12
 
   let startPointX = 17
-  const stepHorizontal = 17// исправлено на 17 (было 34)
+  const stepHorizontal = 17 // исправлено на 17 (было 34)
 
   let startPointY = 50
   const stepVertical = 12
@@ -118,28 +118,6 @@ const draw = (data, scaleX, scaleY) => {
   const minHeight = 10
 
   const days = Object.values(data.data)
-
-
-  const formatClock = (data, hours) => {
-    let start = 0,
-        end = hours;
-
-    const result = data.reduce((acc, current, i, arr) => {
-      const resultSlice = arr.slice(start, end)
-
-      if (resultSlice.length > 0){
-        const numTwoHours = resultSlice.reduce((sum, count) => sum += count, 0)
-        acc.push(numTwoHours)
-        start += hours
-        end += hours
-      }
-      return acc
-    },[])
-
-    return result
-  }
-
-
 
   days.map((day, index) => {
     let num = index += 1
@@ -150,7 +128,10 @@ const draw = (data, scaleX, scaleY) => {
     const formatTwelve = formatClock(day, 2)
 
     formatTwelve.map((hours) => {
-      // drawCube(PointX += 34, PointY, 17,12, 10, stateGradients )
+      const minHeight = 10
+      const stepHeight = 10
+      let height = hours > 0 ? hours * stepHeight : minHeight
+      drawCube(PointX += 34, PointY, 17,12, height, stateGradients, 'middle' )
     });
 
   })
