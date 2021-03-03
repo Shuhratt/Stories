@@ -1,4 +1,8 @@
 
+export const buildHeight = (value, step, min) =>{
+  return value > 0 ? value * step : min
+}
+
 export const formatClock = (data, hours) => {
   let start = 0,
     end = hours;

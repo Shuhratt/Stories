@@ -1,5 +1,5 @@
 import templateHead from "./templateHead";
-import {formatClock} from "../functions/functions";
+import {buildHeight, formatClock} from "../functions/functions";
 
 const draw = (data, scaleX, scaleY) => {
   const stateGradients = {
@@ -40,6 +40,7 @@ const draw = (data, scaleX, scaleY) => {
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.scale(2.5, 2.5); //
+  ctx.translate(0, 50)
 
   const drawCube = (x, y, wx, wy, h , gradient = {}, key = 'default') => {
     ctx.lineJoin = "round"
@@ -123,15 +124,14 @@ const draw = (data, scaleX, scaleY) => {
     let num = index += 1
     let PointX = num % 2 ? startPointX + stepHorizontal : startPointX
     let PointY =  startPointY += stepVertical
-    // console.log(PointX)
-    drawCube(PointX, PointY, 17,12, 10, stateGradients )
     const formatTwelve = formatClock(day, 2)
 
+    const height = buildHeight(formatTwelve[0], 10, 5)
+    drawCube(PointX, PointY, 17,12, height, stateGradients )
+
     formatTwelve.map((hours) => {
-      const minHeight = 10
-      const stepHeight = 10
-      let height = hours > 0 ? hours * stepHeight : minHeight
-      drawCube(PointX += 34, PointY, 17,12, height, stateGradients, 'middle' )
+      const height2 = buildHeight(hours, 10, 5)
+      drawCube(PointX += 34, PointY, 17,12, height2, stateGradients, 'middle' )
     });
 
   })
