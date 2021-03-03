@@ -1,30 +1,31 @@
 import templateHead from "./templateHead";
+import _ from "lodash"
 
-const stateGradients = {
-  default: {
-    left: ['rgba(0, 0, 0, 0.65)', 'rgba(19, 17, 16, 0.65)', 'rgba(112, 102, 94, 0.2)'],
-    right: ['rgba(58, 53, 48, 0.8)', 'rgba(73, 66, 61, 0.8)', 'rgba(112, 102, 94, 0.2)'],
-    top: ['rgba(34, 31, 28, 0.7)', 'rgba(62, 57, 52, 0.7)', 'rgba(236, 234, 233, 0.15)']
-  },
-  third: {
-    left: ['rgba(35, 22, 0, 0.9)', 'rgba(112, 92, 94, 0.9)', 'rgba(93, 116, 141, 0.6)'],
-    right: ['rgba(35, 22, 0, 0.9)', 'rgba(112, 92, 94, 0.9)', 'rgba(93, 116, 141, 0.6)'],
-    top: ['rgba(35, 22, 0, 0.9)', 'rgba(112, 92, 94, 0.9)', 'rgba(93, 116, 141, 0.6)']
-  },
-  middle: {
-    left: ['rgba(33, 22, 2, 0.9)', 'rgba(172, 113, 9, 0.9)', 'rgba(242, 159, 13, 0.2)'],
-    right: ['rgba(32, 21, 2, 1)', 'rgba(199, 131, 10, 1)', 'rgba(255, 255, 255, 0.2)'],
-    top: ['rgba(33, 22, 2, 0.8)', 'rgba(172, 113, 9, 0.8)', 'rgba(242, 159, 13, 0.2)']
-  },
-  maximum: {
-    left: ['rgba(32, 21, 2, 1)', 'rgba(199, 131, 10, 1)', 'rgba(242, 159, 13, 0.9)'],
-    right: ['rgba(32, 21, 2, 1)', 'rgba(199, 131, 10, 1)', 'rgba(242, 159, 13, 0.9)'],
-    top: ['rgba(32, 21, 2, 0.8)', 'rgba(199, 131, 10, 0.8)', 'rgba(242, 159, 13, 0.9)']
+const draw = (data, scaleX, scaleY) => {
+  const stateGradients = {
+    default: {
+      left: ['rgba(0, 0, 0, 0.65)', 'rgba(19, 17, 16, 0.65)', 'rgba(112, 102, 94, 0.2)'],
+      right: ['rgba(58, 53, 48, 0.8)', 'rgba(73, 66, 61, 0.8)', 'rgba(112, 102, 94, 0.2)'],
+      top: ['rgba(34, 31, 28, 0.7)', 'rgba(62, 57, 52, 0.7)', 'rgba(236, 234, 233, 0.15)']
+    },
+    third: {
+      left: ['rgba(35, 22, 0, 0.9)', 'rgba(112, 92, 94, 0.9)', 'rgba(93, 116, 141, 0.6)'],
+      right: ['rgba(35, 22, 0, 0.9)', 'rgba(112, 92, 94, 0.9)', 'rgba(93, 116, 141, 0.6)'],
+      top: ['rgba(35, 22, 0, 0.9)', 'rgba(112, 92, 94, 0.9)', 'rgba(93, 116, 141, 0.6)']
+    },
+    middle: {
+      left: ['rgba(33, 22, 2, 0.9)', 'rgba(172, 113, 9, 0.9)', 'rgba(242, 159, 13, 0.2)'],
+      right: ['rgba(32, 21, 2, 1)', 'rgba(199, 131, 10, 1)', 'rgba(255, 255, 255, 0.2)'],
+      top: ['rgba(33, 22, 2, 0.8)', 'rgba(172, 113, 9, 0.8)', 'rgba(242, 159, 13, 0.2)']
+    },
+    maximum: {
+      left: ['rgba(32, 21, 2, 1)', 'rgba(199, 131, 10, 1)', 'rgba(242, 159, 13, 0.9)'],
+      right: ['rgba(32, 21, 2, 1)', 'rgba(199, 131, 10, 1)', 'rgba(242, 159, 13, 0.9)'],
+      top: ['rgba(32, 21, 2, 0.8)', 'rgba(199, 131, 10, 0.8)', 'rgba(242, 159, 13, 0.9)']
+    }
+
   }
 
-}
-
-const draw = (scaleX, scaleY) => {
   const canvas = document.createElement('canvas');
   const widthRatio = 425/668;
   const heightRatio = 112/376;
@@ -91,71 +92,98 @@ const draw = (scaleX, scaleY) => {
     // ctx.shadowBlur = 0.01;
     // ctx.shadowOffsetX = -2;
     // ctx.shadowOffsetY = -2;
+    ctx.font = "8px serif";
+    ctx.fillText(`x: ${x}, y: ${y}, h: ${h}`, x, y);//debug
     ctx.closePath();
 
     const gradientTop = ctx.createLinearGradient(x - wx, y - wy - h, x, y - h - wy * 2);// 2,3
     gradientTop.addColorStop(0, gradient[key].top[0]);
     gradientTop.addColorStop(1, gradient[key].top[1]);
 
-
     ctx.strokeStyle = gradientTop;
     ctx.fillStyle = gradientTop;
-
-
     ctx.stroke();
     ctx.fill();
-
-
-
   }
   // Сторона ромба равна 20.808652046684813
 
-  // первый ряд
-  drawCube(
-    17, // первая точка
-    50,
-    17,
-    12,
-    20,
-    stateGradients
-  );
-  drawCube(
-    51,// шаг по x - 34
-    50,
-    17,
-    12,
-    15,
-    stateGradients
-  );
+  const countHours = 12
 
-  // второй ряд
-  drawCube(
-    34,// шаг по x - 34
-    62, // Второй ряд, шаг по Y - 12
-    17,
-    12,
-    35,
-    stateGradients,
-    'maximum'
-  );
-  drawCube(
-    68,// шаг по x - 34
-    62, // Второй ряд, шаг по Y - 12
-    17,
-    12,
-    15,
-    stateGradients
-  );
+  let startPointX = 17
+  const stepHorizontal = 17// исправлено на 17 (было 34)
 
-  // третий ряд
-  drawCube(
-    17,// шаг по x - 34
-    74, // Второй ряд, шаг по Y - 12
-    17,
-    12,
-    15,
-    stateGradients
-  );
+  let startPointY = 50
+  const stepVertical = 12
+
+  const minHeight = 10
+
+  const days = Object.values(data.data)
+
+  days.map((day, index) => {
+    let num = index += 1
+    let PointX = num % 2 ? startPointX + stepHorizontal : startPointX
+    let PointY =  startPointY += stepVertical
+    // console.log(PointX)
+    drawCube(PointX, PointY, 17,12, 10, stateGradients )
+
+    const arr = day.reduce((acc, el) => {
+
+    },[])
+
+    console.log(day.length)
+    // day.map((hours) => {
+    //   drawCube(PointX += 17, PointY, 17,12, 10, stateGradients )
+    // });
+
+  })
+
+
+  //первый ряд
+ //  drawCube(
+ //    17, // первая точка
+ //    50,
+ //    17,
+ //    12,
+ //    20,
+ //    stateGradients
+ //  );
+ //  drawCube(
+ //    51,// шаг по x - 34
+ //    50,
+ //    17,
+ //    12,
+ //    15,
+ //    stateGradients
+ //  );
+ //
+ //  // второй ряд
+ //  drawCube(
+ //    34,// шаг по x - 34
+ //    62, // Второй ряд, шаг по Y - 12
+ //    17,
+ //    12,
+ //    35,
+ //    stateGradients,
+ //    'maximum'
+ //  );
+ //  drawCube(
+ //    68,// шаг по x - 34
+ //    62, // Второй ряд, шаг по Y - 12
+ //    17,
+ //    12,
+ //    15,
+ //    stateGradients
+ //  );
+ //
+ // //третий ряд
+ //  drawCube(
+ //    17,// шаг по x - 34
+ //    74, // Второй ряд, шаг по Y - 12
+ //    17,
+ //    12,
+ //    15,
+ //    stateGradients
+ //  );
 
 
 
@@ -166,7 +194,7 @@ const draw = (scaleX, scaleY) => {
 
 export default (item) => {
   const htmlHead = templateHead(item)
-  draw()
+  draw(item)
 
   return htmlHead
 }
