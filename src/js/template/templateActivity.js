@@ -119,21 +119,39 @@ const draw = (data, scaleX, scaleY) => {
 
   const days = Object.values(data.data)
 
+
+  const formatClock = (data, hours) => {
+    let start = 0,
+        end = hours;
+
+    const result = data.reduce((acc, current, i, arr) => {
+      const resultSlice = arr.slice(start, end)
+
+      if (resultSlice.length > 0){
+        const numTwoHours = resultSlice.reduce((sum, count) => sum += count, 0)
+        acc.push(numTwoHours)
+        start += hours
+        end += hours
+      }
+      return acc
+    },[])
+
+    return result
+  }
+
+
+
   days.map((day, index) => {
     let num = index += 1
     let PointX = num % 2 ? startPointX + stepHorizontal : startPointX
     let PointY =  startPointY += stepVertical
     // console.log(PointX)
     drawCube(PointX, PointY, 17,12, 10, stateGradients )
+    const formatTwelve = formatClock(day, 2)
 
-    const arr = day.reduce((acc, el) => {
-
-    },[])
-
-    console.log(day.length)
-    // day.map((hours) => {
-    //   drawCube(PointX += 17, PointY, 17,12, 10, stateGradients )
-    // });
+    formatTwelve.map((hours) => {
+      // drawCube(PointX += 34, PointY, 17,12, 10, stateGradients )
+    });
 
   })
 
