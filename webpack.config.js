@@ -25,12 +25,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      inject: true,
-      filename: 'index.html',
-      template: 'src/index.html',
-      minify: false
-    }),
+    new HtmlWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'stories.css'
     }),
