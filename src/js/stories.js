@@ -26,7 +26,7 @@
 
     const template = new Template(alias, data, slideIndex, orientation);
     const html = template.render()
-    // app.innerHTML = ''
+    app.innerHTML = ''
     app.insertAdjacentHTML('afterbegin', html)
   }
 
