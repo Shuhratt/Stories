@@ -14,15 +14,19 @@
     dark: 'theme_dark'
   }
 
+  sessionStorage.setItem('theme', themeValue ? themeValue : 'dark')
   themeValue ? document.body.classList.add(themes[themeValue]) : ''
 
   window.renderTemplate = (alias, data) => {
     const orientation = getOrientDeviceClient()
     console.log(slideIndex)
     console.log(orientation)
+    console.log(sessionStorage.getItem('theme')) // theme
+
+
     const template = new Template(alias, data, slideIndex, orientation);
     const html = template.render()
-    app.innerHTML = ''
+    // app.innerHTML = ''
     app.insertAdjacentHTML('afterbegin', html)
   }
 

@@ -38,7 +38,7 @@ export default class Template {
 
       case 'activity':
         console.log('activity')
-        return templateActivity(this.data)
+        return templateActivity(this.data, this.orientation)
       break;
 
       default:
