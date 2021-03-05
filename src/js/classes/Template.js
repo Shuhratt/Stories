@@ -5,8 +5,15 @@ import templateActivity from "../template/templateActivity";
 
 
 export default class Template {
+  /**
+   * @param alias
+   * @param data
+   * @param index
+   * @param orientation
+   */
 
   constructor(alias, data, index, orientation = 'landscape') {
+
     this.alias = alias
     this.data = data
     this.index = index

@@ -15,7 +15,14 @@
   sessionStorage.setItem('theme', themeValue ? themeValue : 'dark')
   themeValue ? document.body.classList.add(themes[themeValue]) : ''
 
+
+
   window.renderTemplate = (alias, data) => {
+    /**
+     *
+     * @return {string}
+     */
+
     const orientation = getOrientDeviceClient()
     console.log(slideIndex)
     console.log(orientation)
@@ -36,8 +43,7 @@
       const alias = result[slideIndex].alias
       const data = result[slideIndex].data
       const html = renderTemplate(alias, data)
-      console.log(2)
-      document.body.innerHTML = html
+      document.querySelector('app').innerHTML = html
 
       window.addEventListener('resize', (e) => {
         // document.body.innerHTML = ''
