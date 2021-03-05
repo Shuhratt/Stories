@@ -50,7 +50,6 @@ const draw = (data, selector, scaleX, scaleY) => {
   }
 
   const canvas = document.createElement('canvas');
-  const app = document.getElementById('app')
   const widthRatio = 425/668;
   // const heightRatio = 112/376;
   canvas.width = window.innerWidth * widthRatio;
@@ -59,8 +58,8 @@ const draw = (data, selector, scaleX, scaleY) => {
   canvas.style.marginRight = 'auto'
   canvas.style.display = 'block'
 
-
-  app.append(canvas)
+  console.log(1)
+  document.body.append(canvas)
 
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -176,8 +175,14 @@ const draw = (data, selector, scaleX, scaleY) => {
 export default (item, orientation) => {
   const htmlHead = templateHead(item)
 
+  const app = document.createElement('div')
+  app.className = 'app'
+
+  app.append(htmlHead)
+
   draw(item)
 
-  return htmlHead
+
+  return app.outerHTML
 }
 
