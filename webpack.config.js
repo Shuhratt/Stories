@@ -51,7 +51,7 @@ module.exports = {
         {from:'src/data.json',to: path.resolve(__dirname, 'build')}
       ],
     }),
-    new FaviconsWebpackPlugin('./src/images/favicons/faviconSvg.svg')
+    // new FaviconsWebpackPlugin('./src/images/favicons/faviconSvg.svg')
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),

@@ -60,7 +60,11 @@ const draw = (data, selector, scaleX, scaleY) => {
   canvas.style.display = 'block'
 
   const canvasRender = document.querySelector('canvas')
-  canvasRender.parentNode.removeChild(canvasRender);
+  console.log(canvasRender)
+  if (canvasRender) {
+    console.log(canvasRender.parentNode)
+  }
+  // canvasRender.parentNode.removeChild(canvasRender);
   document.body.append(canvas)
 
   const ctx = canvas.getContext('2d');
