@@ -44,14 +44,12 @@
       const alias = result[slideIndex].alias
       const data = result[slideIndex].data
       const html = renderTemplate(alias, data)
-      const app = document.querySelector('.app')
-      app.innerHTML = html
+      document.body.innerHTML = html
 
       window.addEventListener('resize', (e) => {
-        // document.body.innerHTML = ''
         const html = renderTemplate(alias, data)
-        app.innerHTML = ''
-        app.innerHTML = html
+        document.body.innerHTML = ''
+        document.body.innerHTML = html
       })
 
     }).catch(e => {

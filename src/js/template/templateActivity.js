@@ -1,6 +1,8 @@
 import templateHead from "./templateHead";
 import {buildHeight, formatClock} from "../functions/functions";
 
+import svgMinColDark from "../../images/min-dark.svg"
+
 const drawCanvas = (data) => {
   const activity = document.createElement('div')
   activity.className = 'activity'
@@ -12,6 +14,7 @@ const drawCanvas = (data) => {
   const createCube = (skin) => {
     const cube = document.createElement('div')
     cube.className = 'activity__col'
+    cube.innerHTML = svgMinColDark
     return cube
   }
 
@@ -39,15 +42,15 @@ const drawCanvas = (data) => {
 export default (item, orientation) => {
   const htmlHead = templateHead(item)
 
-  const appBox = document.createElement('div')
-  appBox.className = 'app__box'
+  const app = document.createElement('div')
+  app.className = 'app'
 
-  appBox.append(htmlHead)
+  app.append(htmlHead)
 
-  appBox.append(drawCanvas(item))
+  app.append(drawCanvas(item))
 
 
-  return appBox.outerHTML
+  return app.outerHTML
 }
 
 // const draw = (data, selector, scaleX, scaleY) => {
