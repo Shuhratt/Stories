@@ -28,9 +28,18 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Приложение',
-      minify: false,
       meta: {viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'},
-      hash: true
+      hash: true,
+      templateContent: ({htmlWebpackPlugin}) => `
+          <html>
+            <head>
+             <title>${ htmlWebpackPlugin.options.title }</title>
+            </head>
+            <body>
+              <div class="app"></div>
+            </body>
+          </html>
+        `
     }),
     new MiniCssExtractPlugin({
       filename: 'stories.css'
@@ -42,7 +51,7 @@ module.exports = {
         {from:'src/data.json',to: path.resolve(__dirname, 'build')}
       ],
     }),
-    new FaviconsWebpackPlugin('./src/images/favicons/favicon.png')
+    new FaviconsWebpackPlugin('./src/images/favicons/faviconSvg.svg')
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),

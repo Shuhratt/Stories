@@ -2,6 +2,7 @@ import templateHead from "./templateHead";
 import {buildHeight, formatClock} from "../functions/functions";
 
 const draw = (data, selector, scaleX, scaleY) => {
+
   const stateGradients = {
     dark: {
       default: {
@@ -58,7 +59,8 @@ const draw = (data, selector, scaleX, scaleY) => {
   canvas.style.marginRight = 'auto'
   canvas.style.display = 'block'
 
-  console.log(1)
+  const canvasRender = document.querySelector('canvas')
+  canvasRender.parentNode.removeChild(canvasRender);
   document.body.append(canvas)
 
   const ctx = canvas.getContext('2d');
@@ -175,14 +177,14 @@ const draw = (data, selector, scaleX, scaleY) => {
 export default (item, orientation) => {
   const htmlHead = templateHead(item)
 
-  const app = document.createElement('div')
-  app.className = 'app'
+  const appBox = document.createElement('div')
+  appBox.className = 'app__box'
 
-  app.append(htmlHead)
+  appBox.append(htmlHead)
 
   draw(item)
 
 
-  return app.outerHTML
+  return appBox.outerHTML
 }
 

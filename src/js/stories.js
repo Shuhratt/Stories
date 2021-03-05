@@ -40,16 +40,18 @@
   fetch(url)
     .then(response => response.json())
     .then(result => {
+
       const alias = result[slideIndex].alias
       const data = result[slideIndex].data
       const html = renderTemplate(alias, data)
-      document.querySelector('app').innerHTML = html
+      const app = document.querySelector('.app')
+      app.innerHTML = html
 
       window.addEventListener('resize', (e) => {
         // document.body.innerHTML = ''
         const html = renderTemplate(alias, data)
-
-        document.body.innerHTML = html
+        app.innerHTML = ''
+        app.innerHTML = html
       })
 
     }).catch(e => {

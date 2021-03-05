@@ -32,8 +32,7 @@ const templateRowCommits = (data) => {
 export default (item) => {
   const htmlHead = templateHead(item)
 
-  const app = document.createElement('div')
-  app.className = 'app'
+  const app = document.querySelector('.app')
 
   app.append(htmlHead)
 

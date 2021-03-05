@@ -13,7 +13,6 @@ export default class Template {
    */
 
   constructor(alias, data, index, orientation = 'landscape') {
-
     this.alias = alias
     this.data = data
     this.index = index

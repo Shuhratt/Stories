@@ -1,4 +1,9 @@
 export default (data) => {
+  /**
+   *
+   * @type {HTMLDivElement}
+   */
+
   const app__header = document.createElement('div')
   app__header.className = 'app__header'
 
