@@ -2,30 +2,51 @@
   position: relative;
   margin: auto auto 0;
   width: 100%;
-  height: calc(100vh - 100px);
-  max-width: 458/688 * 100vw;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+
+  &_portrait{
+    flex-direction: row;
+    min-height: inherit;
+    height: auto;
+    max-width: 100%;
+  }
+
+  &_landscape{
+    height: calc(100vh - 100px);
+    max-width: 458/688 * 100vw;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 500px;
+  }
 
 
-  &__row{
-    display: flex;
-    max-height: 34/668 * 100vw;
+  &__box{
 
-    &:not(:first-child){
-      margin-top: -22/668 * 100vw;
+    &_landscape{
+      display: flex;
+      max-height: 34/668 * 100vw;
+
+      &:not(:first-child){
+        margin-top: -22/668 * 100vw;
+      }
+
+      &:nth-child(2n){
+        justify-content: center;
+      }
     }
 
-    &:nth-child(2n){
-      justify-content: center;
+    &_portrait{
+
     }
+
+
 
   }
 
-  &__col{
-    min-width: 34/668 * 100vw;
-    min-height: 34/668 * 100vw;
+  &__cube{
+    min-width: 34px;
+    min-height: 34px;
+    height: 34/668 * 100vw;
     width: 34/668 * 100vw;
     align-self: flex-end;
     background-position: 0 0;
@@ -52,6 +73,24 @@
       background-image: var(--cubeExtra);
     }
 
+    &_portrait{
+
+    }
+
+    &_landscape{
+
+    }
+
   }
+
+  &__column{
+    display: flex;
+    max-width: 68/668 * 100vw;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 68px;
+  }
+
 }
 

@@ -24,32 +24,31 @@ const getTypeCube = (num) => {
   return type
 }
 
-const drawCanvas = (data) => {
+const drawCanvas = (data, orientation) => {
   const activity = document.createElement('div')
-  activity.className = 'activity'
-
   const days = Object.values(data.data)
 
-  const createCube = (type) => {
+  const createCube = (selector) => {
     const cube = document.createElement('div')
-    cube.className = `activity__col activity__col_${type}`
+    cube.className = selector
     return cube
   }
 
-  const createRow = () => {
+  const createElement = (selector) => {
     const row = document.createElement('div')
-    row.className = 'activity__row'
+    row.className = selector
     return row
   }
 
-  days.map((day, indexRow) => {
+  activity.className = `activity activity_${orientation}`
+  days.map((day) => {
     let formatTwelve = formatClock(day, 2)
-    const row = createRow()
-    activity.append(row)
+    const element = createElement(`activity__box_${orientation}`)
+    activity.append(element)
 
-    formatTwelve.map((hour, indexCube) => {
+    formatTwelve.map((hour) => {
       const type = getTypeCube(hour)
-      row.append(createCube(type))
+      element.append(createCube(`activity__cube activity__cube_${orientation} activity__cube_${type}`))
     });
   })
 
@@ -64,8 +63,7 @@ export default (item, orientation) => {
   app.className = 'app'
 
   app.append(htmlHead)
-
-  app.append(drawCanvas(item))
+  app.append(drawCanvas(item, orientation))
 
   return app.outerHTML
 }
