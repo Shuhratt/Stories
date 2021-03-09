@@ -1,30 +1,7 @@
 import templateHead from "./templateHead";
-import { buildHeight, formatClock } from "../functions/functions";
+import { formatClock } from "../functions/functions";
 
-import svgMinColDark from "../../images/min-dark.svg"
-import svgMidColDark from "../../images/mid-dark.svg"
-import svgMaxColDark from "../../images/max-dark.svg"
-import svgExtraColDark from "../../images/extra-dark.svg"
-
-let theme = sessionStorage.getItem('theme')
-const columnSkin = {
-  dark: {
-    min: '',
-    mid: svgMidColDark,
-    max: svgMaxColDark,
-    extra: ''
-  },
-  light: {
-    min: 'images/min-light.svg',
-    mid: 'images/mid-light.svg',
-    max: 'images/max-light.svg',
-    extra: 'images/extra-light.svg'
-  }
-}
-
-console.log(columnSkin)
-
-const skinCube = (num) => {
+const getTypeCube = (num) => {
   const map = new Map()
   let type = ''
 
@@ -53,10 +30,9 @@ const drawCanvas = (data) => {
 
   const days = Object.values(data.data)
 
-  const createCube = (svg, type) => {
+  const createCube = (type) => {
     const cube = document.createElement('div')
     cube.className = `activity__col activity__col_${type}`
-    cube.innerHTML = svg
     return cube
   }
 
@@ -66,19 +42,15 @@ const drawCanvas = (data) => {
     return row
   }
 
-
   days.map((day, indexRow) => {
     let formatTwelve = formatClock(day, 2)
     const row = createRow()
     activity.append(row)
 
     formatTwelve.map((hour, indexCube) => {
-      const skin = skinCube(hour)
-
-      row.append(createCube(columnSkin[theme].mid, skin))
-
+      const type = getTypeCube(hour)
+      row.append(createCube(type))
     });
-
   })
 
   return activity

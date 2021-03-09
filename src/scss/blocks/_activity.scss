@@ -11,7 +11,7 @@
 
   &__row{
     display: flex;
-    max-height: 97px;
+    max-height: 34/668 * 100vw;
 
     &:not(:first-child){
       margin-top: -22/668 * 100vw;
@@ -28,22 +28,28 @@
     min-height: 34/668 * 100vw;
     width: 34/668 * 100vw;
     align-self: flex-end;
+    background-position: 0 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 
     &_min{
       height: 34/668 * 100vw;
-
+      background-image: var(--cubeMin);
     }
 
     &_mid{
       height: 42/668 * 100vw;
+      background-image: var(--cubeMid);
     }
 
     &_max{
       height: 58/668 * 100vw;
+      background-image: var(--cubeMax);
     }
 
     &_extra{
       height: 74/668 * 100vw;
+      background-image: var(--cubeExtra);
     }
 
   }

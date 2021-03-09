@@ -1,8 +1,4 @@
 
-export const buildHeight = (value, step, min) =>{
-  return value > 0 ? value * step : min
-}
-
 export const formatClock = (data, hours) => {
   let begin = 0,
     end = hours;
@@ -26,3 +22,4 @@ export const formatClock = (data, hours) => {
 export const getOrientDeviceClient = () => {
   return document.documentElement.clientWidth > document.documentElement.clientHeight ? 'landscape' : 'portrait'
 }
+
