@@ -36,10 +36,13 @@
     }
 
     &_portrait{
-
+      display: flex;
+      max-width: 68/668 * 100vw;
+      width: 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      min-width: 68px;
     }
-
-
 
   }
 
@@ -48,7 +51,6 @@
     min-height: 34px;
     height: 34/668 * 100vw;
     width: 34/668 * 100vw;
-    align-self: flex-end;
     background-position: 0 0;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -75,21 +77,20 @@
 
     &_portrait{
 
+      &:not(:first-child):nth-child(2n - 1){
+          margin-top: -34/668 * 100vw;
+      }
+
+      &:nth-child(2n){
+        margin-top: 25/668 * 100vw;
+        margin-left: -34/668 * 100vw;
+      }
     }
 
     &_landscape{
-
+      align-self: flex-end;
     }
 
-  }
-
-  &__column{
-    display: flex;
-    max-width: 68/668 * 100vw;
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    min-width: 68px;
   }
 
 }

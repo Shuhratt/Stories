@@ -46,9 +46,12 @@
       document.body.innerHTML = html
 
       window.addEventListener('resize', (e) => {
-        const html = renderTemplate(alias, data)
-        document.body.innerHTML = ''
-        document.body.innerHTML = html
+        setTimeout(() => {
+          const html = renderTemplate(alias, data)
+          document.body.innerHTML = ''
+          document.body.innerHTML = html
+        }, 200)
+
       })
     } catch (e) {
       console.error("Ошибка: " + e);

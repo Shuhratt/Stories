@@ -42,7 +42,8 @@ const drawCanvas = (data, orientation) => {
 
   activity.className = `activity activity_${orientation}`
   days.map((day) => {
-    let formatTwelve = formatClock(day, 2)
+    const hours = orientation === 'landscape' ? 2 : 1;
+    let formatTwelve = formatClock(day, hours)
     const element = createElement(`activity__box_${orientation}`)
     activity.append(element)
 
