@@ -4,16 +4,16 @@ export const buildHeight = (value, step, min) =>{
 }
 
 export const formatClock = (data, hours) => {
-  let start = 0,
+  let begin = 0,
     end = hours;
 
   const result = data.reduce((acc, current, i, arr) => {
-    const resultSlice = arr.slice(start, end)
+    const resultSlice = arr.slice(begin, end)
 
     if (resultSlice.length > 0){
       const numTwoHours = resultSlice.reduce((sum, count) => sum += count, 0)
       acc.push(numTwoHours)
-      start += hours
+      begin += hours
       end += hours
     }
     return acc

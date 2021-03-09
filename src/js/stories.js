@@ -1,7 +1,7 @@
   import '../scss/stories.scss'
 
   import Template from "./classes/Template"
-  import {getOrientDeviceClient} from "./functions/functions";
+  import { getOrientDeviceClient } from "./functions/functions";
 
   const Url = new URL(window.location.href)
   const slideIndex = parseInt(Url.searchParams.get('slide')) >= 1  ? parseInt(Url.searchParams.get('slide')) - 1 : 0
@@ -14,7 +14,6 @@
 
   sessionStorage.setItem('theme', themeValue ? themeValue : 'dark')
   themeValue ? document.body.classList.add(themes[themeValue]) : ''
-
 
 
   window.renderTemplate = (alias, data) => {
@@ -34,15 +33,15 @@
     return html
   }
 
+  const loadApp = async () =>{
+    const url = '/data.json'
+    try {
+      const load = await fetch(url)
+      const toJson = await load.json()
 
+      const alias = toJson[slideIndex].alias
+      const data = toJson[slideIndex].data
 
-  const url = '/data.json'
-  fetch(url)
-    .then(response => response.json())
-    .then(result => {
-
-      const alias = result[slideIndex].alias
-      const data = result[slideIndex].data
       const html = renderTemplate(alias, data)
       document.body.innerHTML = html
 
@@ -51,7 +50,11 @@
         document.body.innerHTML = ''
         document.body.innerHTML = html
       })
+    } catch (e) {
+      console.error("Ошибка: " + e);
+    }
+  }
 
-    }).catch(e => {
-     console.error("Ошибка: " + e);
-    })
+  window.addEventListener('load', async () => {
+    await loadApp()
+  })

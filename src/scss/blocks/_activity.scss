@@ -11,11 +11,10 @@
 
   &__row{
     display: flex;
+    max-height: 97px;
 
-    @for $i from 1 through 7 {
-      &:not(:first-child):nth-child(#{$i}){
-        margin-top: -22/668 * 100vw;
-      }
+    &:not(:first-child){
+      margin-top: -22/668 * 100vw;
     }
 
     &:nth-child(2n){
@@ -28,7 +27,25 @@
     min-width: 34/668 * 100vw;
     min-height: 34/668 * 100vw;
     width: 34/668 * 100vw;
-    height: 34/668 * 100vw;
+    align-self: flex-end;
+
+    &_min{
+      height: 34/668 * 100vw;
+
+    }
+
+    &_mid{
+      height: 42/668 * 100vw;
+    }
+
+    &_max{
+      height: 58/668 * 100vw;
+    }
+
+    &_extra{
+      height: 74/668 * 100vw;
+    }
+
   }
 }
 

@@ -1,7 +1,51 @@
 import templateHead from "./templateHead";
-import {buildHeight, formatClock} from "../functions/functions";
+import { buildHeight, formatClock } from "../functions/functions";
 
 import svgMinColDark from "../../images/min-dark.svg"
+import svgMidColDark from "../../images/mid-dark.svg"
+import svgMaxColDark from "../../images/max-dark.svg"
+import svgExtraColDark from "../../images/extra-dark.svg"
+
+let theme = sessionStorage.getItem('theme')
+const columnSkin = {
+  dark: {
+    min: '',
+    mid: svgMidColDark,
+    max: svgMaxColDark,
+    extra: ''
+  },
+  light: {
+    min: 'images/min-light.svg',
+    mid: 'images/mid-light.svg',
+    max: 'images/max-light.svg',
+    extra: 'images/extra-light.svg'
+  }
+}
+
+console.log(columnSkin)
+
+const skinCube = (num) => {
+  const map = new Map()
+  let type = ''
+
+  map.set([1, 2], 'mid')
+  map.set([3, 4], 'max')
+  map.set([5,6], 'extra')
+
+  if(num === 0){
+    return type = 'min'
+  }
+
+  map.forEach((val, key) => {
+    const [begin, end] = key
+
+    if(num >= begin && num <= end){
+      type = val
+    }
+  })
+
+  return type
+}
 
 const drawCanvas = (data) => {
   const activity = document.createElement('div')
@@ -9,12 +53,10 @@ const drawCanvas = (data) => {
 
   const days = Object.values(data.data)
 
-  let theme = sessionStorage.getItem('theme')
-
-  const createCube = (skin) => {
+  const createCube = (svg, type) => {
     const cube = document.createElement('div')
-    cube.className = 'activity__col'
-    cube.innerHTML = svgMinColDark
+    cube.className = `activity__col activity__col_${type}`
+    cube.innerHTML = svg
     return cube
   }
 
@@ -24,13 +66,17 @@ const drawCanvas = (data) => {
     return row
   }
 
-  days.map((day, index) => {
+
+  days.map((day, indexRow) => {
     let formatTwelve = formatClock(day, 2)
     const row = createRow()
     activity.append(row)
 
-    formatTwelve.map((hours) => {
-      row.append(createCube())
+    formatTwelve.map((hour, indexCube) => {
+      const skin = skinCube(hour)
+
+      row.append(createCube(columnSkin[theme].mid, skin))
+
     });
 
   })
@@ -49,10 +95,10 @@ export default (item, orientation) => {
 
   app.append(drawCanvas(item))
 
-
   return app.outerHTML
 }
 
+// Canvas
 // const draw = (data, selector, scaleX, scaleY) => {
 //
 //   const stateGradients = {
