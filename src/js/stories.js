@@ -47,10 +47,11 @@
 
       window.addEventListener('resize', (e) => {
         document.body.innerHTML = ''
+        const html = renderTemplate(alias, data)
+
         setTimeout(() => {
-          const html = renderTemplate(alias, data)
           document.body.innerHTML = html
-        }, 150)
+        }, 100)
 
       })
     } catch (e) {

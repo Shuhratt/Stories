@@ -6,19 +6,15 @@
 
   &_portrait{
     flex-direction: row;
-    min-height: inherit;
-    height: auto;
     max-width: 100%;
     justify-content: center;
     margin-left: -10/376 * 100vw;
   }
 
   &_landscape{
-    height: calc(100vh - 100px);
     max-width: 458/688 * 100vw;
     flex-direction: column;
     justify-content: center;
-    min-height: 500px;
   }
 
 

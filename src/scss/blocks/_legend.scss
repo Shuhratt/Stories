@@ -1,0 +1,51 @@
+.legend{
+
+  &__row{
+    display: flex;
+    margin-top: 52/376 * 100vh;
+  }
+
+  &__item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 8/668 * 100vw;
+
+    &-box{
+      width: 69/668 * 100vw;
+      height: 12/668 * 100vw;
+      border-radius: 2px;
+    }
+
+    &-text-gap{
+      font-weight: 500;
+      font-size: 16/668 * 100vw;
+      line-height: 18/668 * 100vw;
+      text-align: center;
+      color: #918F8A;
+      margin-top: 8px;
+    }
+
+    &:first-child .legend__item-box{
+      background-image: var(--legendStep);
+      background-position: center;
+      background-size: (69/668 * 100%) + 100% (12/668 * 100%) + 100%;
+      background-repeat: no-repeat;
+    }
+
+    $types: (
+      2: 'Min',
+      3: 'Mid',
+      4: 'Max',
+      5: 'Extra'
+    );
+
+    @each $num, $key in $types {
+      &:nth-child(#{$num}) .legend__item-box {
+        background: var(--legend#{$key}Background);
+        box-shadow: var(--legend#{$key}Shadow);
+      }
+    }
+  }
+
+}

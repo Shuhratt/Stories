@@ -13,5 +13,5 @@
 Шаблон diagram:
 
 Шаблон activity:
-three.js, paper.js или native(canvas)
+
 
