@@ -37,58 +37,97 @@
 
     &_portrait{
       display: flex;
-      max-width: 68/668 * 100vw;
+      max-width: 86/376 * 100vw;
       width: 100%;
       flex-direction: row;
       flex-wrap: wrap;
-      min-width: 68px;
+      min-width: 86px;
+      //max-height: 512/688 * 100vh;
+      //margin-right: -83/376 * 100vw;
     }
 
   }
 
   &__cube{
-    min-width: 34px;
-    min-height: 34px;
-    height: 34/668 * 100vw;
-    width: 34/668 * 100vw;
     background-position: 0 0;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 
-    &_min{
+    &_landascape{
+      align-self: flex-end;
+      min-width: 34px;
+      min-height: 34px;
       height: 34/668 * 100vw;
-      background-image: var(--cubeMin);
-    }
+      width: 34/668 * 100vw;
 
-    &_mid{
-      height: 42/668 * 100vw;
-      background-image: var(--cubeMid);
-    }
+      &_min{
+        height: 34/668 * 100vw;
+        background-image: var(--cubeMin);
+      }
 
-    &_max{
-      height: 58/668 * 100vw;
-      background-image: var(--cubeMax);
-    }
+      &_mid{
+        height: 42/668 * 100vw;
+        background-image: var(--cubeMid);
+      }
 
-    &_extra{
-      height: 74/668 * 100vw;
-      background-image: var(--cubeExtra);
+      &_max{
+        height: 58/668 * 100vw;
+        background-image: var(--cubeMax);
+      }
+
+      &_extra{
+        height: 74/668 * 100vw;
+        background-image: var(--cubeExtra);
+      }
+
     }
 
     &_portrait{
+      min-width: 43px;
+      min-height: 43px;
+      height: 43/376 * 100vw;
+      width: 43/376 * 100vw;
+      position: relative;
 
-      &:not(:first-child):nth-child(2n - 1){
-          margin-top: -34/668 * 100vw;
+      @for $i from 1 through 24 {
+
+        &:nth-child(#{$i}){
+          z-index: #{$i};
+        }
       }
 
-      &:nth-child(2n){
-        margin-top: 25/668 * 100vw;
-        margin-left: -34/668 * 100vw;
-      }
-    }
+      //&:not(:nth-child(1)):not(:nth-child(2)){
+      //  display: none;
+      //}
 
-    &_landscape{
-      align-self: flex-end;
+      &:nth-child(2n + 2){
+        bottom: -21.5/376 * 100vw;
+        left: -21.5/376 * 100vw;
+      }
+
+      &_min{
+        height: 43/376 * 100vw;;
+        background-image: var(--cubeMin);
+      }
+
+      &_mid{
+        height: 54/376 * 100vw;
+        background-image: var(--cubeMid);
+        margin-top: -11/668 * 100vw;
+      }
+
+      &_max{
+        height: 74/376 * 100vw;
+        background-image: var(--cubeMax);
+        margin-top: -31/376  * 100vw;
+      }
+
+      &_extra{
+        height: 95/376 * 100vw;
+        background-image: var(--cubeExtra);
+        margin-top: -52/376 * 100vw;
+      }
+
     }
 
   }

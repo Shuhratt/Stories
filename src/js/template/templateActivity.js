@@ -49,7 +49,7 @@ const drawCanvas = (data, orientation) => {
 
     formatTwelve.map((hour) => {
       const type = getTypeCube(hour)
-      element.append(createCube(`activity__cube activity__cube_${orientation} activity__cube_${type}`))
+      element.append(createCube(`activity__cube activity__cube_${orientation} activity__cube_${orientation}_${type}`))
     });
   })
 
