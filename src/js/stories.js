@@ -46,11 +46,11 @@
       document.body.innerHTML = html
 
       window.addEventListener('resize', (e) => {
+        document.body.innerHTML = ''
         setTimeout(() => {
           const html = renderTemplate(alias, data)
-          document.body.innerHTML = ''
           document.body.innerHTML = html
-        }, 200)
+        }, 150)
 
       })
     } catch (e) {
