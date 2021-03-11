@@ -102,6 +102,7 @@ export default (item, orientation) => {
   legend.innerHTML = htmlLegend
 
   appBox.append(legend)
+
   const app = document.createElement('div')
   app.className = 'app'
 

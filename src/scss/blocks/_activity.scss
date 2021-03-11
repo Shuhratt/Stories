@@ -1,6 +1,5 @@
 .activity{
   position: relative;
-  margin: auto auto 0;
   width: 100%;
   display: flex;
 
@@ -85,6 +84,7 @@
       width: 43/376 * 100vw;
       height: 33/376 * 100vw;
       position: relative;
+      max-height: 35/668 * 100vh;
 
       @for $i from 1 through 24 {
 

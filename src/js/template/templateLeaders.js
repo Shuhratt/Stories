@@ -20,10 +20,9 @@ const templateHtml = (data, emoji, like, index) => {
 export default (item, slideIndex) => {
   const maxUsers = 5
   const htmlHead = templateHead(item)
+
   const appBox = document.createElement('div')
   appBox.className = 'app__box'
-
-  appBox.append(htmlHead)
 
   const slide__list = document.createElement('div')
   slide__list.className = 'leaders__list'
@@ -36,6 +35,12 @@ export default (item, slideIndex) => {
   slide__list.innerHTML = usersHtml
   appBox.append(slide__list)
 
-  return appBox.outerHTML
+  const app = document.createElement('div')
+  app.className = 'app'
+
+  app.append(htmlHead)
+  app.append(appBox)
+
+  return app.outerHTML
 
 }
