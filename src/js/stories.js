@@ -3,6 +3,8 @@
   import Template from "./classes/Template"
   import { getOrientDeviceClient } from "./functions/functions";
 
+  import dataObj from "../data.json"
+
   const Url = new URL(window.location.href)
   const slideIndex = parseInt(Url.searchParams.get('slide')) >= 1  ? parseInt(Url.searchParams.get('slide')) - 1 : 0
   const themeValue = Url.searchParams.get('theme') || null
@@ -33,32 +35,18 @@
     return html
   }
 
-  const loadApp = async () =>{
-    const url = '/data.json'
-    try {
-      const load = await fetch(url)
-      const toJson = await load.json()
+  const alias = dataObj[slideIndex].alias
+  const data = dataObj[slideIndex].data
 
-      const alias = toJson[slideIndex].alias
-      const data = toJson[slideIndex].data
+  const html = renderTemplate(alias, data)
+  document.body.innerHTML = html
 
-      const html = renderTemplate(alias, data)
+  window.addEventListener('resize', (e) => {
+    document.body.innerHTML = ''
+    const html = renderTemplate(alias, data)
+
+    setTimeout(() => {
       document.body.innerHTML = html
+    }, 150)
 
-      window.addEventListener('resize', (e) => {
-        document.body.innerHTML = ''
-        const html = renderTemplate(alias, data)
-
-        setTimeout(() => {
-          document.body.innerHTML = html
-        }, 100)
-
-      })
-    } catch (e) {
-      console.error("Ошибка: " + e);
-    }
-  }
-
-  window.addEventListener('load', async () => {
-    await loadApp()
   })

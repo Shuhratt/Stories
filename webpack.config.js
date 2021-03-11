@@ -42,7 +42,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {from:'src/images', to:'images'},
-        {from:'src/data.json',to: path.resolve(__dirname, 'build')}
+        // {from:'src/data.json',to: path.resolve(__dirname, 'build')}
       ],
     }),
     // new FaviconsWebpackPlugin('./src/images/favicons/faviconSvg.svg')
