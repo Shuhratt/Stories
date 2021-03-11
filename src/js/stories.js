@@ -3,7 +3,7 @@
   import Template from "./classes/Template"
   import { getOrientDeviceClient } from "./functions/functions";
 
-  import dataObj from "../data.json"
+  import dataObj from "./data.json"
 
   const Url = new URL(window.location.href)
   const slideIndex = parseInt(Url.searchParams.get('slide')) >= 1  ? parseInt(Url.searchParams.get('slide')) - 1 : 0
