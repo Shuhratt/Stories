@@ -17,13 +17,13 @@ const templateCircle = (data) => {
   `
 }
 
-const templateRowCommits = (data) => {
+const templateRowCommits = (data, index) => {
   return `
     <div class="chart_diagram__row">
-      <div class="chart_diagram__row-circle"></div>
+      <div class="chart_diagram__row-circle chart_diagram__row-circle_${index += 1}"></div>
       <div class="chart_diagram__row-counts">${data.title}</div>
-      <div class="chart_diagram__row-progress">${data.differenceText}</div>
-      <div class="chart_diagram__row-result">${data.valueText}</div>
+      <div class="chart_diagram__row-progress">${data.differenceText.split(' ')[0]}</div>
+      <div class="chart_diagram__row-result">${data.valueText.split(' ')[0]}</div>
     </div>
   `
 }
@@ -31,7 +31,6 @@ const templateRowCommits = (data) => {
 
 export default (item) => {
   const htmlHead = templateHead(item)
-
   const app = document.createElement('div')
   app.className = 'app'
   app.append(htmlHead)
@@ -41,7 +40,7 @@ export default (item) => {
   chart_diagram.insertAdjacentHTML('afterbegin', templateCircle(item));
   const chart_diagram__info = document.createElement('div')
   chart_diagram__info.className = 'chart_diagram__info'
-  const htmlRow = item.categories.map(row => templateRowCommits(row)).join('')
+  const htmlRow = item.categories.map((row, index) => templateRowCommits(row, index)).join('')
 
   chart_diagram__info.insertAdjacentHTML('afterbegin', htmlRow )
   chart_diagram.insertAdjacentHTML('beforeend', chart_diagram__info.outerHTML )

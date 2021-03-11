@@ -157,8 +157,9 @@ $marginCol: 12/668 *100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    max-width: 584/668 * 100vw;
     margin: auto 0;
+    width: 100%;
 
     @media all and (orientation: portrait) {
       flex-direction: column;
@@ -220,25 +221,22 @@ $marginCol: 12/668 *100vw;
         //  height: 328/376 * 100vw;
         //}
 
+        $colorCircle: (
+           first: 'rgba(255, 163, 0, 0.8)',
+           second: 'rgba(77, 77, 77, 0.5)',
+           middle: 'rgba(155, 155, 155, 0.5)',
+           last: 'rgba(99, 63, 0, 0.5)'
+        );
+
         circle{
           fill:none;
           stroke-width: 42px;
         }
 
-        &-first{
-          stroke: green;
-        }
-
-        &-second{
-          stroke: red;
-        }
-
-        &-middle{
-          stroke: blue;
-        }
-
-        &-last{
-          stroke: yellow;
+        @each $key, $value in $colorCircle {
+          &-#{$key}{
+            stroke: #{$value};
+          }
         }
       }
     }
@@ -247,34 +245,38 @@ $marginCol: 12/668 *100vw;
       display: flex;
       flex-direction: column;
       width: 100%;
-      //max-width: 304/668 * 100vw;
       margin-left: 40/668 * 100vw;
 
       @media all and (orientation: portrait) {
         margin-left: 0;
         max-width: 100%;
       }
-
-
-
     }
 
     &__row{
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 17 / 668 * 100vw;
+      padding: 17 / 668 * 100vw 0;
+
 
       &:not(:last-child){
-        border-bottom: 2px solid rgba(#918F8A, .3);
+        border-bottom: 2px solid var(--borderColorDiagramRow);
       }
 
       &-circle{
-        width: 16 / 688 * 100vw;
-        height: 16 / 688 * 100vw;
+        width: 16 / 668 * 100vw;
+        height: 16 / 668 * 100vw;
         border-radius: 50%;
-        box-shadow: var(--column-shadow-active);
-        background: var(--column-color-active);
+        margin-right: 10/668 * 100vw;
+
+        @for $i from 1 through 4 {
+
+          &_#{$i}{
+            box-shadow: var(--circleShadow_#{$i});
+            background: var(--circleBack_#{$i});
+          }
+
+        }
       }
 
       &-counts{
@@ -289,6 +291,7 @@ $marginCol: 12/668 *100vw;
         font-size: rem(16);
         line-height: rem(18);
         color: var(--second-color);
+        margin-left: auto;
       }
 
       &-result{
@@ -296,6 +299,7 @@ $marginCol: 12/668 *100vw;
         font-size: rem(16);
         line-height: rem(18);
         color: var(--second-color);
+        margin-left: 16/668 * 100vw;
       }
 
     }
