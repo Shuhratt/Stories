@@ -38,23 +38,36 @@ export default (item, orientation) => {
   const htmlHead = templateHead(item);
   const chartBox = document.createElement('div')
   chartBox.className = 'chart__box'
+
   const maximum = Math.max.apply(null, item.values.map(item => item.value) )
   const heightClient = document.documentElement.clientHeight
+
   const chartHtml = item.values
     .slice(-10, -1)
     .map((col) => templateChartHtml(col, orientation, maximum, heightClient))
     .join('');
-  chartBox.insertAdjacentHTML('afterbegin', chartHtml)
+  chartBox.innerHTML = chartHtml
 
   const userList = document.createElement('div')
   userList.className = 'chart__users'
+
   const chartUsersHtml = item.users
     .slice(0, maxUsers)
     .map((user) => templateChartUser(user))
     .join('');
-  userList.insertAdjacentHTML('afterbegin', chartUsersHtml)
+  userList.innerHTML = chartUsersHtml
 
+  const app = document.createElement('div')
+  app.className = 'app'
 
-  return htmlHead.concat(chartBox.outerHTML, userList.outerHTML)
+  const appBox = document.createElement('div')
+  appBox.className = 'app__box'
+
+  app.append(htmlHead)
+  appBox.append(chartBox)
+  appBox.append(userList)
+  app.append(appBox)
+
+  return app.outerHTML
 
 }

@@ -2,6 +2,7 @@ import templateLeaders from "../template/templateLeaders";
 import templateChart from "../template/templateChart";
 import templateDiagram from "../template/templateDiagram";
 import templateActivity from "../template/templateActivity";
+import templateVote from "../template/templateVote";
 
 
 export default class Template {
@@ -29,7 +30,7 @@ export default class Template {
 
       case 'vote':
         console.log('vote')
-        console.error('Шаблона нет')
+        return templateVote(this.data)
       break;
 
       case 'chart':

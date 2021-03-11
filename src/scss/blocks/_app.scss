@@ -1,12 +1,17 @@
 .app {
+  display: flex;
+  flex-direction: column;
+
+  &__header{
+    min-height: 110px;
+  }
 
   &__box{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 78px);
-    //min-height: 552px;
+    height: calc(100vh - 110px);
   }
 
   &__title{
@@ -17,6 +22,7 @@
     color: var(--base-color);
     margin: 0;
     padding: rem(20) 0 rem(8);
+
 
     @media all and (orientation: portrait) {
       text-align: left;

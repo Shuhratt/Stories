@@ -86,13 +86,15 @@ $marginCol: 12/668 *100vw;
 
   &__users{
     display: flex;
+    width: 100%;
     justify-content: space-between;
-    padding: 0 calc(97/688 * 100vw);
     margin: rem(24) 0;
+    max-width: 474/668 * 100vw;
 
     @media all and (orientation: portrait) {
       flex-direction: column;
-      padding: 0 calc(24/376 * 100vw);
+      max-width: 100%;
+      padding: 0 24/376 * 100vw;
     }
 
     &-el{

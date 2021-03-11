@@ -32,8 +32,8 @@ const templateRowCommits = (data) => {
 export default (item) => {
   const htmlHead = templateHead(item)
 
-  const app = document.querySelector('.app')
-
+  const app = document.createElement('div')
+  app.className = 'app'
   app.append(htmlHead)
 
   const chart_diagram = document.createElement('div')
@@ -46,7 +46,11 @@ export default (item) => {
   chart_diagram__info.insertAdjacentHTML('afterbegin', htmlRow )
   chart_diagram.insertAdjacentHTML('beforeend', chart_diagram__info.outerHTML )
 
-  app.append(chart_diagram)
+  const appBox = document.createElement('div')
+  appBox.className = 'app__box'
+
+  appBox.append(chart_diagram)
+  app.append(appBox)
 
   return app.outerHTML
 
