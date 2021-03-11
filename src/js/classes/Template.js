@@ -30,7 +30,7 @@ export default class Template {
 
       case 'vote':
         console.log('vote')
-        return templateVote(this.data)
+        return templateVote(this.data, this.orientation)
       break;
 
       case 'chart':

@@ -83,6 +83,8 @@
           min-height: 64px;
           width: 64/688 * 100vw;
           height: 64/688 * 100vw;
+          max-width: 120px;
+          max-height: 120px;
           filter: var(--effect-photo);
         }
 

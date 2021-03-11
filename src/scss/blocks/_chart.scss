@@ -167,7 +167,7 @@ $marginCol: 12/668 *100vw;
 
     &__circle{
       width: 100%;
-      max-width: 240/668 * 100vw;
+      max-width: 240/376 * 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -246,6 +246,7 @@ $marginCol: 12/668 *100vw;
       flex-direction: column;
       width: 100%;
       margin-left: 40/668 * 100vw;
+      max-height: 240/376 * 100vh;
 
       @media all and (orientation: portrait) {
         margin-left: 0;
