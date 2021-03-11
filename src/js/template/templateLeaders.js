@@ -17,7 +17,7 @@ const templateHtml = (data, emoji, like, index) => {
   `
 }
 
-export default (item, slideIndex) => {
+export default (item) => {
   const maxUsers = 5
   const htmlHead = templateHead(item)
 
