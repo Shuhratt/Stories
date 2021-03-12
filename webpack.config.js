@@ -31,10 +31,10 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Приложение',
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/index.html'),
       hash: true,
+      // scriptLoading: 'blocking'
     }),
     new MiniCssExtractPlugin({
       filename: 'stories.css'

@@ -15,6 +15,13 @@
   }
 
   sessionStorage.setItem('theme', themeValue ? themeValue : 'dark')
+  sessionStorage.setItem('slideIndex', slideIndex.toString())
+  const slideIndexStorage = parseInt(sessionStorage.getItem('slideIndex'))
+
+  sessionStorage.setItem('data', JSON.stringify(dataObj[slideIndexStorage].data))
+  sessionStorage.setItem('alias', dataObj[slideIndex].alias)
+
+
   themeValue ? document.body.classList.add(themes[themeValue]) : ''
 
 
@@ -35,8 +42,8 @@
     return html
   }
 
-  const alias = dataObj[slideIndex].alias
-  const data = dataObj[slideIndex].data
+  // const alias = dataObj[slideIndex].alias
+  // const data = dataObj[slideIndex].data
 
   // const html = renderTemplate(alias, data)
   // document.body.prepend(html)
