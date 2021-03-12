@@ -23,3 +23,7 @@ export const getOrientDeviceClient = () => {
   return document.documentElement.clientWidth > document.documentElement.clientHeight ? 'landscape' : 'portrait'
 }
 
+export const randomNumber = () => {
+  return Math.floor(Math.random() * 10)
+}
+

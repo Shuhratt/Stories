@@ -13,44 +13,17 @@
     light: 'theme_light',
     dark: 'theme_dark'
   }
+  themeValue ? document.body.classList.add(themes[themeValue]) : ''
 
   sessionStorage.setItem('theme', themeValue ? themeValue : 'dark')
   sessionStorage.setItem('slideIndex', slideIndex.toString())
   const slideIndexStorage = parseInt(sessionStorage.getItem('slideIndex'))
-
   sessionStorage.setItem('data', JSON.stringify(dataObj[slideIndexStorage].data))
-  sessionStorage.setItem('alias', dataObj[slideIndex].alias)
-
-
-  themeValue ? document.body.classList.add(themes[themeValue]) : ''
-
+  sessionStorage.setItem('alias', dataObj[slideIndexStorage].alias)
 
   window.renderTemplate = (alias, data) => {
-    /**
-     *
-     * @return {string}
-     */
-
     const orientation = getOrientDeviceClient()
-    console.log(slideIndex)
-    console.log(orientation)
-    console.log(sessionStorage.getItem('theme')) // theme
-
     const template = new Template(alias, data, slideIndex, orientation);
     const html = template.render()
-
     return html
   }
-
-  // const alias = dataObj[slideIndex].alias
-  // const data = dataObj[slideIndex].data
-
-  // const html = renderTemplate(alias, data)
-  // document.body.prepend(html)
-
-  // window.addEventListener('resize', (e) => {
-  //   document.body.innerHTML = ''
-  //   const html = renderTemplate(alias, data)
-  //   document.body.innerHTML = html
-  //
-  // })

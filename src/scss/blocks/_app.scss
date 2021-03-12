@@ -12,6 +12,10 @@
     align-items: center;
     justify-content: center;
     height: calc(100vh - 110px);
+
+    &_row{
+      flex-direction: row;
+    }
   }
 
   &__title{
