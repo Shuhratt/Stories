@@ -38,15 +38,12 @@
   const alias = dataObj[slideIndex].alias
   const data = dataObj[slideIndex].data
 
-  const html = renderTemplate(alias, data)
-  document.body.innerHTML = html
+  // const html = renderTemplate(alias, data)
+  // document.body.prepend(html)
 
-  window.addEventListener('resize', (e) => {
-    document.body.innerHTML = ''
-    const html = renderTemplate(alias, data)
-
-    setTimeout(() => {
-      document.body.innerHTML = html
-    }, 150)
-
-  })
+  // window.addEventListener('resize', (e) => {
+  //   document.body.innerHTML = ''
+  //   const html = renderTemplate(alias, data)
+  //   document.body.innerHTML = html
+  //
+  // })

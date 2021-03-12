@@ -32,8 +32,9 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Приложение',
-      meta: {viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'},
-      hash: true
+      filename: 'index.html',
+      template: path.resolve(__dirname, 'src/index.html'),
+      hash: true,
     }),
     new MiniCssExtractPlugin({
       filename: 'stories.css'
