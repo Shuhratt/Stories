@@ -3,6 +3,10 @@
   &__item{
     display: flex;
     flex-direction: column;
+    padding: 20/$widthMob * 100vw 4/$widthMob * 100vw 16/$widthMob * 100vw;
+    width: 104/$widthMob * 100vw;
+    border-radius: 6px;
+    transition: background .15s ease-out, box-shadow .15s ease-out;
 
     &-avatar{
       width: 100%;
@@ -26,6 +30,95 @@
         text-align: center;
       }
     }
+
+    &_card{
+      box-shadow: var(--column-shadow-active);
+      background: var(--column-color-active);
+
+      &:first-child{
+        margin-bottom: 2/$widthMob * 100vw
+      }
+
+      &:last-child{
+        margin-top: 2/$widthMob * 100vw
+      }
+
+      &.active,
+      &:hover,
+      &:active,
+      &:focus{
+        box-shadow: var(--column-shadow);
+        background: var(--column-color);
+      }
+    }
+
+    &_bl{
+
+      &:first-child{
+        margin-bottom: 2/$widthMob * 100vw;
+      }
+
+      &:last-child{
+        margin-top: 2/$widthMob * 100vw;
+      }
+    }
+
   }
+
+
+  &__col{
+
+    &:first-child{
+      margin-right: auto;
+      margin-left: 32/$widthMob * 100vw;
+    }
+
+    &:last-child{
+      margin-left: auto;
+      margin-right: 32/$widthMob * 100vw;
+    }
+
+    &-users {
+      display: flex;
+      flex-direction: column;
+      margin-left: 15/$widthMob * 100vw;
+      margin-right: 15/$widthMob * 100vw;
+    }
+
+    &-buttons {
+      display: flex;
+      flex-direction: column;
+      margin: 0 15/$widthMob * 100vw;
+
+      &-el{
+        width: 64/$widthMob * 100vw;
+        height: 64/$widthMob * 100vw;
+        margin: 28/$widthMob * 100vw 0;
+
+        &:first-child {
+          transform: rotate(180deg);
+          transform-origin: center;
+        }
+
+        &-path{
+          fill: var(--second-color);
+          transition: path .15s ease-out;
+
+          &:hover,
+          &:active,
+          &:focus {
+            fill: var(--base-color);
+          }
+
+        }
+
+
+
+      }
+
+    }
+
+  }
+
 
 }

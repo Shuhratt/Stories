@@ -3,7 +3,7 @@
   flex-direction: column;
 
   &__header{
-    min-height: 110px;
+    min-height: 78px;
   }
 
   &__box{
@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 110px);
+    height: calc(100vh - 78px);
 
     &_row{
       flex-direction: row;

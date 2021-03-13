@@ -24,32 +24,27 @@ export default class Template {
 
     switch(this.alias) {
       case 'leaders':
-        console.log('leaders')
         return templateLeaders(this.data, this.index)
       break;
 
       case 'vote':
-        console.log('vote')
         return templateVote(this.data, this.orientation)
       break;
 
       case 'chart':
-        console.log('chart')
         return templateChart(this.data, this.orientation);
       break;
 
       case 'diagram':
-        console.log('diagram')
         return templateDiagram(this.data)
       break;
 
       case 'activity':
-        console.log('activity')
         return templateActivity(this.data, this.orientation)
       break;
 
       default:
-        console.log("Sorry, we are out of " + this.alias + ".");
+        console.error("Sorry, we are out of " + this.alias + ".");
 
     }
 
