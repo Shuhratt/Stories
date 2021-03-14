@@ -4,7 +4,7 @@ import {randomNumber} from "../functions/functions";
 const templateVoteUser = (data, selector= '' ) => {
   const [firstName, lastName] = data.name.split(' ')
   return `
-    <div class="vote__item ${selector}">
+    <div class="vote__item ${selector}" data-params="" data-id="${data.id}">
       <div class="vote__item-avatar">
         <img class="vote__item-avatar-img" src="images/2x/${data.avatar}"  alt="${data.name}" srcset="images/2x/${data.avatar} 1x,
         images/4x/${data.avatar} 2x" />
