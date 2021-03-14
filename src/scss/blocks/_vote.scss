@@ -88,6 +88,8 @@
         overflow: hidden;
         position: relative;
         filter: var(--effect-photo);
+        object-fit: contain;
+        object-position: center;
       }
     }
 
@@ -148,7 +150,7 @@
         &:hover,
         &:active,
         &:focus {
-          fill: var(--base-color);
+          fill: var(--colorArrowButtonActive);
         }
 
       }
