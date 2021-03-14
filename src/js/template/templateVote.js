@@ -35,7 +35,7 @@ const templateButtonsSlide = () => {
 export default (item, orientation) => {
   const htmlHead = templateHead(item)
 
-  const [firstUser, ...allUser] = item.users
+  // const [firstUser, ...allUser] = item.users
 
   const app = document.createElement('div')
   app.className = 'app'
@@ -43,39 +43,47 @@ export default (item, orientation) => {
   const appBox = document.createElement('div')
   appBox.className = 'app__box app__box_row'
 
-  // User #1 column
-  const userCol = document.createElement('div')
-  userCol.className = 'vote__col'
-  userCol.innerHTML = templateVoteUser(firstUser)
-
-  // Users #2 column
-  const voteColUsers = document.createElement('div')
-  voteColUsers.className = 'vote__col-users'
-  const htmlUsers = templateVoteUser(allUser[0],'vote__item_card').concat(templateVoteUser(allUser[1], 'vote__item_card'))
-  voteColUsers.innerHTML = htmlUsers
-
-  // Buttons #3 column
-  const voteButtonsCol = document.createElement('div')
-  voteButtonsCol.className = 'vote__col-buttons'
-  voteButtonsCol.innerHTML = templateButtonsSlide()
-
-  // Users #4 column
-  const voteColUsers2 = document.createElement('div')
-  voteColUsers2.className = 'vote__col-users'
-  const htmlUsers2 = templateVoteUser(allUser[2], 'vote__item_bl').concat(templateVoteUser(allUser[3],  'vote__item_bl'))
-  voteColUsers2.innerHTML = htmlUsers2
-
-  // User #5 column
-  const userCol2 = document.createElement('div')
-  userCol2.className = 'vote__col'
-  userCol2.innerHTML = templateVoteUser(allUser[3])
+  const usersHtml = item.users.slice(0, 6).map((card, index) => {
+    return templateVoteUser(card)
+  }).join('')
+  appBox.innerHTML = usersHtml
 
 
-  appBox.append(userCol)
-  appBox.append(voteColUsers)
-  appBox.append(voteButtonsCol)
-  appBox.append(voteColUsers2)
-  appBox.append(userCol2)
+  //
+  //
+  // // User #1 column
+  // const userCol = document.createElement('div')
+  // userCol.className = 'vote__col'
+  //
+  //
+  // // Users #2 column
+  // const voteColUsers = document.createElement('div')
+  // voteColUsers.className = 'vote__col-users'
+  // const htmlUsers = templateVoteUser(allUser[0],'vote__item_card active').concat(templateVoteUser(allUser[1], 'vote__item_card'))
+  // voteColUsers.innerHTML = htmlUsers
+  //
+  // // Buttons #3 column
+  // const voteButtonsCol = document.createElement('div')
+  // voteButtonsCol.className = 'vote__col-buttons'
+  // voteButtonsCol.innerHTML = templateButtonsSlide()
+  //
+  // // Users #4 column
+  // const voteColUsers2 = document.createElement('div')
+  // voteColUsers2.className = 'vote__col-users'
+  // const htmlUsers2 = templateVoteUser(allUser[2], 'vote__item_bl').concat(templateVoteUser(allUser[3],  'vote__item_bl'))
+  // voteColUsers2.innerHTML = htmlUsers2
+  //
+  // // User #5 column
+  // const userCol2 = document.createElement('div')
+  // userCol2.className = 'vote__col'
+  // userCol2.innerHTML = templateVoteUser(allUser[3])
+  //
+  //
+  // appBox.append(userCol)
+  // appBox.append(voteColUsers)
+  // appBox.append(voteButtonsCol)
+  // appBox.append(voteColUsers2)
+  // appBox.append(userCol2)
 
   app.append(htmlHead)
   app.append(appBox)

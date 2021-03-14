@@ -6,10 +6,15 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
+
   entry: './src/js/stories.js',
   output: {
     filename: 'stories.js',
     path: path.resolve(__dirname, 'build'),
+    publicPath: '/',
+  },
+  stats: {
+    children: true
   },
   module: {
     rules: [
@@ -24,6 +29,18 @@ module.exports = {
       {
         test: /\.svg$/,
         loader: 'svg-inline-loader'
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
+          }
+        ]
       }
     ],
 
@@ -43,7 +60,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {from:'src/images', to:'images'},
-        // {from:'src/data.json',to: path.resolve(__dirname, 'build')}
+        // {from:'src/fonts',to: path.resolve(__dirname, 'build/fonts')}
       ],
     }),
     // new FaviconsWebpackPlugin('./src/images/favicons/faviconSvg.svg')

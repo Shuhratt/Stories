@@ -15,6 +15,7 @@
       max-height: 64/$widthMob * 100vw;
       border-radius: 50%;
       margin: 0 auto 6/$widthMob * 100vw;
+      text-align: center;
     }
 
     &-name{
@@ -32,8 +33,11 @@
     }
 
     &_card{
-      box-shadow: var(--column-shadow-active);
-      background: var(--column-color-active);
+
+      &.active{
+        box-shadow: var(--column-shadow-active);
+        background: var(--column-color-active);
+      }
 
       &:first-child{
         margin-bottom: 2/$widthMob * 100vw
@@ -43,7 +47,6 @@
         margin-top: 2/$widthMob * 100vw
       }
 
-      &.active,
       &:hover,
       &:active,
       &:focus{

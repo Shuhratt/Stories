@@ -17,9 +17,14 @@
 
   sessionStorage.setItem('theme', themeValue ? themeValue : 'dark')
   sessionStorage.setItem('slideIndex', slideIndex.toString())
+
   const slideIndexStorage = parseInt(sessionStorage.getItem('slideIndex'))
-  sessionStorage.setItem('data', JSON.stringify(dataObj[slideIndexStorage].data))
-  sessionStorage.setItem('alias', dataObj[slideIndexStorage].alias)
+  const {alias, data} = dataObj[slideIndexStorage]
+
+  sessionStorage.setItem('data', JSON.stringify(data))
+  sessionStorage.setItem('alias', alias)
+
+
 
   window.renderTemplate = (alias, data) => {
     const orientation = getOrientDeviceClient()
