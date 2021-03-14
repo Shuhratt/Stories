@@ -25,7 +25,6 @@
   sessionStorage.setItem('alias', alias)
 
 
-
   window.renderTemplate = (alias, data) => {
     const orientation = getOrientDeviceClient()
     const template = new Template(alias, data, slideIndex, orientation);

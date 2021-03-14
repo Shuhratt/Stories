@@ -1,7 +1,7 @@
 import templateHead from "./templateHead";
 import {randomNumber} from "../functions/functions";
 
-const templateVoteUser = (data, selector = '') => {
+const templateVoteUser = (data, selector= '' ) => {
   const [firstName, lastName] = data.name.split(' ')
   return `
     <div class="vote__item ${selector}">
@@ -34,6 +34,8 @@ const templateButtonsSlide = () => {
 
 export default (item, orientation) => {
   const htmlHead = templateHead(item)
+  let startUser = 0,
+      endUser = 6;
 
   // const [firstUser, ...allUser] = item.users
 
@@ -41,9 +43,9 @@ export default (item, orientation) => {
   app.className = 'app'
 
   const appBox = document.createElement('div')
-  appBox.className = 'app__box app__box_row'
+  appBox.className = 'app__box app__box_grid'
 
-  const usersHtml = item.users.slice(0, 6).map((card, index) => {
+  const usersHtml = item.users.slice(startUser, endUser).map((card, index) => {
     return templateVoteUser(card)
   }).join('')
   appBox.innerHTML = usersHtml

@@ -13,9 +13,13 @@
     justify-content: center;
     height: calc(100vh - 78px);
 
-    &_row{
-      flex-direction: row;
-      flex-wrap: wrap;
+    &_grid{
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column-gap: 30/$widthMob * 100vw;
+      grid-template-areas: 'vote_item1 vote_item2 vote_item3 vote_item4'
+                           'vote_item1 vote_item5 vote_item6 vote_item4';
     }
   }
 
