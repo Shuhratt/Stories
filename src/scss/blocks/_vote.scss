@@ -65,7 +65,8 @@
 
       &:nth-child(1),
       &:nth-child(3) {
-        margin-top: 15/$heightMob * 100vw;
+        margin-top: 25/$heightMob * 100vw;
+        align-self: flex-start;
       }
 
       &:nth-child(2){
@@ -76,6 +77,12 @@
       &:nth-child(5){
         margin-bottom: auto;
         margin-top: 11/$heightMob * 100vw;
+      }
+
+      &:nth-child(7),
+      &:nth-child(8){
+        align-self: flex-end;
+        margin-bottom: 25/$heightMob * 100vw;
       }
 
     }
