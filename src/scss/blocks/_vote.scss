@@ -25,7 +25,7 @@
       }
 
       &:nth-child(3n + 3),
-      &:last-of-type {
+      &:nth-last-of-type(2) {
         margin-left: 8/$heightMob * 100vw;
       }
 
