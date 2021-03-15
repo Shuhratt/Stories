@@ -3,7 +3,7 @@
   &__item{
     display: flex;
     flex-direction: column;
-    border-radius: 6/$widthMob * 100vw;
+    border-radius: 6px;
     margin: auto;
     transition: background .15s ease-out, box-shadow .15s ease-out;
     position: relative;
@@ -65,7 +65,7 @@
 
       &:nth-child(1),
       &:nth-child(3) {
-        margin-top: 13/$heightMob * 100vw;
+        margin-top: 14/$heightMob * 100vw;
       }
 
       &:nth-child(2){
