@@ -194,21 +194,11 @@
         font-weight: 700;
         z-index: 1;
         position: relative;
-        letter-spacing: 0.39/$widthMob * 100vw;
+        font-size: rem(32);
+        letter-spacing: rem(0.39);
+        line-height: rem(32);
+        margin-bottom: -1rem;
 
-        @media all and (orientation: landscape) {
-          margin-bottom: -16/$widthMob * 100vw;
-          font-size: 32/$widthMob * 100vw;
-          line-height: 32/$widthMob * 100vw;
-          letter-spacing: 0.39/$widthMob * 100vw;
-        }
-
-        @media all and (orientation: portrait) {
-          margin-bottom: -16/$heightMob * 100vw;
-          font-size: 32/$heightMob * 100vw;
-          line-height: 32/$heightMob * 100vw;
-          letter-spacing: 0.39/$heightMob * 100vw;
-        }
       }
 
       &-name{

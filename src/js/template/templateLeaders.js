@@ -5,7 +5,7 @@ const templateHtml = (data, emoji, like, index) => {
   return `
     <div class="leaders__list-item">
       <div class="leaders__list-item-box">
-        <div class="leaders__list-item-emoji">${index + 1 === 1 ? emoji : like }</div>
+        <div class="leaders__list-item-emoji">${index + 1 === 1 ? emoji : '' }</div>
         <div class="leaders__list-item-avatar">
           <img class="leaders__list-item-avatar-img" src="images/2x/${data.avatar}"  alt="${data.name}" srcset="images/2x/${data.avatar} 1x, images/4x/${data.avatar} 2x" />
         </div>
