@@ -26,12 +26,14 @@
                            'vote_item1 vote_item5 vote_item6 vote_item4';
 
       @media all and (orientation: portrait) {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-template-areas: 'vote_item1 vote_item2 vote_item3'
-                             'vote_item4 vote_item5 vote_item6'
-                             'vote_item7  . vote_item8'
-      ;
+        grid-template-columns: 1fr 104/$heightMob * 100vw 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas: 'vote_item1 . vote_item3'
+                            'vote_item1 vote_item2 vote_item3'
+                            'vote_item4 vote_item2 vote_item6'
+                            'vote_item4 vote_item5 vote_item6'
+                            'vote_item7 vote_item5 vote_item8'
+                            'vote_item7  . vote_item8';
       }
     }
 

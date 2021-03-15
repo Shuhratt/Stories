@@ -8,6 +8,7 @@
     transition: background .15s ease-out, box-shadow .15s ease-out;
     position: relative;
     cursor: pointer;
+    z-index: 1;
 
     @media all and (orientation: landscape) {
       padding: 20/$widthMob * 100vw 4/$widthMob * 100vw 16/$widthMob * 100vw;
@@ -17,6 +18,17 @@
     @media all and (orientation: portrait) {
       width: 104/$heightMob * 100vw;
       padding: 20/$heightMob * 100vw 4/$heightMob * 100vw 16/$heightMob * 100vw;
+      margin: 0 auto;
+
+      &:nth-child(3n + 1){
+        margin-right: 8/$heightMob * 100vw;
+      }
+
+      &:nth-child(3n + 3),
+      &:last-of-type {
+        margin-left: 8/$heightMob * 100vw;
+      }
+
     }
 
     &.active{
@@ -80,6 +92,21 @@
       @media all and (orientation: landscape) {
         margin-left: 0;
       }
+
+    }
+
+    &:nth-child(2){
+      @media all and (orientation: portrait) {
+        margin-top: auto;
+        margin-bottom: 11/$heightMob * 100vw;
+      }
+    }
+
+    &:nth-child(5){
+      @media all and (orientation: portrait) {
+        margin-bottom: auto;
+        margin-top: 11/$heightMob * 100vw;
+      }
     }
 
     &:nth-child(2),
@@ -109,20 +136,38 @@
     &-avatar{
       width: 100%;
       height: 100%;
-      max-width: 64/$widthMob * 100vw;
-      max-height: 64/$widthMob * 100vw;
-      margin: 0 auto 6/$widthMob * 100vw;
       text-align: center;
 
+      @media all and (orientation: landscape) {
+        max-width: 64/$widthMob * 100vw;
+        max-height: 64/$widthMob * 100vw;
+        margin: 0 auto 6/$widthMob * 100vw;
+      }
+
+      @media all and (orientation: portrait) {
+        max-width: 64/$heightMob * 100vw;
+        max-height: 64/$heightMob * 100vw;
+        margin: 0 auto 6/$heightMob * 100vw;
+      }
+
       &-img{
-        width: 64/$widthMob * 100vw;
-        height: 64/$widthMob * 100vw;
+
         border-radius: 50%;
         overflow: hidden;
         position: relative;
         filter: var(--effect-photo);
         object-fit: contain;
         object-position: center;
+
+        @media all and (orientation: landscape) {
+          width: 64/$widthMob * 100vw;
+          height: 64/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          width: 64/$heightMob * 100vw;
+          height: 64/$heightMob * 100vw;
+        }
       }
     }
 
@@ -134,9 +179,17 @@
         color: var(--base-color);
         font-style: normal;
         font-weight: 500;
-        font-size: 16/$widthMob * 100vw;
-        line-height: 18/$widthMob * 100vw;
         text-align: center;
+
+        @media all and (orientation: landscape) {
+          font-size: 16/$widthMob * 100vw;
+          line-height: 18/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          font-size: 16/$heightMob * 100vw;
+          line-height: 18/$heightMob * 100vw;
+        }
       }
     }
 
@@ -154,30 +207,47 @@
     right: 0;
     bottom: 0;
     width: 100%;
-    max-width: 64/$widthMob *100vw;
+
     height: 100%;
     margin: auto;
 
 
+    @media all and (orientation: landscape) {
+      max-width: 64/$widthMob *100vw;
+    }
+
     @media all and (orientation: portrait) {
       justify-content: space-between;
+      max-width: 64/$heightMob *100vw;
     }
 
 
     &-el{
       width: 100%;
-      height: 64/$widthMob * 100vw;
-      margin: 28/$widthMob * 100vw auto;
       cursor: pointer;
+
+      @media all and (orientation: landscape) {
+        height: 64/$widthMob * 100vw;
+        margin: 28/$widthMob * 100vw auto;
+      }
 
       @media all and (orientation: portrait) {
         margin: 23/$heightMob * 100vw auto;
+        height: 64/$heightMob * 100vw;
       }
 
       svg{
         width: 100%;
-        height: 64/$widthMob * 100vw;
+
+        @media all and (orientation: landscape) {
+          height: 64/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          height: 64/$heightMob * 100vw;
+        }
       }
+
 
       &:first-child {
         transform: rotate(180deg);
