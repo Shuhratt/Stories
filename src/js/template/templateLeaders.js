@@ -1,9 +1,11 @@
 import templateHead from "./templateHead";
 
-const templateHtml = (data, emoji, like, index) => {
-  const [firstName, lastName] = data.name.split(' ')
+const templateHtml = (data, emoji, like, index, selector) => {
+  const [firstName, lastName] = data.name.split(' ');
+  const dataLike = `data-like=${like}`
+
   return `
-    <div class="leaders__list-item">
+    <div class="leaders__list-item ${index + 1 === 5 ? selector : ''}" ${index + 1 === 5 ? dataLike : ''} >
       <div class="leaders__list-item-box">
         <div class="leaders__list-item-emoji">${index + 1 === 1 ? emoji : '' }</div>
         <div class="leaders__list-item-avatar">
@@ -32,9 +34,10 @@ export default (item) => {
   const slide__list = document.createElement('div')
   slide__list.className = 'leaders__list'
 
+  const selectorVotePortrait = item.hasOwnProperty('selectedUserId') ? 'leaders__list-item_vote' : ''
   const usersHtml = item.users
     .slice(0, maxUsers)
-    .map((user, index) => templateHtml(user, item.emoji, '👍', index))
+    .map((user, index) => templateHtml(user, item.emoji, '👍', index, selectorVotePortrait))
     .join('');
 
   slide__list.innerHTML = usersHtml
