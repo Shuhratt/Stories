@@ -162,10 +162,12 @@
 
         @media all and (orientation: landscape) {
           margin-bottom: 6/$widthMob * 100vw;
+          max-height: 64/$widthMob * 100vw;
         }
 
         @media all and (orientation: portrait) {
           margin-bottom: 6/$heightMob * 100vw;
+          max-height: 64/$heightMob * 100vw;
         }
 
         &-img{
@@ -198,13 +200,11 @@
         letter-spacing: rem(0.39);
         line-height: rem(32);
         margin-bottom: -1rem;
-
       }
 
       &-name{
         display: flex;
         flex-direction: column;
-
         align-items: center;
 
         @media all and (orientation: landscape) {
@@ -227,6 +227,7 @@
         font-size: rem(14);
         line-height: rem(16);
         color: #BFBFBF;
+        font-weight: normal;
 
         @media all and (orientation: landscape) {
           margin-bottom: 16/$widthMob * 100vw;
