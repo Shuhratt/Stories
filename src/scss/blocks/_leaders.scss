@@ -158,25 +158,40 @@
 
       &-avatar{
         position: relative;
-        margin-bottom: 6/$widthMob * 100vw;
         user-select: none;
+
+        @media all and (orientation: landscape) {
+          margin-bottom: 6/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          margin-bottom: 6/$heightMob * 100vw;
+        }
 
         &-img{
           border-radius: 50%;
           overflow: hidden;
           min-width: 64px;
           min-height: 64px;
-          width: 64/$widthMob * 100vw;
-          height: 64/$widthMob * 100vw;
           max-width: 120px;
           max-height: 120px;
           filter: var(--effect-photo);
+
+          @media all and (orientation: landscape) {
+            width: 64/$widthMob * 100vw;
+            height: 64/$widthMob * 100vw;
+          }
+
+          @media all and (orientation: portrait) {
+            width: 64/$heightMob * 100vw;
+            height: 64/$heightMob * 100vw;
+          }
         }
 
       }
 
       &-emoji{
-        font-weight: bold;
+        font-weight: 700;
         z-index: 1;
         position: relative;
         letter-spacing: 0.39/$widthMob * 100vw;
@@ -221,7 +236,7 @@
       &-count{
         font-size: rem(14);
         line-height: rem(16);
-        color: var(--base-color);
+        color: #BFBFBF;
 
         @media all and (orientation: landscape) {
           margin-bottom: 16/$widthMob * 100vw;
