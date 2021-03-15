@@ -29,6 +29,12 @@
         margin-left: 8/$heightMob * 100vw;
       }
 
+      &:nth-child(1),
+      &:nth-child(3) {
+        margin-top: 13/$heightMob * 100vw;
+      }
+
+
     }
 
     &.active{
@@ -38,16 +44,27 @@
       &:before{
         content: "👍";
         position: absolute;
-        top: -2/$widthMob * 100vw;
+
         left: 0;
         right: 0;
         margin: 0 auto;
         font-weight: bold;
-        font-size: 32/$widthMob * 100vw;
-        line-height: 32/$widthMob * 100vw;
         text-align: center;
-        letter-spacing: 0.39/$widthMob * 100vw;
         z-index: 1;
+
+        @media all and (orientation: landscape) {
+          font-size: 32/$widthMob * 100vw;
+          line-height: 32/$widthMob * 100vw;
+          letter-spacing: 0.39/$widthMob * 100vw;
+          top: -2/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          font-size: 32/$heightMob * 100vw;
+          line-height: 32/$heightMob * 100vw;
+          letter-spacing: 0.39/$heightMob * 100vw;
+          top: -2/$heightMob * 100vw;
+        }
       }
     }
 
