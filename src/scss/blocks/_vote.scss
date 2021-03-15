@@ -13,6 +13,40 @@
     @media all and (orientation: landscape) {
       padding: 20/$widthMob * 100vw 4/$widthMob * 100vw 16/$widthMob * 100vw;
       width: 104/$widthMob * 100vw;
+
+      &:first-child{
+        margin-right: 31/$widthMob * 100vw;
+      }
+
+      &:nth-child(4){
+        margin-left: 31/$widthMob * 100vw;
+      }
+
+      &:nth-child(3),
+      &:nth-child(6){
+          margin-right: 0;
+      }
+
+      &:nth-child(2),
+      &:nth-child(5){
+        margin-left: 0;
+      }
+
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        margin-bottom: 2/$widthMob * 100vw
+      }
+
+      &:nth-child(5),
+      &:nth-child(6) {
+        margin-top: 2/$widthMob * 100vw;
+      }
+
+      &:nth-child(7),
+      &:nth-child(8){
+        display: none;
+      }
     }
 
     @media all and (orientation: portrait) {
@@ -34,6 +68,15 @@
         margin-top: 13/$heightMob * 100vw;
       }
 
+      &:nth-child(2){
+        margin-top: auto;
+        margin-bottom: 11/$heightMob * 100vw;
+      }
+
+      &:nth-child(5){
+        margin-bottom: auto;
+        margin-top: 11/$heightMob * 100vw;
+      }
 
     }
 
@@ -81,73 +124,7 @@
       }
     }
 
-    &:first-child{
 
-      @media all and (orientation: landscape) {
-        margin-right: 31/$widthMob * 100vw;
-      }
-
-    }
-
-    &:nth-child(4){
-      @media all and (orientation: landscape) {
-        margin-left: 31/$widthMob * 100vw;
-      }
-    }
-
-    &:nth-child(3),
-    &:nth-child(6){
-
-      @media all and (orientation: landscape) {
-        margin-right: 0;
-      }
-
-    }
-
-    &:nth-child(2),
-    &:nth-child(5){
-      @media all and (orientation: landscape) {
-        margin-left: 0;
-      }
-
-    }
-
-    &:nth-child(2){
-      @media all and (orientation: portrait) {
-        margin-top: auto;
-        margin-bottom: 11/$heightMob * 100vw;
-      }
-    }
-
-    &:nth-child(5){
-      @media all and (orientation: portrait) {
-        margin-bottom: auto;
-        margin-top: 11/$heightMob * 100vw;
-      }
-    }
-
-    &:nth-child(2),
-    &:nth-child(3) {
-      @media all and (orientation: landscape) {
-        margin-bottom: 2/$widthMob * 100vw
-      }
-    }
-
-    &:nth-child(5),
-    &:nth-child(6) {
-      @media all and (orientation: landscape) {
-        margin-top: 2/$widthMob * 100vw;
-      }
-
-    }
-
-    &:nth-child(7),
-    &:nth-child(8){
-
-      @media all and (orientation: landscape) {
-        display: none;
-      }
-    }
 
 
     &-avatar{
