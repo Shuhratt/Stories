@@ -37,7 +37,7 @@ const templateButtonsSlide = () => {
 export default (item, orientation) => {
   const htmlHead = templateHead(item)
   let startUser = 0,
-      endUser = 6;
+      endUser = 8;
 
   const app = document.createElement('div')
   app.className = 'app'
