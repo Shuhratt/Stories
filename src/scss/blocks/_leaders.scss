@@ -11,7 +11,7 @@
       flex-direction: column;
       align-self: flex-end;
       text-align: center;
-      width: 120/668 * 100vw;
+      width: 120/$widthMob * 100vw;
       min-width: 120px;
       position: relative;
       z-index: 1;
@@ -30,50 +30,135 @@
         .leaders__list-item-place{
           box-shadow: var(--column-shadow-active);
           background: var(--column-color-active);
-          height: 108/376 * 100vh;
+
+          @media all and (orientation: landscape) {
+            height: 108/$widthMob * 100vw;
+          }
+
+          @media all and (orientation: portrait) {
+            height: 325/$heightMob * 100vw;
+          }
         }
       }
 
       &:nth-child(2){
         order: 4;
         z-index: 2;
-        margin-right: -1rem;
+        margin-right: -16/$widthMob * 100vw;
 
         .leaders__list-item-place{
-          height: 88/376 * 100vh;
+
+          @media all and (orientation: landscape) {
+            height: 88/$widthMob * 100vw;
+          }
+
+          @media all and (orientation: portrait) {
+            height: 275/$heightMob * 100vw;
+          }
+
         }
       }
 
       &:nth-child(3){
         order: 2;
         z-index: 2;
-        margin-left: -1rem;
+        margin-left: -16/$widthMob * 100vw;
 
         .leaders__list-item-place{
-          height: 88/376 * 100vh;
+
+          @media all and (orientation: landscape) {
+            height: 88/$widthMob * 100vw;
+          }
+
+          @media all and (orientation: portrait) {
+            height: 225/$heightMob * 100vw;
+          }
         }
       }
 
       &:nth-child(4){
         order: 5;
 
+        @media all and (orientation: portrait) {
+          display: none;
+        }
+
         .leaders__list-item-place{
-          height: 68/376 * 100vh;
+          height: 68/$widthMob * 100vw;
         }
       }
 
       &:last-child{
         order: 1;
 
+        @media all and (orientation: portrait) {
+          display: none;
+        }
+
         .leaders__list-item-place{
-          height: 68/376 * 100vh;
+          height: 68/$widthMob * 100vw;
         }
       }
 
+      &:nth-child(2),
+      &:nth-child(4){
+
+        .leaders__list-item-box{
+          margin-left: auto;
+          margin-right: 0;
+        }
+
+        .leaders__list-item-place {
+
+          @media all and (orientation: landscape) {
+            padding-left: 16/$widthMob * 100vw;
+          }
+
+          @media all and (orientation: portrait) {
+            padding-left: 16/$heightMob * 100vw;
+          }
+
+        }
+      }
+
+      &:nth-child(3),
+      &:nth-child(5){
+
+       .leaders__list-item-box{
+         margin-right: auto;
+         margin-left: 0;
+       }
+
+       .leaders__list-item-place {
+
+         @media all and (orientation: landscape) {
+           padding-right: 16/$widthMob * 100vw;
+         }
+
+         @media all and (orientation: portrait) {
+           padding-right: 16/$heightMob * 100vw;
+         }
+       }
+      }
+
+      &-box{
+        width: 100%;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        @media all and (orientation: landscape) {
+          max-width: 104/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          max-width: 104/$heightMob * 100vw;
+        }
+      }
 
       &-avatar{
         position: relative;
-        margin-bottom: rem(6);
+        margin-bottom: 6/$widthMob * 100vw;
         user-select: none;
 
         &-img{
@@ -81,8 +166,8 @@
           overflow: hidden;
           min-width: 64px;
           min-height: 64px;
-          width: 64/688 * 100vw;
-          height: 64/688 * 100vw;
+          width: 64/$widthMob * 100vw;
+          height: 64/$widthMob * 100vw;
           max-width: 120px;
           max-height: 120px;
           filter: var(--effect-photo);
@@ -91,30 +176,61 @@
       }
 
       &-emoji{
-        position: absolute;
-        top: -22px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
         font-weight: bold;
-        font-size: rem(32);
-        line-height: rem(32);
+        z-index: 1;
+        position: relative;
+        letter-spacing: 0.39/$widthMob * 100vw;
+
+        @media all and (orientation: landscape) {
+          margin-bottom: -16/$widthMob * 100vw;
+          font-size: 32/$widthMob * 100vw;
+          line-height: 32/$widthMob * 100vw;
+          letter-spacing: 0.39/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          margin-bottom: -16/$heightMob * 100vw;
+          font-size: 32/$heightMob * 100vw;
+          line-height: 32/$heightMob * 100vw;
+          letter-spacing: 0.39/$heightMob * 100vw;
+        }
       }
 
       &-name{
-        font-weight: 500;
-        font-size: rem(16);
-        line-height: rem(18);
-        color: var(--base-color);
-        max-width: 90%;
-        text-align: center;
-        margin: 0 auto rem(4);
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        @media all and (orientation: landscape) {
+          margin-bottom: 4/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          margin-bottom: 4/$heightMob * 100vw;
+        }
+
+        span{
+          font-weight: 500;
+          font-size: rem(16);
+          line-height: rem(18);
+          color: var(--base-color);
+        }
       }
 
       &-count{
         font-size: rem(14);
         line-height: rem(16);
         color: var(--base-color);
+
+        @media all and (orientation: landscape) {
+          margin-bottom: 16/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          margin-bottom: 16/$heightMob * 100vw;
+        }
+
       }
 
       &-place{
@@ -122,10 +238,8 @@
         background: var(--column-color);
         border-top-left-radius: 6px;
         border-top-right-radius: 6px;
-        margin-top: rem(6);
         min-height: 68px;
-        height: 68/376 * 100vh;
-        //transition: height .1s linear;
+        height: 68/$widthMob * 100vw;
 
         &-num {
           font-weight: bold;
