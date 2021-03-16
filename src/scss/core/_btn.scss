@@ -1,0 +1,17 @@
+.btn {
+  appearance: none;
+  cursor: pointer;
+  outline: 0;
+  border: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: normal;
+  transition: background-color 0.25s, color 0.25s, border 0.25s, box-shadow 0.25s;
+  position: relative;
+  user-select: none;
+  background-color: transparent;
+}

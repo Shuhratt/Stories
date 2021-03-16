@@ -34,7 +34,7 @@ const templateButtonsSlide = () => {
   `
 }
 
-export default (item, orientation) => {
+export default (item) => {
   const htmlHead = templateHead(item)
   let startUser = 0,
       endUser = 8;
