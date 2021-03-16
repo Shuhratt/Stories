@@ -24,16 +24,17 @@ const getTypeCube = (num) => {
 
   return type
 }
+
 const drawCanvas = (data, orientation) => {
   const activity = document.createElement('div')
-  const days = Object.values(data.data)
+  const { data: week } = data
+  const days = Object.values(week)
 
   const createCube = (selector) => {
     const cube = document.createElement('div')
     cube.className = selector
     return cube
   }
-
   const createElement = (selector) => {
     const row = document.createElement('div')
     row.className = selector
