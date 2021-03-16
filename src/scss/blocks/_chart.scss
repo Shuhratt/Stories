@@ -145,7 +145,6 @@
     width: 100%;
     justify-content: space-between;
 
-
     @media all and (orientation: landscape) {
       max-width: 474/$widthMob * 100vw;
       margin: 24/$widthMob * 100vw 0;
@@ -187,13 +186,14 @@
         position: relative;
         user-select: none;
 
-
         @media all and (orientation: landscape) {
           margin-right: 14/$widthMob * 100vw;
+          max-height: 40/$widthMob * 100vw;
         }
 
         @media all and (orientation: portrait) {
           margin-right: 14/$heightMob * 100vw;
+          max-height: 40/$heightMob * 100vw;
         }
 
         &-img{
@@ -206,11 +206,13 @@
           @media all and (orientation: landscape) {
             width: 40/$widthMob * 100vw;
             height: 40/$widthMob * 100vw;
+
           }
 
           @media all and (orientation: portrait) {
             width: 40/$heightMob * 100vw;
             height: 40/$heightMob * 100vw;
+
           }
         }
       }
