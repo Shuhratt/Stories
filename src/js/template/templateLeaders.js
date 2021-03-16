@@ -28,7 +28,7 @@ const templateHtml = (data, emoji, like, index, selector) => {
 }
 
 export default (item) => {
-  const { selectedUserId, users } = item
+  const { users } = item
 
   const maxUsers = 5
   const htmlHead = templateHead(item)
