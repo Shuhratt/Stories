@@ -143,11 +143,11 @@
   &__users{
     display: flex;
     width: 100%;
-    justify-content: space-between;
 
     @media all and (orientation: landscape) {
       max-width: 474/$widthMob * 100vw;
       margin: 24/$widthMob * 100vw 0;
+      justify-content: space-between;
     }
 
     @media all and (orientation: portrait) {
@@ -159,26 +159,33 @@
 
     &-el{
       display: flex;
+      width: 100%;
+
+      @media all and (orientation: landscape) {
+        max-width: 220/474 * 100%;
+      }
 
       &:last-child{
-        border-left: 2px solid rgba(#918F8A, .3);
 
         @media all and (orientation: landscape) {
-          padding-left: 16/$widthMob * 100vw;
+          position: relative;
+
+          &:before{
+            content: "";
+            position: absolute;
+            left: calc(calc(16/220 * 100%) * -1);
+            top: 0;
+            bottom: 0;
+            height: 100%;
+            width: 2px;
+            background-color: rgba(#BFBFBF, 0.3);
+          }
         }
 
         @media all and (orientation: portrait) {
-          border-left: none;
           border-top: 2px solid rgba(#918F8A, .3);
-          padding-left: 0;
           padding-top: 16/$heightMob * 100vw;
           margin-top: 16/$heightMob * 100vw;
-        }
-
-        .chart__users-el-info{
-          @media all and (orientation: landscape) {
-            padding-right: 30/$widthMob * 100vw;
-          }
         }
       }
 

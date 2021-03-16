@@ -2,12 +2,13 @@ import templateHead from "./templateHead";
 import {randomNumber} from "../functions/functions";
 
 const templateVoteUser = (data, selector= '' ) => {
-  const [firstName, lastName] = data.name.split(' ')
+  const { id, name, avatar } = data
+  const [firstName, lastName] = name.split(' ')
   return `
-    <div class="vote__item ${selector}" data-params="" data-id="${data.id}">
+    <div class="vote__item ${selector}" data-params="" data-id="${id}">
       <div class="vote__item-avatar">
-        <img class="vote__item-avatar-img" src="images/2x/${data.avatar}"  alt="${data.name}" srcset="images/2x/${data.avatar} 1x,
-        images/4x/${data.avatar} 2x" />
+        <img class="vote__item-avatar-img" src="images/2x/${avatar}"  alt="${data.name}" srcset="images/2x/${avatar} 1x,
+        images/4x/${avatar} 2x" />
       </div>
       <div class="vote__item-name">
         <span>${firstName}</span>  
@@ -35,6 +36,7 @@ const templateButtonsSlide = () => {
 }
 
 export default (item) => {
+  const { users } = item
   const htmlHead = templateHead(item)
   let startUser = 0,
       endUser = 8;
@@ -45,7 +47,7 @@ export default (item) => {
   const appBox = document.createElement('div')
   appBox.className = 'app__box app__box_grid'
 
-  const usersHtml = item.users
+  const usersHtml = users
     .slice(startUser, endUser)
     .map((card, index) => {
       return templateVoteUser(card, `vote__item-${index + 1}${index === 1 ? ' active' : '' }`)

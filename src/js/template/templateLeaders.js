@@ -1,27 +1,30 @@
 import templateHead from "./templateHead";
 
 const templateHtml = (data, emoji, like, index, selector) => {
-  const [firstName, lastName] = data.name.split(' ');
+  const { avatar, name, valueText: count } = data
+  const [firstName, lastName] = name.split(' ')
+
+  let currentId = index + 1
   const dataLike = `data-like=${like}`
   const voteItemClass = `leaders__list-item${selector}`
   const voteBox = `leaders__list-item-box${selector}`
   const votePlace = `leaders__list-item-place${selector}`
 
   return `
-    <div class="leaders__list-item ${index + 1 === 5 ? voteItemClass : ''}" ${index + 1 === 5 ? dataLike : ''} >
-      <div class="leaders__list-item-box ${index + 1 === 5 ? voteBox : ''}">
-        <div class="leaders__list-item-emoji">${index + 1 === 1 ? emoji : '' }</div>
+    <div class="leaders__list-item ${currentId === 5 ? voteItemClass : ''}" ${currentId === 5 ? dataLike : ''} >
+      <div class="leaders__list-item-box ${currentId === 5 ? voteBox : ''}">
+        <div class="leaders__list-item-emoji">${currentId === 1 ? emoji : '' }</div>
         <div class="leaders__list-item-avatar">
-          <img class="leaders__list-item-avatar-img" src="images/2x/${data.avatar}"  alt="${data.name}" srcset="images/2x/${data.avatar} 1x, images/4x/${data.avatar} 2x" />
+          <img class="leaders__list-item-avatar-img" src="images/2x/${avatar}"  alt="${name}" srcset="images/2x/${avatar} 1x, images/4x/${avatar} 2x" />
         </div>
         <div class="leaders__list-item-name">
           <span>${firstName}</span>  
           <span>${lastName}</span>
         </div>
-        <div class="leaders__list-item-count">${data.valueText}</div>
+        <div class="leaders__list-item-count">${count}</div>
       </div>
-      <div class="leaders__list-item-place ${index + 1 === 5 ? votePlace : ''}">
-        <span class="leaders__list-item-place-num">${index + 1}</span>
+      <div class="leaders__list-item-place ${currentId === 5 ? votePlace : ''}">
+        <span class="leaders__list-item-place-num">${currentId}</span>
       </div>
     </div>
   `

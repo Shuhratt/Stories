@@ -6,9 +6,8 @@ const templateChartHtml = (data, orientation, max, heightClient ) => {
     landscape : 117/ max,
     portrait : 270/ max
   }
-
   const resultHeightCol = Math.floor(count * ratio[orientation])
-  const adaptiveHeight = resultHeightCol / heightClient * 100;
+  const adaptiveHeight = resultHeightCol / heightClient * 100
 
   return `
     <div class="chart_col${active ? ' chart_col_active' : ''}">
