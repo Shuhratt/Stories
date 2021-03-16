@@ -11,7 +11,7 @@ const templateChartHtml = (data, orientation, max, heightClient ) => {
   const adaptiveHeight = resultHeightCol / heightClient * 100;
 
   return `
-    <div class="chart_col">
+    <div class="chart_col${data.active ? ' chart_col_active' : ''}">
       <div class="chart_col-count">${data.value}</div>
       <div class="chart_col-box" style="height: ${adaptiveHeight}vh"></div>
       <div class="chart_col-num">${data.title}</div>
@@ -43,7 +43,7 @@ export default (item, orientation) => {
   const heightClient = document.documentElement.clientHeight
 
   const chartHtml = item.values
-    .slice(-10, -1)
+    .slice(-12, -3)
     .map((col) => templateChartHtml(col, orientation, maximum, heightClient))
     .join('');
   chartBox.innerHTML = chartHtml
