@@ -1,15 +1,15 @@
 import templateHead from "./templateHead";
 
-const templateHtml = (data, emoji, like, index, selectedUserId) => {
+const templateHtml = (data, emoji, like, index, selector) => {
   const [firstName, lastName] = data.name.split(' ');
   const dataLike = `data-like=${like}`
-  const voteItemClass = `leaders__list-item_vote`
-  const voteBoxClass = `leaders__list-item-box_vote`
-  const votePlaceClass = `leaders__list-item-place_vote`
+  const voteItemClass = `leaders__list-item${selector}`
+  const voteBox = `leaders__list-item-box${selector}`
+  const votePlace = `leaders__list-item-place${selector}`
 
   return `
-    <div class="leaders__list-item ${data.id === selectedUserId ? voteItemClass : ''}" ${data.id === selectedUserId ? dataLike : ''} data-id="${data.id}" >
-      <div class="leaders__list-item-box ${data.id === selectedUserId ? voteBoxClass : ''}">
+    <div class="leaders__list-item ${index + 1 === 5 ? voteItemClass : ''}" ${index + 1 === 5 ? dataLike : ''} >
+      <div class="leaders__list-item-box ${index + 1 === 5 ? voteBox : ''}">
         <div class="leaders__list-item-emoji">${index + 1 === 1 ? emoji : '' }</div>
         <div class="leaders__list-item-avatar">
           <img class="leaders__list-item-avatar-img" src="images/2x/${data.avatar}"  alt="${data.name}" srcset="images/2x/${data.avatar} 1x, images/4x/${data.avatar} 2x" />
@@ -20,7 +20,7 @@ const templateHtml = (data, emoji, like, index, selectedUserId) => {
         </div>
         <div class="leaders__list-item-count">${data.valueText}</div>
       </div>
-      <div class="leaders__list-item-place ${data.id === selectedUserId ? votePlaceClass : ''}">
+      <div class="leaders__list-item-place ${index + 1 === 5 ? votePlace : ''}">
         <span class="leaders__list-item-place-num">${index + 1}</span>
       </div>
     </div>
@@ -42,7 +42,7 @@ export default (item) => {
   const selectorVotePortrait = item.hasOwnProperty('selectedUserId') ? '_vote' : ''
   const usersHtml = users
     .slice(0, maxUsers)
-    .map((user, index) => templateHtml(user, item.emoji, '👍', index, selectedUserId))
+    .map((user, index) => templateHtml(user, item.emoji, '👍', index, selectorVotePortrait))
     .join('');
 
   slide__list.innerHTML = usersHtml
