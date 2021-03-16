@@ -1,6 +1,7 @@
 import templateHead from "./templateHead";
 
 const templateCircle = (data) => {
+  const { totalText, differenceText } = data
   return `
     <div class="chart_diagram__circle">
       <svg class="chart_diagram__circle-chart" width="240" height="240" viewBox="0 0 285 285">
@@ -10,20 +11,21 @@ const templateCircle = (data) => {
         <circle class="chart_diagram__circle-chart-last" r="120" cx="50%" cy="50%" stroke-dasharray="188.4 753.6" stroke-dashoffset="-565.2"></circle>
       </svg>
       <div class="chart_diagram__circle-box">
-       <h3 class="chart_diagram__circle-title">${data.totalText}</h3>
-       <p class="chart_diagram__circle-result">${data.differenceText}</p>
+       <h3 class="chart_diagram__circle-title">${totalText}</h3>
+       <p class="chart_diagram__circle-result">${differenceText}</p>
       </div>
     </div>
   `
 }
 
 const templateRowCommits = (data, index) => {
+  const { title, differenceText, valueText } = data
   return `
     <div class="chart_diagram__row">
-      <div class="chart_diagram__row-circle chart_diagram__row-circle_${index += 1}"></div>
-      <div class="chart_diagram__row-counts">${data.title}</div>
-      <div class="chart_diagram__row-progress">${data.differenceText.split(' ')[0]}</div>
-      <div class="chart_diagram__row-result">${data.valueText.split(' ')[0]}</div>
+      <div class="chart_diagram__row-circle chart_diagram__row-circle_${index + 1}"></div>
+      <div class="chart_diagram__row-counts">${title}</div>
+      <div class="chart_diagram__row-progress">${differenceText.split(' ')[0]}</div>
+      <div class="chart_diagram__row-result">${valueText.split(' ')[0]}</div>
     </div>
   `
 }

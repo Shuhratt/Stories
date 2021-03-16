@@ -7,7 +7,7 @@ const templateVoteUser = (data, selector= '' ) => {
   return `
     <div class="vote__item ${selector}" data-params="" data-id="${id}">
       <div class="vote__item-avatar">
-        <img class="vote__item-avatar-img" src="images/2x/${avatar}"  alt="${data.name}" srcset="images/2x/${avatar} 1x,
+        <img class="vote__item-avatar-img" src="images/2x/${avatar}"  alt="${name}" srcset="images/2x/${avatar} 1x,
         images/4x/${avatar} 2x" />
       </div>
       <div class="vote__item-name">
