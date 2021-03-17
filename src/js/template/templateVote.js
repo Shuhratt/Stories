@@ -36,10 +36,10 @@ const templateButtonsSlide = () => {
 }
 
 export default (item) => {
-  const { users } = item
+  const { users, offset } = item
   const htmlHead = templateHead(item)
   let startUser = 0,
-      endUser = 8;
+      endUser = offset;
 
   const usersHtml = users
     .slice(startUser, endUser)
