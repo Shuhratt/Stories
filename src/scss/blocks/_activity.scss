@@ -1,3 +1,6 @@
+$widthCubPort: 43.73;
+$heightCubPort: 33.44;
+
 .activity{
   position: relative;
   width: 100%;
@@ -45,12 +48,12 @@
 
     &_portrait{
       display: flex;
-      max-width: 86/$heightMob * 100vw;
+      max-width: ($widthCubPort * 2)/$heightMob * 100vw;
       width: 100%;
       flex-direction: row;
       flex-wrap: wrap;
-      min-width: 86px;
-      margin-right: -43/$heightMob * 100vw;
+      min-width: #{$widthCubPort * 2}6px;
+      margin-right: -$widthCubPort/$heightMob * 100vw;
     }
 
   }
@@ -89,13 +92,15 @@
 
     }
 
+
+
     &_portrait{
-      min-width: 43px;
-      min-height: 33px;
-      width: 43/$heightMob * 100vw;
-      height: 33/$heightMob * 100vw;
+      min-width: #{$widthCubPort}px;
+      min-height: #{$heightCubPort}px;
+      width: $widthCubPort/$heightMob * 100vw;
+      height: $heightCubPort/$heightMob * 100vw;
       position: relative;
-      max-height: 33/$heightMob * 100vw;
+      max-height: $heightCubPort/$heightMob * 100vw;
 
       @for $i from 1 through 24 {
 
@@ -119,14 +124,14 @@
       }
 
       &:nth-child(2n + 2){
-        bottom: -16.5/$heightMob * 100vw;
-        left: -22/$heightMob * 100vw;
+        bottom: -(($heightCubPort/2)/$heightMob * 100vw);
+        left: -($widthCubPort/2)/$heightMob * 100vw;
       }
 
       &_min{
 
         &:before{
-          height: 43/$heightMob * 100vw;
+          height: $widthCubPort/$heightMob * 100vw;
           background-image: var(--cubeMin);
         }
 
@@ -134,29 +139,33 @@
 
       &_mid{
 
+        $heightMid: 54.02;
+
         &:before{
-          height: 54/$heightMob * 100vw;
+          height: $heightMid/$heightMob * 100vw;
           background-image: var(--cubeMid);
-          margin-top: -11/$heightMob * 100vw;
+          margin-top: -($heightMid - $widthCubPort)/$heightMob * 100vw;
         }
 
 
       }
 
       &_max{
+        $heightMax: 74.6;
 
         &:before{
-          height: 74/$heightMob * 100vw;
+          height: $heightMax/$heightMob * 100vw;
           background-image: var(--cubeMax);
-          margin-top: -31/$heightMob  * 100vw;
+          margin-top: -($heightMax - $widthCubPort)/$heightMob  * 100vw;
         }
 
       }
 
       &_extra{
+        $heightExtra: 95.18;
 
         &:before{
-          height: 95/$heightMob * 100vw;
+          height: $heightExtra/$heightMob * 100vw;
           background-image: var(--cubeExtra);
           margin-top: -52/$heightMob * 100vw;
         }
