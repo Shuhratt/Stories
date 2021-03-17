@@ -78,7 +78,7 @@ const templateLegend = (count) => {
 
   legendRow.append(legendItem(count))
 
-  mapLegend.forEach((val, key) => {
+  mapLegend.forEach((val, key, index) => {
     const legendEl = legendItem(key.join('-'))
     legendRow.append(legendEl)
   });
