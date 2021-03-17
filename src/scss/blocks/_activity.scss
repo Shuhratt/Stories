@@ -24,8 +24,8 @@
       display: flex;
       max-height: 34/$widthMob * 100vw;
 
-      &:not(:first-child){
-        margin-top: -22/$widthMob * 100vw;
+      &:not(:first-child) {
+        margin-top: -21/$widthMob * 100vw;
       }
 
       &:nth-child(2n){
