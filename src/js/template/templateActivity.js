@@ -84,8 +84,7 @@ export default (item, orientation) => {
   appBox.append(drawCanvas(item, orientation))
 
   const legend = createElement('activity__legend', 'div')
-  const htmlLegend = templateLegend(hours)
-  legend.innerHTML = htmlLegend
+  legend.innerHTML = templateLegend(hours)
 
   appBox.append(legend)
 
