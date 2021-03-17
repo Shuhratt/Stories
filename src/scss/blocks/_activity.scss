@@ -3,11 +3,13 @@
   width: 100%;
   display: flex;
 
-  &_portrait{
-    flex-direction: row;
-    max-width: 100%;
-    justify-content: center;
-    margin-left: -19/376 * 100vw;
+  &__legend{
+    width: 100%;
+
+    @media all and (orientation: portrait) {
+      margin-top: auto;
+      margin-bottom: 24/$heightMob * 100vw;
+    }
   }
 
   &_landscape{
@@ -15,6 +17,14 @@
     height: 112/$widthMob * 100vw;
     flex-direction: column;
     justify-content: flex-end;
+  }
+
+  &_portrait{
+    flex-direction: row;
+    max-width: 100%;
+    justify-content: center;
+    margin-left: -19/$heightMob * 100vw;
+    margin-top: 50/$heightMob * 100vw;
   }
 
 
@@ -35,12 +45,12 @@
 
     &_portrait{
       display: flex;
-      max-width: 86/376 * 100vw;
+      max-width: 86/$heightMob * 100vw;
       width: 100%;
       flex-direction: row;
       flex-wrap: wrap;
       min-width: 86px;
-      margin-right: -43/376 * 100vw;
+      margin-right: -43/$heightMob * 100vw;
     }
 
   }
@@ -58,22 +68,22 @@
       background-repeat: no-repeat;
 
       &_min{
-        height: 34/668 * 100vw;
+        height: 34/$widthMob * 100vw;
         background-image: var(--cubeMin);
       }
 
       &_mid{
-        height: 42/668 * 100vw;
+        height: 42/$widthMob * 100vw;
         background-image: var(--cubeMid);
       }
 
       &_max{
-        height: 58/668 * 100vw;
+        height: 58/$widthMob * 100vw;
         background-image: var(--cubeMax);
       }
 
       &_extra{
-        height: 74/668 * 100vw;
+        height: 74/$widthMob * 100vw;
         background-image: var(--cubeExtra);
       }
 
@@ -82,10 +92,10 @@
     &_portrait{
       min-width: 43px;
       min-height: 33px;
-      width: 43/376 * 100vw;
-      height: 33/376 * 100vw;
+      width: 43/$heightMob * 100vw;
+      height: 33/$heightMob * 100vw;
       position: relative;
-      max-height: 35/668 * 100vh;
+      max-height: 33/$heightMob * 100vw;
 
       @for $i from 1 through 24 {
 
@@ -109,14 +119,14 @@
       }
 
       &:nth-child(2n + 2){
-        bottom: -16.5/376 * 100vw;
-        left: -21.5/376 * 100vw;
+        bottom: -16.5/$heightMob * 100vw;
+        left: -22/$heightMob * 100vw;
       }
 
       &_min{
 
         &:before{
-          height: 43/376 * 100vw;
+          height: 43/$heightMob * 100vw;
           background-image: var(--cubeMin);
         }
 
@@ -125,9 +135,9 @@
       &_mid{
 
         &:before{
-          height: 54/376 * 100vw;
+          height: 54/$heightMob * 100vw;
           background-image: var(--cubeMid);
-          margin-top: -11/668 * 100vw;
+          margin-top: -11/$heightMob * 100vw;
         }
 
 
@@ -136,9 +146,9 @@
       &_max{
 
         &:before{
-          height: 74/376 * 100vw;
+          height: 74/$heightMob * 100vw;
           background-image: var(--cubeMax);
-          margin-top: -31/376  * 100vw;
+          margin-top: -31/$heightMob  * 100vw;
         }
 
       }
@@ -146,9 +156,9 @@
       &_extra{
 
         &:before{
-          height: 95/376 * 100vw;
+          height: 95/$heightMob * 100vw;
           background-image: var(--cubeExtra);
-          margin-top: -52/376 * 100vw;
+          margin-top: -52/$heightMob * 100vw;
         }
       }
     }
