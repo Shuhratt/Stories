@@ -26,7 +26,7 @@ $heightCubPort: 33.44;
     flex-direction: row;
     max-width: 100%;
     justify-content: center;
-    margin-left: -19/$heightMob * 100vw;
+    margin-left: -($widthCubPort/2)/$heightMob * 100vw;
     margin-top: 50/$heightMob * 100vw;
   }
 
@@ -167,7 +167,7 @@ $heightCubPort: 33.44;
         &:before{
           height: $heightExtra/$heightMob * 100vw;
           background-image: var(--cubeExtra);
-          margin-top: -52/$heightMob * 100vw;
+          margin-top: -($heightExtra - $widthCubPort)/$heightMob * 100vw;
         }
       }
     }
