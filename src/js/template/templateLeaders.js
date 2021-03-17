@@ -1,4 +1,5 @@
 import templateHead from "./templateHead";
+import {createElement} from "../functions/functions";
 
 const templateHtml = (data, emoji, like, index, selector) => {
   const { avatar, name, valueText: count } = data
@@ -36,11 +37,8 @@ export default (item) => {
   const maxUsers = 5
   const htmlHead = templateHead(item)
 
-  const appBox = document.createElement('div')
-  appBox.className = 'app__box'
-
-  const slide__list = document.createElement('div')
-  slide__list.className = 'leaders__list'
+  const appBox = createElement('app__box','div')
+  const slide__list = createElement('leaders__list','div')
 
   const selectorVotePortrait = item.hasOwnProperty('selectedUserId') ? '_vote' : ''
   const usersHtml = users
@@ -51,8 +49,7 @@ export default (item) => {
   slide__list.innerHTML = usersHtml
   appBox.append(slide__list)
 
-  const app = document.createElement('div')
-  app.className = 'app'
+  const app = createElement('app', 'div')
 
   app.append(htmlHead)
   app.append(appBox)

@@ -1,11 +1,16 @@
 import templateHead from "./templateHead";
-import { formatClock } from "../functions/functions";
+import {createElement, formatClock} from "../functions/functions";
 
 const mapLegend = new Map()
 mapLegend.set([0], 'min')
 mapLegend.set([1, 2], 'mid')
 mapLegend.set([3, 4], 'max')
 mapLegend.set([5, 6], 'extra')
+
+const createCube = (selector) => {
+  const cube = createElement(selector, 'div')
+  return cube
+}
 
 const getTypeCube = (num) => {
   let type = ''
@@ -26,26 +31,14 @@ const getTypeCube = (num) => {
 }
 
 const drawCanvas = (data, orientation) => {
-  const activity = document.createElement('div')
+  const activity = createElement(`activity activity_${orientation}`, 'div')
   const { data: weeks } = data
   const days = Object.values(weeks)
 
-  const createCube = (selector) => {
-    const cube = document.createElement('div')
-    cube.className = selector
-    return cube
-  }
-  const createElement = (selector) => {
-    const row = document.createElement('div')
-    row.className = selector
-    return row
-  }
-
-  activity.className = `activity activity_${orientation}`
   days.map((day) => {
     const hours = orientation === 'landscape' ? 2 : 1;
     let formatTwelve = formatClock(day, hours)
-    const element = createElement(`activity__box_${orientation}`)
+    const element = createElement(`activity__box_${orientation}`, 'div')
     activity.append(element)
 
     formatTwelve.map((hour) => {
@@ -58,17 +51,12 @@ const drawCanvas = (data, orientation) => {
 }
 
 const templateLegend = (count) => {
-  const legendRow = document.createElement('div')
-  legendRow.className = 'legend__row'
+  const legendRow = createElement('legend__row','div')
 
   const legendItem = (text) => {
-    const legend__item = document.createElement('div')
-    legend__item.className = 'legend__item'
-    const item__box = document.createElement('div')
-    item__box.className = 'legend__item-box'
-    const gap = document.createElement('div')
-    gap.className = 'legend__item-text-gap'
-    gap.textContent = text
+    const legend__item = createElement('legend__item','div')
+    const item__box = createElement('legend__item-box', 'div')
+    const gap = createElement('legend__item-text-gap', 'div', text)
 
     legend__item.append(item__box)
     legend__item.append(gap)
@@ -92,20 +80,16 @@ export default (item, orientation) => {
 
   const htmlHead = templateHead(item)
 
-  const appBox = document.createElement('div')
-  appBox.className = 'app__box'
+  const appBox = createElement('app__box', 'div' )
   appBox.append(drawCanvas(item, orientation))
 
-  const legend = document.createElement('div')
-  legend.className = 'activity__legend'
+  const legend = createElement('activity__legend', 'div')
   const htmlLegend = templateLegend(hours)
-
   legend.innerHTML = htmlLegend
 
   appBox.append(legend)
 
-  const app = document.createElement('div')
-  app.className = 'app'
+  const app = createElement('app', 'div')
 
   app.append(htmlHead)
   app.append(appBox)

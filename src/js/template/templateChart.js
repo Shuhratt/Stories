@@ -1,4 +1,5 @@
 import templateHead from "./templateHead";
+import {createElement} from "../functions/functions";
 
 const templateChartHtml = (data, orientation, max, heightClient ) => {
   const { value: count, title: num, active } = data
@@ -37,8 +38,7 @@ export default (item, orientation) => {
   const { values, users } = item
   const maxUsers = 2
 
-  const chartBox = document.createElement('div')
-  chartBox.className = 'chart__box'
+  const chartBox = createElement('chart__box', 'div')
 
   const maximum = Math.max.apply(null, values.map(item => item.value) )
   const heightClient = document.documentElement.clientHeight
@@ -49,8 +49,7 @@ export default (item, orientation) => {
     .join('');
   chartBox.innerHTML = chartHtml
 
-  const userList = document.createElement('div')
-  userList.className = 'chart__users'
+  const userList = createElement('chart__users', 'div')
 
   const chartUsersHtml = users
     .slice(0, maxUsers)
@@ -58,11 +57,8 @@ export default (item, orientation) => {
     .join('');
   userList.innerHTML = chartUsersHtml
 
-  const app = document.createElement('div')
-  app.className = 'app'
-
-  const appBox = document.createElement('div')
-  appBox.className = 'app__box'
+  const app = createElement('app', 'div')
+  const appBox = createElement( 'app__box','div')
 
   const htmlHead = templateHead(item)
 

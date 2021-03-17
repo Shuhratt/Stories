@@ -27,3 +27,11 @@ export const randomNumber = () => {
   return Math.floor(Math.random() * 10)
 }
 
+export const createElement = (selector, htmlTag, text = null) => {
+  const el = document.createElement(htmlTag)
+  el.className = selector
+  if(text){
+    el.textContent = text
+  }
+  return el
+}

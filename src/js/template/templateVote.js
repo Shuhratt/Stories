@@ -1,5 +1,5 @@
 import templateHead from "./templateHead";
-import {randomNumber} from "../functions/functions";
+import {createElement, randomNumber} from "../functions/functions";
 
 const templateVoteUser = (data, selector= '' ) => {
   const { id, name, avatar } = data
@@ -41,12 +41,6 @@ export default (item) => {
   let startUser = 0,
       endUser = 8;
 
-  const app = document.createElement('div')
-  app.className = 'app'
-
-  const appBox = document.createElement('div')
-  appBox.className = 'app__box app__box_grid'
-
   const usersHtml = users
     .slice(startUser, endUser)
     .map((card, index) => {
@@ -55,6 +49,8 @@ export default (item) => {
     .join('')
     .concat(templateButtonsSlide());
 
+  const app = createElement('app', 'div')
+  const appBox = createElement( 'app__box app__box_grid','div')
   appBox.innerHTML = usersHtml
 
   app.append(htmlHead)

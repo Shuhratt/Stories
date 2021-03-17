@@ -8,7 +8,7 @@
     @media all and (orientation: landscape) {
       padding-top: 32/$widthMob * 100vw;
       max-width: 332/$widthMob * 100vw;
-
+      justify-content: center;
     }
 
     @media all and (orientation: portrait) {
