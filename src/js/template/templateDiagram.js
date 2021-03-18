@@ -27,17 +27,17 @@ const templateCircle = (data) => {
     <div class="chart_diagram__circle">
 
       <svg class="chart_diagram__circle-chart" width="240" height="240" viewBox="0 0 285 285">
-         <g>
+         <g style="filter:url(#filter_circle_first)">
             <circle class="chart_diagram__circle-chart-first" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="${lengthFirstArc2} ${lengthCircle}" transform="rotate(-119 )" transform-origin="center" ></circle>
          </g> 
-         <g>
+         <g style="filter:url(#filter_circle_second)">
            <circle class="chart_diagram__circle-chart-second" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="${lengthSecondArc2} ${lengthCircle}" transform="rotate(-59.48 )" transform-origin="center"></circle>
          </g>
  
-          <g>
+          <g style="filter:url(#filter_circle_middle)">
             <circle class="chart_diagram__circle-chart-middle" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="${lengthThreeArc2} ${lengthCircle}" transform="rotate(5 )" transform-origin="center"></circle>
           </g>
-          <g>
+          <g style="filter:url(#filter_circle_last)">
             <circle class="chart_diagram__circle-chart-last" r="120" cx="50%" cy="50%" stroke-opacity="0.8" stroke-dasharray="${lengthFour2} ${lengthCircle}" transform="rotate(119 )" transform-origin="center"></circle>
           </g>
                     <!--
