@@ -352,7 +352,7 @@
 
         @each $key, $value in $colorCircle {
           &-#{$key}{
-            //stroke: url(#circle_#{$key});
+            stroke: url(#circle_#{$key});
             //filter: url(#filter_circle_#{$key});
             //stroke-opacity: .5;
           }
