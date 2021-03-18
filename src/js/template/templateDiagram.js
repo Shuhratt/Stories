@@ -15,17 +15,17 @@ const templateCircle = (data) => {
     <div class="chart_diagram__circle">
 
       <svg class="chart_diagram__circle-chart" width="240" height="240" viewBox="0 0 285 285">
-         <g style="filter:url(#filter_circle_first)">
-            <circle class="chart_diagram__circle-chart-first" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="${lengthFirstArc} ${lengthCircle}" transform="rotate(-120.38 )" transform-origin="center" ></circle>
+         <g>
+            <circle class="chart_diagram__circle-chart-first" r="120" cx="50%" cy="50%" stroke-opacity="1" stroke-dasharray="${lengthFirstArc} ${lengthCircle}" transform="rotate(-120.38 )" transform-origin="center" ></circle>
          </g> 
-         <g style="filter:url(#filter_circle_second)">
-           <circle class="chart_diagram__circle-chart-second" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="${lengthSecondArc} ${lengthCircle}" transform="rotate(-60.86 )" transform-origin="center"></circle>
+         <g >
+           <circle class="chart_diagram__circle-chart-second" r="120" cx="50%" cy="50%" stroke-opacity="1" stroke-dasharray="${lengthSecondArc} ${lengthCircle}" transform="rotate(-60.86 )" transform-origin="center"></circle>
           </g>
-          <g style="filter:url(#filter_circle_middle)">
-            <circle class="chart_diagram__circle-chart-middle" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="${lengthThreeArc} ${lengthCircle}" transform="rotate(3.09 )" transform-origin="center"></circle>
+          <g>
+            <circle class="chart_diagram__circle-chart-middle" r="120" cx="50%" cy="50%" stroke-opacity="1" stroke-dasharray="${lengthThreeArc} ${lengthCircle}" transform="rotate(3.09 )" transform-origin="center"></circle>
           </g>
-          <g style="filter:url(#filter_circle_last)">
-            <circle class="chart_diagram__circle-chart-last" r="120" cx="50%" cy="50%" stroke-opacity="0.8" stroke-dasharray="${lengthFour} ${lengthCircle}" transform="rotate(117.2 )" transform-origin="center"></circle>
+          <g >
+            <circle class="chart_diagram__circle-chart-last" r="120" cx="50%" cy="50%" stroke-opacity="1" stroke-dasharray="${lengthFour} ${lengthCircle}" transform="rotate(117.2 )" transform-origin="center"></circle>
           </g>
       
          <defs>
@@ -142,8 +142,7 @@ const templateCircle = (data) => {
        <p class="chart_diagram__circle-result">${differenceText}</p>
       </div>
     </div>
-  
-
+ 
   `
 }
 
