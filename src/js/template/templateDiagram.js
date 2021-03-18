@@ -3,13 +3,14 @@ import {createElement} from "../functions/functions";
 
 const templateCircle = (data) => {
   const { totalText, differenceText } = data
+  //stroke-dashoffset="371.85"
   return `
     <div class="chart_diagram__circle">
       <svg class="chart_diagram__circle-chart" width="240" height="240" viewBox="0 0 285 285">
-        <circle class="chart_diagram__circle-chart-first" r="120" cx="50%" cy="50%"  stroke-dasharray="188.4 753.6"></circle>
-        <circle class="chart_diagram__circle-chart-second" r="120" cx="50%" cy="50%" stroke-dasharray="188.4 753.6" stroke-dashoffset="-188.4"></circle>
-        <circle class="chart_diagram__circle-chart-middle" r="120" cx="50%" cy="50%" stroke-dasharray="188.4 753.6" stroke-dashoffset="-376.8"></circle>
-        <circle class="chart_diagram__circle-chart-last" r="120" cx="50%" cy="50%" stroke-dasharray="188.4 753.6" stroke-dashoffset="-565.2"></circle>
+        <circle class="chart_diagram__circle-chart-first" r="120" cx="50%" cy="50%"  stroke-dasharray="122.3 753.6" stroke-linecap="round" stroke-mitterlimit="0" transform="rotate(-90 ) translate(-285 0)"></circle>
+<!--        <circle class="chart_diagram__circle-chart-second" r="120" cx="50%" cy="50%" stroke-dasharray="131.6 753.6" stroke-dashoffset="251.28"></circle>-->
+<!--        <circle class="chart_diagram__circle-chart-middle" r="120" cx="50%" cy="50%" stroke-dasharray="188.4 753.6" stroke-dashoffset="-376.8"></circle>-->
+<!--        <circle class="chart_diagram__circle-chart-last" r="120" cx="50%" cy="50%" stroke-dasharray="188.4 753.6" stroke-dashoffset="-565.2"></circle>-->
       </svg>
       <div class="chart_diagram__circle-box">
        <h3 class="chart_diagram__circle-title">${totalText}</h3>
@@ -36,20 +37,20 @@ const templateRowCommits = (data, index) => {
 
 
 export default (item) => {
+  const { categories } = item
   const htmlHead = templateHead(item)
-  const app = createElement('app', 'div')
-  app.append(htmlHead)
-
   const chart_diagram = createElement('chart_diagram','div')
   chart_diagram.insertAdjacentHTML('afterbegin', templateCircle(item));
   const chart_diagram__info = createElement('chart_diagram__info','div')
-  const htmlRow = item.categories.map((row, index) => templateRowCommits(row, index)).join('')
+  const htmlRow = categories.map((row, index) => templateRowCommits(row, index)).join('')
 
   chart_diagram__info.insertAdjacentHTML('afterbegin', htmlRow )
   chart_diagram.insertAdjacentHTML('beforeend', chart_diagram__info.outerHTML )
 
+  const app = createElement('app', 'div')
   const appBox = createElement( 'app__box','div')
 
+  app.append(htmlHead)
   appBox.append(chart_diagram)
   app.append(appBox)
 

@@ -267,25 +267,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 584/668 * 100vw;
     margin: auto 0;
     width: 100%;
 
+    @media all and (orientation: landscape) {
+      max-width: 584/$widthMob * 100vw;
+    }
+
     @media all and (orientation: portrait) {
       flex-direction: column;
+      max-width: 328/$heightMob * 100vw;
     }
 
     &__circle{
       width: 100%;
-      max-width: 240/376 * 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      //padding: 0 58/668 * 100vw;
+
+      @media all and (orientation: landscape) {
+        max-width: 240/$widthMob * 100vw;
+      }
 
       @media all and (orientation: portrait) {
-        max-width: 328/376 * 100vw;
+        max-width: 328/$heightMob * 100vw;
       }
 
       &-box{
@@ -294,7 +300,7 @@
         justify-content: center;
         flex-direction: column;
         position: absolute;
-        max-width: 120/668 * 100vw;
+        max-width: 120/$widthMob * 100vw;
         top: 0;
         left: 0;
         right: 0;
@@ -306,17 +312,17 @@
 
       &-title{
         font-weight: bold;
-        font-size: rem(20);
-        line-height: rem(22);
+        font-size: 20/$widthMob * 100vw;
+        line-height: 22/$widthMob * 100vw;
         text-align: center;
         color: var(--base-color);
-        margin: 0 0 rem(6);
+        margin: 0 0 6/$widthMob * 100vw;
       }
 
       &-result{
         font-weight: 500;
-        font-size: rem(16);
-        line-height: rem(18);
+        font-size: 16/$widthMob * 100vw;
+        line-height: 18/$widthMob * 100vw;
         color: var(--second-color);
         text-align: center;
         margin: 0;
@@ -355,8 +361,8 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      margin-left: 40/668 * 100vw;
-      max-height: 240/376 * 100vh;
+      margin-left: 40/$widthMob * 100vw;
+      max-height: 240/$widthMob * 100vw;
 
       @media all and (orientation: portrait) {
         margin-left: 0;
@@ -367,18 +373,26 @@
     &__row{
       display: flex;
       align-items: center;
-      padding: 17 / 668 * 100vw 0;
+      padding: 16 / $widthMob * 100vw 0;
 
 
       &:not(:last-child){
         border-bottom: 2px solid var(--borderColorDiagramRow);
       }
 
+      &:first-child{
+        padding-top: 0;
+      }
+
+      &:last-child{
+        padding-bottom: 0;
+      }
+
       &-circle{
-        width: 16 / 668 * 100vw;
-        height: 16 / 668 * 100vw;
+        width: 16 / $widthMob * 100vw;
+        height: 16 / $widthMob * 100vw;
         border-radius: 50%;
-        margin-right: 10/668 * 100vw;
+        margin-right: 10/$widthMob * 100vw;
 
         @for $i from 1 through 4 {
 
@@ -392,25 +406,31 @@
 
       &-counts{
         font-weight: 500;
-        font-size: rem(16);
-        line-height: rem(18);
+        font-size: 16/$widthMob * 100vw;
+        line-height: 18/$widthMob * 100vw;
         color: var(--base-color);
+        text-overflow: ellipsis;
+        overflow: hidden;
+        position: relative;
+        white-space: nowrap;
+        display: inline-block;
+        max-width: 181/$widthMob * 100vw;
       }
 
       &-progress{
         font-weight: 500;
-        font-size: rem(16);
-        line-height: rem(18);
+        font-size: 16/$widthMob * 100vw;
+        line-height: 18/$widthMob * 100vw;
         color: var(--second-color);
         margin-left: auto;
       }
 
       &-result{
         font-weight: 500;
-        font-size: rem(16);
-        line-height: rem(18);
+        font-size: 16/$widthMob * 100vw;
+        line-height: 18/$widthMob * 100vw;
         color: var(--second-color);
-        margin-left: 16/668 * 100vw;
+        margin-left: 16/$widthMob * 100vw;
       }
 
     }
