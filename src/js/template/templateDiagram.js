@@ -35,10 +35,10 @@ const templateCircle = (data) => {
          </g>
  
           <g>
-            <circle class="chart_diagram__circle-chart-middle" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="${lengthThreeArc2} ${lengthCircle}" transform="rotate(4.47 )" transform-origin="center"></circle>
+            <circle class="chart_diagram__circle-chart-middle" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="${lengthThreeArc2} ${lengthCircle}" transform="rotate(5 )" transform-origin="center"></circle>
           </g>
           <g>
-            <circle class="chart_diagram__circle-chart-last" r="120" cx="50%" cy="50%" stroke-opacity="0.8" stroke-dasharray="${lengthFour2} ${lengthCircle}" transform="rotate(118.58 )" transform-origin="center"></circle>
+            <circle class="chart_diagram__circle-chart-last" r="120" cx="50%" cy="50%" stroke-opacity="0.8" stroke-dasharray="${lengthFour2} ${lengthCircle}" transform="rotate(119 )" transform-origin="center"></circle>
           </g>
                     <!--
           style="filter:url(#filter_circle_second)"
