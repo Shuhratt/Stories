@@ -6,27 +6,43 @@ const templateCircle = (data) => {
 
   const radius = 120
   const lengthCircle = 2 * Math.PI * radius
+
   const lengthFirstArc = lengthCircle * (16.23 / 100)
   const lengthSecondArc = lengthCircle * (17.46 / 100)
   const lengthThreeArc = lengthCircle * (31.43 / 100)
   const lengthFour = lengthCircle * (33.63 / 100)
+
+  const lengthCircle2 = lengthFirstArc + lengthSecondArc + lengthThreeArc + lengthFour;
+
+  const lengthFirstArc2 = lengthCircle2 * (16.23 / 100)
+  const lengthSecondArc2 = lengthCircle2 * (17.46 / 100)
+  const lengthThreeArc2 = lengthCircle2 * (31.43 / 100)
+  const lengthFour2 = lengthCircle2 * (33.63 / 100)
+
+  const rad = ''
+  const a = (lengthFirstArc2 * Math.PI * radius) / 360
+  console.log((lengthCircle - lengthCircle2)/4)
 
   return `
     <div class="chart_diagram__circle">
 
       <svg class="chart_diagram__circle-chart" width="240" height="240" viewBox="0 0 285 285">
          <g>
-            <circle class="chart_diagram__circle-chart-first" r="120" cx="50%" cy="50%" stroke-opacity="1" stroke-dasharray="${lengthFirstArc} ${lengthCircle}" transform="rotate(-120.38 )" transform-origin="center" ></circle>
+            <circle class="chart_diagram__circle-chart-first" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="${lengthFirstArc2} ${lengthCircle}" transform="rotate(-119 )" transform-origin="center" ></circle>
          </g> 
-         <g >
-           <circle class="chart_diagram__circle-chart-second" r="120" cx="50%" cy="50%" stroke-opacity="1" stroke-dasharray="${lengthSecondArc} ${lengthCircle}" transform="rotate(-60.86 )" transform-origin="center"></circle>
+         <g>
+           <circle class="chart_diagram__circle-chart-second" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="${lengthSecondArc2} ${lengthCircle}" transform="rotate(-59.48 )" transform-origin="center"></circle>
+         </g>
+ 
+          <g>
+            <circle class="chart_diagram__circle-chart-middle" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="${lengthThreeArc2} ${lengthCircle}" transform="rotate(4.47 )" transform-origin="center"></circle>
           </g>
           <g>
-            <circle class="chart_diagram__circle-chart-middle" r="120" cx="50%" cy="50%" stroke-opacity="1" stroke-dasharray="${lengthThreeArc} ${lengthCircle}" transform="rotate(3.09 )" transform-origin="center"></circle>
+            <circle class="chart_diagram__circle-chart-last" r="120" cx="50%" cy="50%" stroke-opacity="0.8" stroke-dasharray="${lengthFour2} ${lengthCircle}" transform="rotate(118.58 )" transform-origin="center"></circle>
           </g>
-          <g >
-            <circle class="chart_diagram__circle-chart-last" r="120" cx="50%" cy="50%" stroke-opacity="1" stroke-dasharray="${lengthFour} ${lengthCircle}" transform="rotate(117.2 )" transform-origin="center"></circle>
-          </g>
+                    <!--
+          style="filter:url(#filter_circle_second)"
+          -->
       
          <defs>
             <radialGradient id="circle_first" cx="0" cy="0" r="1" gradientTransform="translate(68.6238 132.376) rotate(90) scale(119.624)">

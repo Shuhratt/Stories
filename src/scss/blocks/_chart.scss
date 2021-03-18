@@ -295,11 +295,11 @@
         margin: auto;
 
         @media all and (orientation: landscape) {
-          max-width: 120/$widthMob * 100vw;
+          width: 120/$widthMob * 100vw;
         }
 
         @media all and (orientation: portrait) {
-          max-width: 164/$heightMob * 100vw;
+          width: 164/$heightMob * 100vw;
         }
 
       }
