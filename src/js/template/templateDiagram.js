@@ -6,7 +6,6 @@ const templateCircle = (data) => {
   //stroke-dashoffset="371.85"
   return `
     <div class="chart_diagram__circle">
-
       <svg class="chart_diagram__circle-chart" width="240" height="240" viewBox="0 0 285 285">
          <g style="filter:url(#filter_circle_first)">
             <circle class="chart_diagram__circle-chart-first" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="122.3 753.6" transform="rotate(-120.38 )" transform-origin="center" ></circle>

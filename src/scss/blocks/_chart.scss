@@ -339,22 +339,19 @@
 
         $colorCircle: (
            first: 'rgba(255, 163, 0, 0.8)',
-           second: 'rgba(77, 77, 77, 0.5)',
+           second: 'rgba(99, 63, 0, 0.5)',
            middle: 'rgba(155, 155, 155, 0.5)',
-           last: 'rgba(99, 63, 0, 0.5)'
+           last: 'rgba(77, 77, 77, 0.5)'
         );
 
         circle{
           fill:none;
           stroke-width: 42px;
-          //shape-rendering: crispEdges;
         }
 
         @each $key, $value in $colorCircle {
           &-#{$key}{
-            stroke: url(#circle_#{$key});
-            //filter: url(#filter_circle_#{$key});
-            //stroke-opacity: .5;
+            stroke: #{$value};
           }
         }
       }
