@@ -277,6 +277,8 @@
     @media all and (orientation: portrait) {
       flex-direction: column;
       max-width: 328/$heightMob * 100vw;
+      margin-bottom: 24/$heightMob * 100vw;
+      margin-top: 32/$heightMob * 100vw;
     }
 
     &__circle{
@@ -300,42 +302,61 @@
         justify-content: center;
         flex-direction: column;
         position: absolute;
-        max-width: 120/$widthMob * 100vw;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         margin: auto;
-        //width: 100%;
-        //height: 100%;
+
+        @media all and (orientation: landscape) {
+          max-width: 120/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          max-width: 164/$heightMob * 100vw;
+        }
+
       }
 
       &-title{
         font-weight: bold;
-        font-size: 20/$widthMob * 100vw;
-        line-height: 22/$widthMob * 100vw;
         text-align: center;
         color: var(--base-color);
-        margin: 0 0 6/$widthMob * 100vw;
+
+        @media all and (orientation: landscape) {
+          font-size: 20/$widthMob * 100vw;
+          line-height: 22/$widthMob * 100vw;
+          margin: 0 0 6/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          font-size: 20/$heightMob * 100vw;
+          line-height: 22/$heightMob * 100vw;
+          margin: 0 0 6/$heightMob * 100vw;
+        }
       }
 
       &-result{
         font-weight: 500;
-        font-size: 16/$widthMob * 100vw;
-        line-height: 18/$widthMob * 100vw;
         color: var(--second-color);
         text-align: center;
         margin: 0;
+
+        @media all and (orientation: landscape) {
+          font-size: 16/$widthMob * 100vw;
+          line-height: 18/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          font-size: 16/$heightMob * 100vw;
+          line-height: 18/$heightMob * 100vw;
+        }
+
       }
 
       &-chart{
         width: 100%;
         height: 100%;
-
-        //@media all and (orientation: portrait) {
-        //  width: 328/376 * 100vw;
-        //  height: 328/376 * 100vw;
-        //}
 
         $colorCircle: (
            first: 'rgba(255, 163, 0, 0.8)',
@@ -361,20 +382,30 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      margin-left: 40/$widthMob * 100vw;
-      max-height: 240/$widthMob * 100vw;
+
+      @media all and (orientation: landscape) {
+        margin-left: 40/$widthMob * 100vw;
+        max-height: 240/$widthMob * 100vw;
+      }
 
       @media all and (orientation: portrait) {
-        margin-left: 0;
         max-width: 100%;
+        margin-top: 32/$heightMob * 100vw;
       }
     }
 
     &__row{
       display: flex;
       align-items: center;
-      padding: 16 / $widthMob * 100vw 0;
 
+
+      @media all and (orientation: landscape) {
+        padding: 16 / $widthMob * 100vw 0;
+      }
+
+      @media all and (orientation: portrait) {
+        padding: 16 / $heightMob * 100vw 0;
+      }
 
       &:not(:last-child){
         border-bottom: 2px solid var(--borderColorDiagramRow);
@@ -389,10 +420,20 @@
       }
 
       &-circle{
-        width: 16 / $widthMob * 100vw;
-        height: 16 / $widthMob * 100vw;
         border-radius: 50%;
-        margin-right: 10/$widthMob * 100vw;
+
+        @media all and (orientation: landscape) {
+          width: 16 / $widthMob * 100vw;
+          height: 16 / $widthMob * 100vw;
+          margin-right: 10/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          width: 16 / $heightMob * 100vw;
+          height: 16 / $heightMob * 100vw;
+          margin-right: 10/$heightMob * 100vw;
+        }
+
 
         @for $i from 1 through 4 {
 
@@ -406,31 +447,60 @@
 
       &-counts{
         font-weight: 500;
-        font-size: 16/$widthMob * 100vw;
-        line-height: 18/$widthMob * 100vw;
         color: var(--base-color);
         text-overflow: ellipsis;
         overflow: hidden;
         position: relative;
         white-space: nowrap;
         display: inline-block;
-        max-width: 181/$widthMob * 100vw;
+
+        @media all and (orientation: landscape) {
+          font-size: 16/$widthMob * 100vw;
+          line-height: 18/$widthMob * 100vw;
+          max-width: 181/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          font-size: 16/$heightMob * 100vw;
+          line-height: 18/$heightMob * 100vw;
+          max-width: 250/$heightMob * 100vw;
+        }
+
       }
 
       &-progress{
         font-weight: 500;
-        font-size: 16/$widthMob * 100vw;
-        line-height: 18/$widthMob * 100vw;
         color: var(--second-color);
         margin-left: auto;
+
+        @media all and (orientation: landscape) {
+          font-size: 16/$widthMob * 100vw;
+          line-height: 18/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          font-size: 16/$heightMob * 100vw;
+          line-height: 18/$heightMob * 100vw;
+        }
+
       }
 
       &-result{
         font-weight: 500;
-        font-size: 16/$widthMob * 100vw;
-        line-height: 18/$widthMob * 100vw;
         color: var(--second-color);
-        margin-left: 16/$widthMob * 100vw;
+
+        @media all and (orientation: landscape) {
+          margin-left: 16/$widthMob * 100vw;
+          font-size: 16/$widthMob * 100vw;
+          line-height: 18/$widthMob * 100vw;
+        }
+
+        @media all and (orientation: portrait) {
+          margin-left: 16/$heightMob * 100vw;
+          font-size: 16/$heightMob * 100vw;
+          line-height: 18/$heightMob * 100vw;
+        }
+
       }
 
     }
