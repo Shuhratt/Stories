@@ -1,4 +1,5 @@
 import templateHead from "./templateHead";
+import {createElement} from "../functions/functions";
 
 const templateCircle = (data) => {
   const { totalText, differenceText } = data
@@ -20,12 +21,15 @@ const templateCircle = (data) => {
 
 const templateRowCommits = (data, index) => {
   const { title, differenceText, valueText } = data
+  const [progress, ...allDifferenceText] = differenceText.split(' ')
+  const [result, ...allValueText] = valueText.split(' ')
+
   return `
     <div class="chart_diagram__row">
       <div class="chart_diagram__row-circle chart_diagram__row-circle_${index + 1}"></div>
       <div class="chart_diagram__row-counts">${title}</div>
-      <div class="chart_diagram__row-progress">${differenceText.split(' ')[0]}</div>
-      <div class="chart_diagram__row-result">${valueText.split(' ')[0]}</div>
+      <div class="chart_diagram__row-progress">${progress}</div>
+      <div class="chart_diagram__row-result">${result}</div>
     </div>
   `
 }
@@ -33,22 +37,18 @@ const templateRowCommits = (data, index) => {
 
 export default (item) => {
   const htmlHead = templateHead(item)
-  const app = document.createElement('div')
-  app.className = 'app'
+  const app = createElement('app', 'div')
   app.append(htmlHead)
 
-  const chart_diagram = document.createElement('div')
-  chart_diagram.className = 'chart_diagram';
+  const chart_diagram = createElement('chart_diagram','div')
   chart_diagram.insertAdjacentHTML('afterbegin', templateCircle(item));
-  const chart_diagram__info = document.createElement('div')
-  chart_diagram__info.className = 'chart_diagram__info'
+  const chart_diagram__info = createElement('chart_diagram__info','div')
   const htmlRow = item.categories.map((row, index) => templateRowCommits(row, index)).join('')
 
   chart_diagram__info.insertAdjacentHTML('afterbegin', htmlRow )
   chart_diagram.insertAdjacentHTML('beforeend', chart_diagram__info.outerHTML )
 
-  const appBox = document.createElement('div')
-  appBox.className = 'app__box'
+  const appBox = createElement( 'app__box','div')
 
   appBox.append(chart_diagram)
   app.append(appBox)
