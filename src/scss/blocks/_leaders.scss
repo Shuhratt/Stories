@@ -338,6 +338,14 @@
             font-size: 16/$heightMob * 100vw;
             line-height: 18/$heightMob * 100vw;;
           }
+
+          &:last-child{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+          }
         }
       }
 
