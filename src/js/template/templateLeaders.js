@@ -1,17 +1,17 @@
-import templateHead from "./templateHead";
-import {createElement} from "../functions/functions";
+import templateHead from './templateHead'
+import {createElement} from '../functions/functions'
 
 const templateHtml = (data, emoji, like, index, selector) => {
-  const { avatar, name, valueText: count } = data
-  const [firstName, lastName] = name.split(' ')
+	const { avatar, name, valueText: count } = data
+	const [firstName, lastName] = name.split(' ')
 
-  let currentId = index + 1
-  const dataLike = `data-like=${like}`
-  const voteItemClass = `leaders__list-item${selector}`
-  const voteBox = `leaders__list-item-box${selector}`
-  const votePlace = `leaders__list-item-place${selector}`
+	let currentId = index + 1
+	const dataLike = `data-like=${like}`
+	const voteItemClass = `leaders__list-item${selector}`
+	const voteBox = `leaders__list-item-box${selector}`
+	const votePlace = `leaders__list-item-place${selector}`
 
-  return `
+	return `
     <div class="leaders__list-item ${currentId === 5 ? voteItemClass : ''}" ${currentId === 5 ? dataLike : ''} >
       <div class="leaders__list-item-box ${currentId === 5 ? voteBox : ''}">
         <div class="leaders__list-item-emoji">${currentId === 1 ? emoji : '' }</div>
@@ -32,28 +32,28 @@ const templateHtml = (data, emoji, like, index, selector) => {
 }
 
 export default (item) => {
-  const { users } = item
+	const { users } = item
 
-  const maxUsers = 5
-  const htmlHead = templateHead(item)
+	const maxUsers = 5
+	const htmlHead = templateHead(item)
 
-  const appBox = createElement('app__box','div')
-  const slide__list = createElement('leaders__list','div')
+	const appBox = createElement('app__box','div')
+	const slide__list = createElement('leaders__list','div')
 
-  const selectorVotePortrait = item.hasOwnProperty('selectedUserId') ? '_vote' : ''
-  const usersHtml = users
-    .slice(0, maxUsers)
-    .map((user, index) => templateHtml(user, item.emoji, '👍', index, selectorVotePortrait))
-    .join('');
+	const selectorVotePortrait = Object.prototype.hasOwnProperty.call(item, 'selectedUserId') ? '_vote' : ''
+	const usersHtml = users
+		.slice(0, maxUsers)
+		.map((user, index) => templateHtml(user, item.emoji, '👍', index, selectorVotePortrait))
+		.join('')
 
-  slide__list.innerHTML = usersHtml
-  appBox.append(slide__list)
+	slide__list.innerHTML = usersHtml
+	appBox.append(slide__list)
 
-  const app = createElement('app', 'div')
+	const app = createElement('app', 'div')
 
-  app.append(htmlHead)
-  app.append(appBox)
+	app.append(htmlHead)
+	app.append(appBox)
 
-  return app.outerHTML
+	return app.outerHTML
 
 }

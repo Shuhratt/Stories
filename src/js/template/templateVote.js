@@ -1,10 +1,10 @@
-import templateHead from "./templateHead";
-import {createElement, randomNumber} from "../functions/functions";
+import templateHead from './templateHead'
+import {createElement} from '../functions/functions'
 
 const templateVoteUser = (data, selector= '' ) => {
-  const { id, name, avatar } = data
-  const [firstName, lastName] = name.split(' ')
-  return `
+	const { id, name, avatar } = data
+	const [firstName, lastName] = name.split(' ')
+	return `
     <div class="vote__item ${selector}" data-params="" data-id="${id}">
       <div class="vote__item-avatar">
         <img class="vote__item-avatar-img" src="images/2x/${avatar}"  alt="${name}" srcset="images/2x/${avatar} 1x,
@@ -19,7 +19,7 @@ const templateVoteUser = (data, selector= '' ) => {
 }
 
 const templateButtonsSlide = () => {
-  return `
+	return `
     <div class="vote__buttons">
       <button class="btn vote__buttons-el"data-action="update" aria-label="Prev">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,25 +37,25 @@ const templateButtonsSlide = () => {
 }
 
 export default (item) => {
-  const { users, offset } = item
-  const htmlHead = templateHead(item)
-  let startUser = 0,
-      endUser = 8;
+	const { users } = item
+	const htmlHead = templateHead(item)
+	let startUser = 0,
+		endUser = 8
 
-  const usersHtml = users
-    .slice(startUser, endUser)
-    .map((card, index) => {
-      return templateVoteUser(card, `vote__item-${index + 1}${index === 1 ? ' active' : '' }`)
-    })
-    .join('')
-    .concat(templateButtonsSlide());
+	const usersHtml = users
+		.slice(startUser, endUser)
+		.map((card, index) => {
+			return templateVoteUser(card, `vote__item-${index + 1}${index === 1 ? ' active' : '' }`)
+		})
+		.join('')
+		.concat(templateButtonsSlide())
 
-  const app = createElement('app', 'div')
-  const appBox = createElement( 'app__box app__box_grid','div')
-  appBox.innerHTML = usersHtml
+	const app = createElement('app', 'div')
+	const appBox = createElement( 'app__box app__box_grid','div')
+	appBox.innerHTML = usersHtml
 
-  app.append(htmlHead)
-  app.append(appBox)
+	app.append(htmlHead)
+	app.append(appBox)
 
-  return app.outerHTML
+	return app.outerHTML
 }

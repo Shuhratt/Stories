@@ -1,4 +1,4 @@
-name: Node build
+name: App check JSlint and Stylelint
 
 on: [push]
 

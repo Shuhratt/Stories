@@ -1,28 +1,28 @@
-import templateHead from "./templateHead";
-import {createElement} from "../functions/functions";
+import templateHead from './templateHead'
+import {createElement} from '../functions/functions'
 
 const templateCircle = (data) => {
-  const { totalText, differenceText } = data
+	const { totalText, differenceText } = data
 
-  const radius = 120
-  const lengthCircle = 2 * Math.PI * radius
+	const radius = 120
+	const lengthCircle = 2 * Math.PI * radius
 
-  const lengthFirstArc =  lengthCircle * (16.23 / 100)
-  const lengthSecondArc = lengthCircle * (17.46 / 100)
-  const lengthThreeArc = lengthCircle * (31.43 / 100)
-  const lengthFourArc = lengthCircle * (33.63 / 100)
+	const lengthFirstArc =  lengthCircle * (16.23 / 100)
+	const lengthSecondArc = lengthCircle * (17.46 / 100)
+	const lengthThreeArc = lengthCircle * (31.43 / 100)
+	const lengthFourArc = lengthCircle * (33.63 / 100)
 
-  const radOne = (lengthFirstArc * 360) / lengthCircle;
-  const radSecond = (lengthSecondArc * 360) / lengthCircle;
-  const radThree = (lengthThreeArc * 360) / lengthCircle;
-  const radFour = (lengthFourArc * 360) / lengthCircle;
+	const radOne = (lengthFirstArc * 360) / lengthCircle
+	const radSecond = (lengthSecondArc * 360) / lengthCircle
+	const radThree = (lengthThreeArc * 360) / lengthCircle
+	//const radFour = (lengthFourArc * 360) / lengthCircle
 
-  console.log(lengthCircle)
-  console.log(radOne, radSecond, radThree, radFour )
-  console.log(radOne + radSecond+ radThree+ radFour )
+	// console.log(lengthCircle)
+	// console.log(radOne, radSecond, radThree, radFour )
+	// console.log(radOne + radSecond+ radThree+ radFour )
 
 
-  return `
+	return `
     <div class="chart_diagram__circle">
 
       <svg class="chart_diagram__circle-chart" width="240" height="240" viewBox="0 0 285 285">
@@ -163,11 +163,11 @@ const templateCircle = (data) => {
 
 
 const templateRowCommits = (data, index) => {
-  const { title, differenceText, valueText } = data
-  const [progress, ...allDifferenceText] = differenceText.split(' ')
-  const [result, ...allValueText] = valueText.split(' ')
+	const { title, differenceText, valueText } = data
+	const [progress, ,] = differenceText.split(' ')
+	const [result, ,] = valueText.split(' ')
 
-  return `
+	return `
     <div class="chart_diagram__row">
       <div class="chart_diagram__row-circle chart_diagram__row-circle_${index + 1}"></div>
       <div class="chart_diagram__row-counts">${title}</div>
@@ -179,23 +179,23 @@ const templateRowCommits = (data, index) => {
 
 
 export default (item) => {
-  const { categories } = item
-  const htmlHead = templateHead(item)
-  const chart_diagram = createElement('chart_diagram','div')
-  chart_diagram.insertAdjacentHTML('afterbegin', templateCircle(item));
-  const chart_diagram__info = createElement('chart_diagram__info','div')
-  const htmlRow = categories.map((row, index) => templateRowCommits(row, index)).join('')
+	const { categories } = item
+	const htmlHead = templateHead(item)
+	const chart_diagram = createElement('chart_diagram','div')
+	chart_diagram.insertAdjacentHTML('afterbegin', templateCircle(item))
+	const chart_diagram__info = createElement('chart_diagram__info','div')
+	const htmlRow = categories.map((row, index) => templateRowCommits(row, index)).join('')
 
-  chart_diagram__info.insertAdjacentHTML('afterbegin', htmlRow )
-  chart_diagram.insertAdjacentHTML('beforeend', chart_diagram__info.outerHTML )
+	chart_diagram__info.insertAdjacentHTML('afterbegin', htmlRow )
+	chart_diagram.insertAdjacentHTML('beforeend', chart_diagram__info.outerHTML )
 
-  const app = createElement('app', 'div')
-  const appBox = createElement( 'app__box','div')
+	const app = createElement('app', 'div')
+	const appBox = createElement( 'app__box','div')
 
-  app.append(htmlHead)
-  appBox.append(chart_diagram)
-  app.append(appBox)
+	app.append(htmlHead)
+	appBox.append(chart_diagram)
+	app.append(appBox)
 
-  return app.outerHTML
+	return app.outerHTML
 
 }

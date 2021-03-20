@@ -5,7 +5,10 @@
   "private": true,
   "scripts": {
     "start": "npx webpack  serve --config webpack.config.js",
-    "build": "npx webpack --config webpack.config.js"
+    "build": "npx webpack --config webpack.config.js",
+    "stylelint-fix": "stylelint ./src/scss/**/*.scss --fix --syntax scss",
+    "eslint-fix": "npx eslint --fix ./src/js/**/*.js",
+    "eslint": "npx eslint ./src/js/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^5.0.2",
+    "eslint": "^7.22.0",
     "favicons": "^6.2.1",
     "favicons-webpack-plugin": "^5.0.2",
     "file-loader": "^6.2.0",
@@ -29,11 +33,11 @@
     "sass": "^1.32.7",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
+    "stylelint": "^13.12.0",
     "svg-inline-loader": "^0.8.2",
     "webpack": "^5.22.0",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
