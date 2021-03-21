@@ -19,6 +19,5 @@ jobs:
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CSS_FILE_NAME: .stylelintrc.js
-          JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.js
-          FILTER_REGEX_INCLUDE: .*src/.*
+          CSS_FILE_NAME: /.stylelintrc.js
+          JAVASCRIPT_ES_CONFIG_FILE: /.eslintrc.js
