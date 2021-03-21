@@ -2,18 +2,18 @@
 
   &__row{
     display: flex;
-    margin: 0 auto;
     width: 100%;
+    margin: 0 auto;
 
     @media all and (orientation: landscape) {
-      padding-top: 32/$widthMob * 100vw;
-      max-width: 332/$widthMob * 100vw;
       justify-content: center;
+      max-width: 332/$widthMob * 100vw;
+      padding-top: 32/$widthMob * 100vw;
     }
 
     @media all and (orientation: portrait) {
-      padding-top: 49/$heightMob * 100vw;
       max-width: 328/$heightMob * 100vw;
+      padding-top: 49/$heightMob * 100vw;
     }
   }
 
@@ -22,13 +22,13 @@
     flex-direction: column;
     
     @media all and (orientation: landscape) {
-      margin: 0 4/$widthMob * 100vw;
       align-items: center;
+      margin: 0 4/$widthMob * 100vw;
     }
 
     @media all and (orientation: portrait) {
-      margin: 0 4/$heightMob * 100vw;
       align-items: flex-start;
+      margin: 0 4/$heightMob * 100vw;
     }
 
     &:first-child{
@@ -57,10 +57,10 @@
     }
 
     &-text-gap{
+      color: #918F8A;
       font-weight: 500;
       font-size: rem(16);
       line-height: rem(18);
-      color: #918F8A;
 
       @media all and (orientation: landscape) {
         margin-top: 8/$widthMob * 100vw;
@@ -73,9 +73,9 @@
 
     &:first-child .legend__item-box{
       background-image: var(--legendStep);
+      background-repeat: no-repeat;
       background-position: center;
       background-size: 100% auto;
-      background-repeat: no-repeat;
     }
 
     $types: (

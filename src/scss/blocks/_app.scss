@@ -8,29 +8,29 @@
   }
 
   &__box{
+    position: relative;
     display: flex;
+    flex: 1 0 auto;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-    flex: 1 0 auto;
 
     &_grid{
       display: grid;
-      grid-template-rows: 1fr 1fr;
-      grid-template-columns: repeat(4, 1fr);
       grid-template-areas: 'vote_item1 vote_item2 vote_item3 vote_item4'
                            'vote_item1 vote_item5 vote_item6 vote_item4';
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
 
       @media all and (orientation: portrait) {
-        grid-template-columns: 1fr 104/$heightMob * 100vw 1fr;
-        grid-template-rows: repeat(6, 1fr);
         grid-template-areas: 'vote_item1 . vote_item3'
                             'vote_item1 vote_item2 vote_item3'
                             'vote_item4 vote_item2 vote_item6'
                             'vote_item4 vote_item5 vote_item6'
                             'vote_item7 vote_item5 vote_item8'
                             'vote_item7  . vote_item8';
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: 1fr 104/$heightMob * 100vw 1fr;
       }
     }
 
@@ -38,35 +38,35 @@
   }
 
   &__title{
+    margin: 0;
+    padding: rem(20) 0 rem(8);
+    color: var(--base-color);
     font-weight: bold;
     font-size: rem(30);
     line-height: rem(32);
     text-align: center;
-    color: var(--base-color);
-    margin: 0;
-    padding: rem(20) 0 rem(8);
 
 
     @media all and (orientation: portrait) {
-      text-align: left;
       padding-top: rem(20);
-      padding-left: rem(24);
       padding-right: rem(24);
+      padding-left: rem(24);
+      text-align: left;
     }
   }
 
   &__subtitle{
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: rem(18);
     margin: 0;
     color: var(--second-color);
+    font-weight: 500;
+    font-size: 1rem;
+    font-style: normal;
+    line-height: rem(18);
     text-align: center;
 
     @media all and (orientation: portrait) {
-      text-align: left;
       padding: 0 rem(24);
+      text-align: left;
     }
   }
 }

@@ -18,15 +18,15 @@
   }
 
   &_col{
-    text-align: center;
     align-self: flex-end;
+    text-align: center;
 
     &:hover,
     &_active {
 
       .chart_col-box{
-        box-shadow: var(--column-shadow-active);
         background: var(--column-color-active);
+        box-shadow: var(--column-shadow-active);
       }
 
       .chart_col-count{
@@ -66,34 +66,34 @@
     }
 
     &-count{
-      font-weight: bold;
       color: var(--second-color);
+      font-weight: bold;
       transition: color .15s ease-in-out;
 
       @media all and (orientation: landscape) {
+        margin-bottom: 8/$widthMob * 100vw;
         font-size: 20/$widthMob * 100vw;
         line-height: 22/$widthMob * 100vw;
-        margin-bottom: 8/$widthMob * 100vw;
       }
 
       @media all and (orientation: portrait) {
+        margin-bottom: 8/$heightMob * 100vw;
         font-size: 20/$heightMob * 100vw;
         line-height: 22/$heightMob * 100vw;
-        margin-bottom: 8/$heightMob * 100vw;
       }
 
     }
 
     &-box{
-      border-radius: 6px;
       min-width: 40px;
-      box-shadow: var(--column-shadow);
-      background: var(--column-color);
-      user-select: none;
-      transition: background .15s ease-in-out, box-shadow .15s ease-in-out;
       max-height: 60vh;
-      margin-left: auto;
       margin-right: auto;
+      margin-left: auto;
+      background: var(--column-color);
+      border-radius: 6px;
+      box-shadow: var(--column-shadow);
+      transition: background .15s ease-in-out, box-shadow .15s ease-in-out;
+      user-select: none;
 
       @media all and (orientation: landscape) {
         width: 40/$widthMob * 100vw;
@@ -107,19 +107,19 @@
     }
 
     &-num{
-      font-weight: 500;
       color: var(--second-color);
+      font-weight: 500;
 
       @media all and (orientation: landscape) {
+        margin-top: 12/$widthMob * 100vw;
         font-size: 16/$widthMob * 100vw;
         line-height: 18/$widthMob * 100vw;
-        margin-top: 12/$widthMob * 100vw;
       }
 
       @media all and (orientation: portrait) {
+        margin-top: 12/$heightMob * 100vw;
         font-size: 16/$heightMob * 100vw;
         line-height: 18/$heightMob * 100vw;
-        margin-top: 12/$heightMob * 100vw;
       }
 
     }
@@ -131,16 +131,16 @@
     width: 100%;
 
     @media all and (orientation: landscape) {
+      justify-content: space-between;
       max-width: 474/$widthMob * 100vw;
       margin: 24/$widthMob * 100vw 0;
-      justify-content: space-between;
     }
 
     @media all and (orientation: portrait) {
       flex-direction: column;
       max-width: 100%;
-      padding: 0 24/$heightMob * 100vw;
       margin: 24/$heightMob * 100vw 0;
+      padding: 0 24/$heightMob * 100vw;
     }
 
     &-el{
@@ -157,21 +157,21 @@
           position: relative;
 
           &:before{
-            content: "";
             position: absolute;
-            left: calc(calc(16/220 * 100%) * -1);
             top: 0;
             bottom: 0;
-            height: 100%;
+            left: calc(calc(16/220 * 100%) * -1);
             width: 2px;
+            height: 100%;
             background-color: rgba(#BFBFBF, 0.3);
+            content: "";
           }
         }
 
         @media all and (orientation: portrait) {
-          border-top: 2px solid rgba(#918F8A, .3);
-          padding-top: 16/$heightMob * 100vw;
           margin-top: 16/$heightMob * 100vw;
+          padding-top: 16/$heightMob * 100vw;
+          border-top: 2px solid rgba(#918F8A, .3);
         }
       }
 
@@ -180,20 +180,20 @@
         user-select: none;
 
         @media all and (orientation: landscape) {
-          margin-right: 14/$widthMob * 100vw;
           max-height: 40/$widthMob * 100vw;
+          margin-right: 14/$widthMob * 100vw;
         }
 
         @media all and (orientation: portrait) {
-          margin-right: 14/$heightMob * 100vw;
           max-height: 40/$heightMob * 100vw;
+          margin-right: 14/$heightMob * 100vw;
         }
 
         &-img{
-          border-radius: 50%;
-          overflow: hidden;
           min-width: 40px;
           min-height: 40px;
+          overflow: hidden;
+          border-radius: 50%;
           filter: var(--effect-photo);
 
           @media all and (orientation: landscape) {
@@ -217,8 +217,8 @@
       }
 
       &-name{
-        font-weight: 500;
         color: var(--base-color);
+        font-weight: 500;
 
         @media all and (orientation: landscape) {
           margin-bottom: 4/$widthMob * 100vw;
@@ -234,8 +234,8 @@
       }
 
       &-num{
-        font-weight: normal;
         color: var(--second-color);
+        font-weight: normal;
 
         @media all and (orientation: landscape) {
           font-size: 14/$widthMob * 100vw;
@@ -253,10 +253,10 @@
 
   &_diagram{
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: auto 0;
+    justify-content: center;
     width: 100%;
+    margin: auto 0;
 
     @media all and (orientation: landscape) {
       max-width: 584/$widthMob * 100vw;
@@ -265,16 +265,16 @@
     @media all and (orientation: portrait) {
       flex-direction: column;
       max-width: 328/$heightMob * 100vw;
-      margin-bottom: 24/$heightMob * 100vw;
       margin-top: 32/$heightMob * 100vw;
+      margin-bottom: 24/$heightMob * 100vw;
     }
 
     &__circle{
-      width: 100%;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
+      width: 100%;
 
       @media all and (orientation: landscape) {
         max-width: 240/$widthMob * 100vw;
@@ -285,15 +285,15 @@
       }
 
       &-box{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
         position: absolute;
         top: 0;
-        left: 0;
         right: 0;
         bottom: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         margin: auto;
 
         @media all and (orientation: landscape) {
@@ -307,28 +307,28 @@
       }
 
       &-title{
+        color: var(--base-color);
         font-weight: bold;
         text-align: center;
-        color: var(--base-color);
 
         @media all and (orientation: landscape) {
+          margin: 0 0 6/$widthMob * 100vw;
           font-size: 20/$widthMob * 100vw;
           line-height: 22/$widthMob * 100vw;
-          margin: 0 0 6/$widthMob * 100vw;
         }
 
         @media all and (orientation: portrait) {
+          margin: 0 0 6/$heightMob * 100vw;
           font-size: 20/$heightMob * 100vw;
           line-height: 22/$heightMob * 100vw;
-          margin: 0 0 6/$heightMob * 100vw;
         }
       }
 
       &-result{
-        font-weight: 500;
-        color: var(--second-color);
-        text-align: center;
         margin: 0;
+        color: var(--second-color);
+        font-weight: 500;
+        text-align: center;
 
         @media all and (orientation: landscape) {
           font-size: 16/$widthMob * 100vw;
@@ -372,8 +372,8 @@
       width: 100%;
 
       @media all and (orientation: landscape) {
-        margin-left: 40/$widthMob * 100vw;
         max-height: 240/$widthMob * 100vw;
+        margin-left: 40/$widthMob * 100vw;
       }
 
       @media all and (orientation: portrait) {
@@ -426,40 +426,40 @@
         @for $i from 1 through 4 {
 
           &_#{$i}{
-            box-shadow: var(--circleShadow_#{$i});
             background: var(--circleBack_#{$i});
+            box-shadow: var(--circleShadow_#{$i});
           }
 
         }
       }
 
       &-counts{
-        font-weight: 500;
-        color: var(--base-color);
-        text-overflow: ellipsis;
-        overflow: hidden;
         position: relative;
-        white-space: nowrap;
         display: inline-block;
+        overflow: hidden;
+        color: var(--base-color);
+        font-weight: 500;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 
         @media all and (orientation: landscape) {
+          max-width: 181/$widthMob * 100vw;
           font-size: 16/$widthMob * 100vw;
           line-height: 18/$widthMob * 100vw;
-          max-width: 181/$widthMob * 100vw;
         }
 
         @media all and (orientation: portrait) {
+          max-width: 250/$heightMob * 100vw;
           font-size: 16/$heightMob * 100vw;
           line-height: 18/$heightMob * 100vw;
-          max-width: 250/$heightMob * 100vw;
         }
 
       }
 
       &-progress{
-        font-weight: 500;
-        color: var(--second-color);
         margin-left: auto;
+        color: var(--second-color);
+        font-weight: 500;
 
         @media all and (orientation: landscape) {
           font-size: 16/$widthMob * 100vw;
@@ -474,8 +474,8 @@
       }
 
       &-result{
-        font-weight: 500;
         color: var(--second-color);
+        font-weight: 500;
 
         @media all and (orientation: landscape) {
           margin-left: 16/$widthMob * 100vw;

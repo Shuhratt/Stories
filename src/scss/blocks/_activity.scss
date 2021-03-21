@@ -3,8 +3,8 @@ $heightCubPort: 33.44;
 
 .activity{
   position: relative;
-  width: 100%;
   display: flex;
+  width: 100%;
 
   &__legend{
     width: 100%;
@@ -16,18 +16,18 @@ $heightCubPort: 33.44;
   }
 
   &_landscape{
-    max-width: 425/$widthMob * 100vw;
-    height: 112/$widthMob * 100vw;
     flex-direction: column;
     justify-content: flex-end;
+    max-width: 425/$widthMob * 100vw;
+    height: 112/$widthMob * 100vw;
   }
 
   &_portrait{
     flex-direction: row;
-    max-width: 100%;
     justify-content: center;
-    margin-left: -($widthCubPort/2)/$heightMob * 100vw;
+    max-width: 100%;
     margin-top: 50/$heightMob * 100vw;
+    margin-left: -($widthCubPort/2)/$heightMob * 100vw;
   }
 
 
@@ -48,11 +48,11 @@ $heightCubPort: 33.44;
 
     &_portrait{
       display: flex;
-      max-width: ($widthCubPort * 2)/$heightMob * 100vw;
-      width: 100%;
       flex-direction: row;
       flex-wrap: wrap;
+      width: 100%;
       min-width: #{$widthCubPort * 2}6px;
+      max-width: ($widthCubPort * 2)/$heightMob * 100vw;
       margin-right: -$widthCubPort/$heightMob * 100vw;
     }
 
@@ -62,13 +62,13 @@ $heightCubPort: 33.44;
 
     &_landscape{
       align-self: flex-end;
-      min-width: 34px;
-      min-height: 34px;
-      height: 34/$widthMob * 100vw;
       width: 34/$widthMob * 100vw;
+      min-width: 34px;
+      height: 34/$widthMob * 100vw;
+      min-height: 34px;
+      background-repeat: no-repeat;
       background-position: 0 0;
       background-size: 100% 100%;
-      background-repeat: no-repeat;
 
       &_min{
         height: 34/$widthMob * 100vw;
@@ -95,11 +95,11 @@ $heightCubPort: 33.44;
 
 
     &_portrait{
-      min-width: #{$widthCubPort}px;
-      min-height: #{$heightCubPort}px;
-      width: $widthCubPort/$heightMob * 100vw;
-      height: $heightCubPort/$heightMob * 100vw;
       position: relative;
+      width: $widthCubPort/$heightMob * 100vw;
+      min-width: #{$widthCubPort}px;
+      height: $heightCubPort/$heightMob * 100vw;
+      min-height: #{$heightCubPort}px;
       max-height: $heightCubPort/$heightMob * 100vw;
 
       @for $i from 1 through 24 {
@@ -110,17 +110,17 @@ $heightCubPort: 33.44;
       }
 
       &:before{
-        content: "";
         position: absolute;
         top: 0;
-        left: 0;
         right: 0;
         bottom: 0;
+        left: 0;
         width: 100%;
         height: 100%;
+        background-repeat: no-repeat;
         background-position: 0 0;
         background-size: 100% 100%;
-        background-repeat: no-repeat;
+        content: "";
       }
 
       &:nth-child(2n + 2){
@@ -143,8 +143,8 @@ $heightCubPort: 33.44;
 
         &:before{
           height: $heightMid/$heightMob * 100vw;
-          background-image: var(--cubeMid);
           margin-top: -($heightMid - $widthCubPort)/$heightMob * 100vw;
+          background-image: var(--cubeMid);
         }
 
 
@@ -155,8 +155,8 @@ $heightCubPort: 33.44;
 
         &:before{
           height: $heightMax/$heightMob * 100vw;
-          background-image: var(--cubeMax);
           margin-top: -($heightMax - $widthCubPort)/$heightMob  * 100vw;
+          background-image: var(--cubeMax);
         }
 
       }
@@ -166,8 +166,8 @@ $heightCubPort: 33.44;
 
         &:before{
           height: $heightExtra/$heightMob * 100vw;
-          background-image: var(--cubeExtra);
           margin-top: -($heightExtra - $widthCubPort)/$heightMob * 100vw;
+          background-image: var(--cubeExtra);
         }
       }
     }
