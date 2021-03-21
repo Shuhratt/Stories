@@ -8,8 +8,7 @@ mapLegend.set([3, 4], 'max')
 mapLegend.set([5, 6], 'extra')
 
 const createCube = (selector) => {
-	const cube = createElement(selector, 'div')
-	return cube
+  return createElement(selector, 'div')
 }
 
 const getTypeCube = (num) => {
