@@ -21,7 +21,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CSS_FILE_NAME: .stylelintrc.js
           JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.js
-          VALIDATE_CSS: false
+          VALIDATE_CSS: true
           FILTER_REGEX_INCLUDE: .*src/.*
           ANSIBLE_DIRECTORY: /src
+          VALIDATE_JAVASCRIPT_ES: true
           LINTER_RULES_PATH: /
