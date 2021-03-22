@@ -21,19 +21,6 @@
     align-self: flex-end;
     text-align: center;
 
-    &:hover,
-    &_active {
-
-      .chart_col-box{
-        background: var(--column-color-active);
-        box-shadow: var(--column-shadow-active);
-      }
-
-      .chart_col-count{
-        color: var(--base-color);
-      }
-    }
-
     &:first-child{
       @media all and (orientation: landscape) {
         margin-right: 12/$widthMob * 100vw;
@@ -124,6 +111,18 @@
 
     }
 
+    &_active
+    &:hover{
+
+      .chart_col-box{
+        background: var(--column-color-active);
+        box-shadow: var(--column-shadow-active);
+      }
+
+      .chart_col-count{
+        color: var(--base-color);
+      }
+    }
   }
 
   &__users{
@@ -160,7 +159,7 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            left: calc(calc(16/220 * 100%) * -1);
+            left: calc(calc(16 / 220 * 100%) * -1);
             width: 2px;
             height: 100%;
             background-color: rgba(#BFBFBF, 0.3);

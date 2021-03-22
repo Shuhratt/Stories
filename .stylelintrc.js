@@ -5,13 +5,16 @@ module.exports = {
     'stylelint-config-rational-order'
   ],
   rules: {
-    'csstree/validator': true,
-    'selector-pseudo-class-no-unknown': [
+    // 'csstree/validator': false,
+    'no-descending-specificity': [
       true,
       {
-        ignorePseudoClasses: ['global']
+        ignore: [
+          'selectors-within-list'
+        ]
       }
     ],
-    'selector-class-pattern': '^[a-z-_]+$'
-  }
+    'selector-class-pattern': '^[a-z-_]+$',
+
+  },
 }

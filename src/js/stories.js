@@ -22,17 +22,17 @@ sessionStorage.setItem('slideIndex', slideIndex.toString())
 const slideIndexStorage = parseInt(sessionStorage.getItem('slideIndex'))
 
 if (dataObj[slideIndexStorage]) {
-  const {alias, data} = dataObj[slideIndexStorage]
-  sessionStorage.setItem('data', JSON.stringify(data))
-  sessionStorage.setItem('alias', alias)
+	const {alias, data} = dataObj[slideIndexStorage]
+	sessionStorage.setItem('data', JSON.stringify(data))
+	sessionStorage.setItem('alias', alias)
 
-  window.renderTemplate = (alias, data) => {
-    const orientation = getOrientDeviceClient()
-    const template = new Template(alias, data, slideIndex, orientation)
-    return template.render()
-  }
+	window.renderTemplate = (alias, data) => {
+		const orientation = getOrientDeviceClient()
+		const template = new Template(alias, data, slideIndex, orientation)
+		return template.render()
+	}
 } else {
-  window.location.href = '/'
+	window.location.href = '/'
 }
 
 
