@@ -24,5 +24,4 @@ jobs:
           VALIDATE_CSS: false
           FILTER_REGEX_INCLUDE: .*src/.*
           ANSIBLE_DIRECTORY: /src
-          VALIDATE_JAVASCRIPT_ES: true
           LINTER_RULES_PATH: /
