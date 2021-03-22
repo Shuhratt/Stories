@@ -5,7 +5,7 @@ const CopyPlugin = require("copy-webpack-plugin")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
 module.exports = {
-
+  target: 'web',// bug browserlistrc
 	entry: "./src/js/stories.js",
 	output: {
 		filename: "stories.js",
@@ -42,13 +42,13 @@ module.exports = {
 
 	},
 	plugins: [
-		new CleanWebpackPlugin(),
+		// new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
 			filename: "index.html",
 			template: path.resolve(__dirname, "src/index.html"),
-			hash: true,
-		}),
-		new MiniCssExtractPlugin({
+      hash: true
+    }),
+    new MiniCssExtractPlugin({
 			filename: "stories.css"
 		}),
 		new CopyPlugin({
@@ -59,16 +59,11 @@ module.exports = {
 		}),
 	],
 	devServer: {
-		contentBase: path.resolve(__dirname, "build"),
-		compress: true,
-		overlay: true,
+		contentBase: ['./build'],
 		open: true,
 		port: 8080,
-    hot: true,
+    lazy: false,
+    hot: true
 	},
 	mode: "development",
-	performance: {
-		maxEntrypointSize: 1048576,
-		maxAssetSize: 1048576,
-	},
 }

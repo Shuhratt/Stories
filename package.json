@@ -4,7 +4,7 @@
   "description": "Task #1",
   "private": true,
   "scripts": {
-    "start": "npx webpack serve --config webpack.config.js",
+    "start": "npx webpack serve --config webpack.dev.config.js",
     "build": "npx webpack --progress --config webpack.prod.config.js",
     "scsslint-fix": "stylelint ./src/scss/**/*.scss --fix scss",
     "scsslint": "stylelint ./src/scss/**/*.scss --syntax scss",

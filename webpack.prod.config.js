@@ -67,14 +67,6 @@ module.exports = {
       prefix: 'images/'
     })
 	],
-	devServer: {
-		contentBase: path.resolve(__dirname, "build"),
-		compress: true,
-		overlay: true,
-		open: true,
-		port: 8080,
-    hot: true,
-	},
 	mode: "production",
 	performance: {
 		maxEntrypointSize: 1048576,
