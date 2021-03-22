@@ -9,7 +9,7 @@ module.exports = {
     'stylelint-config-rational-order'
   ],
   rules: {
-    // 'csstree/validator': false,
+    'csstree/validator': true,
     'no-descending-specificity': [
       true,
       {
