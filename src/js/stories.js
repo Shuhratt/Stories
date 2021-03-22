@@ -9,6 +9,7 @@ const Url = new URL(window.location.href)
 const slideIndex = parseInt(Url.searchParams.get('slide')) >= 1  ? parseInt(Url.searchParams.get('slide')) - 1 : 0
 const themeValue = Url.searchParams.get('theme') || null
 
+
 const themes = {
 	light: 'theme_light',
 	dark: 'theme_dark'
@@ -19,14 +20,19 @@ sessionStorage.setItem('theme', themeValue ? themeValue : 'dark')
 sessionStorage.setItem('slideIndex', slideIndex.toString())
 
 const slideIndexStorage = parseInt(sessionStorage.getItem('slideIndex'))
-const {alias, data} = dataObj[slideIndexStorage]
 
-sessionStorage.setItem('data', JSON.stringify(data))
-sessionStorage.setItem('alias', alias)
+if (dataObj[slideIndexStorage]) {
+  const {alias, data} = dataObj[slideIndexStorage]
+  sessionStorage.setItem('data', JSON.stringify(data))
+  sessionStorage.setItem('alias', alias)
 
-
-window.renderTemplate = (alias, data) => {
-	const orientation = getOrientDeviceClient()
-	const template = new Template(alias, data, slideIndex, orientation)
-	return template.render()
+  window.renderTemplate = (alias, data) => {
+    const orientation = getOrientDeviceClient()
+    const template = new Template(alias, data, slideIndex, orientation)
+    return template.render()
+  }
+} else {
+  window.location.href = '/'
 }
+
+

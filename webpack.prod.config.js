@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CopyPlugin = require("copy-webpack-plugin")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin")
 
 module.exports = {
 
@@ -10,7 +11,10 @@ module.exports = {
 	output: {
 		filename: "stories.js",
 		path: path.resolve(__dirname, "build"),
-		publicPath: "/",
+		publicPath: "./",
+	},
+	stats: {
+		children: true
 	},
 	module: {
 		rules: [
@@ -19,6 +23,7 @@ module.exports = {
 				use: [
 					MiniCssExtractPlugin.loader,
 					"css-loader",
+          "postcss-loader",
 					"sass-loader",
 				],
 			},
@@ -57,6 +62,10 @@ module.exports = {
 				// {from:'src/fonts',to: path.resolve(__dirname, 'build/fonts')}
 			],
 		}),
+		new FaviconsWebpackPlugin({
+      logo: './src/images/favicons/fav_dark.svg',
+      prefix: 'images/'
+    })
 	],
 	devServer: {
 		contentBase: path.resolve(__dirname, "build"),
@@ -66,7 +75,7 @@ module.exports = {
 		port: 8080,
     hot: true,
 	},
-	mode: "development",
+	mode: "production",
 	performance: {
 		maxEntrypointSize: 1048576,
 		maxAssetSize: 1048576,

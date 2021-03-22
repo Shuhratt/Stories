@@ -27,17 +27,17 @@ const templateCircle = (data) => {
 
       <svg class="chart_diagram__circle-chart" width="240" height="240" viewBox="0 0 285 285">
          <g>
-            <circle class="chart_diagram__circle-chart-first" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="${lengthFirstArc} ${lengthCircle}" transform="rotate(${-90 - (radOne / 2)} )" transform-origin="center" ></circle>
+            <circle class="chart_diagram__circle-chart-first" r="120" cx="50%" cy="50%" stroke-dasharray="${lengthFirstArc} ${lengthCircle}" transform="rotate(${-90 - (radOne / 2)} )" transform-origin="center" ></circle>
          </g> 
          <g>
-           <circle class="chart_diagram__circle-chart-second" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="${lengthSecondArc} ${lengthCircle}" transform="rotate(${-90 + (radOne / 2) + 1.125} )" transform-origin="center"></circle>
+           <circle class="chart_diagram__circle-chart-second" r="120" cx="50%" cy="50%" stroke-dasharray="${lengthSecondArc} ${lengthCircle}" transform="rotate(${-90 + (radOne / 2) + 1.125} )" transform-origin="center"></circle>
          </g>
  
           <g>
-            <circle class="chart_diagram__circle-chart-middle" r="120" cx="50%" cy="50%" stroke-opacity="0.5" stroke-dasharray="${lengthThreeArc} ${lengthCircle}" transform="rotate(${-90 + (radOne / 2) + 1.125 + radSecond + 1.125 })" transform-origin="center"></circle>
+            <circle class="chart_diagram__circle-chart-middle" r="120" cx="50%" cy="50%" stroke-dasharray="${lengthThreeArc} ${lengthCircle}" transform="rotate(${-90 + (radOne / 2) + 1.125 + radSecond + 1.125 })" transform-origin="center"></circle>
           </g>
           <g>
-            <circle class="chart_diagram__circle-chart-last" r="120" cx="50%" cy="50%" stroke-opacity="0.8" stroke-dasharray="${lengthFourArc} ${lengthCircle}" transform="rotate(${-90 + (radOne / 2) + 1.125 + radSecond + 1.125 + radThree + 1.125  })" transform-origin="center"></circle>
+            <circle class="chart_diagram__circle-chart-last" r="120" cx="50%" cy="50%" stroke-dasharray="${lengthFourArc} ${lengthCircle}" transform="rotate(${-90 + (radOne / 2) + 1.125 + radSecond + 1.125 + radThree + 1.125  })" transform-origin="center"></circle>
           </g>
                     <!--
           style="filter:url(#filter_circle_second)"
