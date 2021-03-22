@@ -15,7 +15,7 @@ jobs:
 
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install, build
+      - name: Install App
         run: |
           npm install
         env:
@@ -23,3 +23,6 @@ jobs:
       - name: Run ES linter
         run: |
           npm run eslint
+      - name: Run Style SCSS linter
+        run: |
+          npm run scsslint
