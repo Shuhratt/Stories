@@ -265,7 +265,7 @@
       flex-direction: column;
       max-width: 328/$heightMob * 100vw;
       margin-top: 32/$heightMob * 100vw;
-      margin-bottom: 24/$heightMob * 100vw;
+      margin-bottom: auto;
     }
 
     &__circle{
@@ -318,8 +318,8 @@
 
         @media all and (orientation: portrait) {
           margin: 0 0 6/$heightMob * 100vw;
-          font-size: 20/$heightMob * 100vw;
-          line-height: 22/$heightMob * 100vw;
+          font-size: 30/$heightMob * 100vw;
+          line-height: 32/$heightMob * 100vw;
         }
       }
 
@@ -346,10 +346,10 @@
         height: 100%;
 
         $colorCircle: (
-           first: 'rgba(255, 163, 0, 0.8)',
-           second: 'rgb(93 61 0)',
-           middle: 'rgb(62 61 59)',
-           last: 'rgb(30 28 26)'
+           'first',
+           'second',
+           'middle',
+           'last'
         );
 
         circle{
@@ -357,9 +357,9 @@
           stroke-width: 42px;
         }
 
-        @each $key, $value in $colorCircle {
+        @each $key in $colorCircle {
           &-#{$key}{
-            stroke: #{$value};
+            stroke: var(--#{$key}Arc);
           }
         }
       }
