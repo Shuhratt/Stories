@@ -1,5 +1,9 @@
+const { resolve } = require('path')
+
+const basePath = resolve(__dirname, 'node_modules')
+
 module.exports = {
-  plugins: ['stylelint-csstree-validator'],
+  plugins: [`${basePath}/stylelint-csstree-validator`],
   extends: [
     'stylelint-config-recommended-scss',
     'stylelint-config-rational-order'
