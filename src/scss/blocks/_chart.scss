@@ -111,7 +111,7 @@
 
     }
 
-    &_active
+    &_active,
     &:hover{
 
       .chart_col-box{
@@ -265,7 +265,7 @@
       flex-direction: column;
       max-width: 328/$heightMob * 100vw;
       margin-top: 32/$heightMob * 100vw;
-      margin-bottom: auto;
+      padding-bottom: 24/$heightMob * 100vw;
     }
 
     &__circle{
