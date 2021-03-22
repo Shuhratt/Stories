@@ -1,5 +1,5 @@
 # Stories #1
-![Super-Linter](https://github.com/Shuhratt/Stories/workflows/superlinter.yml/badge.svg)
+![Super-Linter](https://github.com/Shuhratt/Stories/workflows/Super-Linter/badge.svg)
 
 ![image](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![image](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
