@@ -34,6 +34,7 @@ if (dataSlide) {
 	}
 
 	window.addEventListener('resize', () => {
+    const body = document.querySelector('body')
 	  body.innerHTML = ''
     body.innerHTML = renderTemplate(sessionStorage.getItem('alias'), JSON.parse(sessionStorage.getItem('data')));
   });
