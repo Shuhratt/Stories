@@ -4,9 +4,9 @@
     display: flex;
     width: 100%;
     margin: 0 auto;
+    justify-content: center;
 
     @media all and (orientation: landscape) {
-      justify-content: center;
       max-width: 332/$widthMob * 100vw;
       padding-top: 32/$widthMob * 100vw;
     }

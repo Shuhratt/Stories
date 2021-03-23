@@ -51,7 +51,7 @@ $heightCubPort: 33.44;
       flex-direction: row;
       flex-wrap: wrap;
       width: 100%;
-      min-width: #{$widthCubPort * 2}6px;
+      //min-width: #{$widthCubPort * 2}6px;
       max-width: ($widthCubPort * 2)/$heightMob * 100vw;
       margin-right: -$widthCubPort/$heightMob * 100vw;
     }
@@ -97,9 +97,9 @@ $heightCubPort: 33.44;
     &_portrait{
       position: relative;
       width: $widthCubPort/$heightMob * 100vw;
-      min-width: #{$widthCubPort}px;
+      //min-width: #{$widthCubPort}px;
       height: $heightCubPort/$heightMob * 100vw;
-      min-height: #{$heightCubPort}px;
+      //min-height: #{$heightCubPort}px;
       max-height: $heightCubPort/$heightMob * 100vw;
 
       @for $i from 1 through 24 {
